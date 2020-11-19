@@ -1,6 +1,6 @@
-introduction:
-  title: Introduction
 releaseHistory: Release History
+multitenancy: Introduction
+multitenancyGorm: Multi-Tenancy GORM
 quickStart:
   title: Quick Start
 repository: Repository
