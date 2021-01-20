@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>Micronaut Multitenancy</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8" />
+    <link rel="stylesheet" href="../css/custom.css" type="text/css" media="screen, print" title="Style" charset="utf-8" />
+    <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8" />
+    <link rel="stylesheet" href="../css/highlight/agate.css">
+    <script src="../js/highlight.pack.js"></script>
+    <script src="../js/guide.js"></script>
+    <script src="../js/multi-language-sample.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="../css/multi-language-sample.css"/>
+    <script src="../js/docs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.13/clipboard.min.js"></script>
+    <script type="text/javascript">
+        function addJsClass(el) {
+            var classes = document.body.className.split(" ");
+            classes.push("js");
+            document.body.className = classes.join(" ");
+        }
+    </script>
+
+</head>
+
+<body class="body" id="docs" onload="addJsClass();" onhashchange="highlightMenu()">
+
+<div id="table-of-content-nav-link" class="desktop">
+    <a id="theme-switcher" title="Switch to dark theme" href="javascript:switchTheme(true)"><i class="fa fa-moon-o"></i></a>
+    <a title="Collapse/Open Table of contents" title="Hide Table of Contents" href="javascript:hideTableOfContents();" class="button">[ + ]</a>
+</div>
+
+<div id="main">
+    <div id="navigation" class="no-print">
+        <div class="navTitle">
+            <span id="logo"><a href="http://micronaut.io" title="Go to Micronaut Website"><img src="../img/micronaut-logo-white.svg" alt="Micronaut"/></a></span>
+        </div>
+        <div class="navLinks">
+            <ul>
+                    <li><div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)" class="desktop">
+                            <a href="../guide/index.html" class="button">Table of contents</a>
+                            <div id="nav-summary-childs" style="display:none;">
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#releaseHistory"><strong>1</strong><span>Release History</span></a></div>
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#multitenancy"><strong>2</strong><span>Introduction</span></a></div>
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#multitenancyGorm"><strong>3</strong><span>Multi-Tenancy GORM</span></a></div>
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#repository"><strong>4</strong><span>Repository</span></a></div>
+                                
+                            </div>
+                        </div>
+                    </li>
+
+                <li id="table-of-content-nav-link-mobile" class="mobile">
+                    <a title="Scroll to Table of contents" href="javascript:scrollToTop();" class="button">Toc</a>
+                </li>
+                <li class="desktop">
+                    <a title="Go to API documentation" href="../api/index.html" class="button">API Reference</a>
+                </li>
+                <li class="mobile">
+                    <a title="Go to API documentation" href="../api/index.html" class="button">API</a>
+                </li>
+                <li class="desktop">
+                    <a title="Go to Configuration Reference documentation" href="../guide/configurationreference.html" class="button">Configuration Reference</a>
+                </li>
+                <li class="mobile">
+                    <a title="Go to Configuration Reference documentation" href="../guide/configurationreference.html" class="button">Conf</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    
+    <div id="table-of-content">
+        <div class="toc-content">
+
+        <h2>Table of Contents</h2>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-releaseHistory"><a href="#releaseHistory"><strong>1</strong><span>Release History</span></a></div>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-multitenancy"><a href="#multitenancy"><strong>2</strong><span>Introduction</span></a></div>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-multitenancyGorm"><a href="#multitenancyGorm"><strong>3</strong><span>Multi-Tenancy GORM</span></a></div>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-repository"><a href="#repository"><strong>4</strong><span>Repository</span></a></div>
+        
+        </div>
+    </div>
+    
+    <div class="docs-content">
+    <div class="project">
+        <h1>Micronaut Multitenancy</h1>
+        <p></p>
+        <p>Help with common tasks such as tenant resolution for multi-tenancy aware Micronaut applications.</p>
+        <p><strong>Version:</strong> <select style='max-width: 200px' onChange='window.document.location.href=this.options[this.selectedIndex].value;'><option value='https://micronaut-projects.github.io/micronaut-multitenancy/snapshot/guide/index.html'>SNAPSHOT</option><option selected='selected' value='https://micronaut-projects.github.io/micronaut-multitenancy/3.0.0/guide/index.html'>3.0.0</option></select></p>
+    </div>
+    
+<h1 id="releaseHistory"><a class="anchor" href="#releaseHistory"></a>1 Release History</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master
+/src/main/docs/guide/releaseHistory.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>For this project, you can find a list of releases (with release notes) here:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/micronaut-projects/micronaut-multitenancy/releases">https://github.com/micronaut-projects/micronaut-multitenancy/releases</a></p>
+</div>
+
+<h1 id="multitenancy"><a class="anchor" href="#multitenancy"></a>2 Introduction</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master
+/src/main/docs/guide/multitenancy.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>Multi-Tenancy, as it relates to software development, is when a single instance of an application is used to service multiple clients (tenants) in a way that each tenant&#8217;s data is isolated from the other.</p>
+</div>
+<div class="paragraph">
+<p>To use the Micronaut&#8217;s multitenancy capabilities you must have the <code>multitenancy</code> dependency on your classpath.</p>
+</div>
+<div class="paragraph">
+<p>        <div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut:micronaut-multitenancy")</span></code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
+    &lt;groupId&gt;io.micronaut&lt;/groupId&gt;
+    &lt;artifactId&gt;micronaut-multitenancy&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</p>
+</div>
+<div class="paragraph">
+<p>A common requirement for supporting Multi-tenancy is the ability to resolve the current tenant. Micronaut ships with the following built-in <a href="../api/io/micronaut/multitenancy/tenantresolver/TenantResolver.html">TenantResolver</a>s:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/multitenancy/tenantresolver/CookieTenantResolver.html">CookieTenantResolver</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resolves the current tenant from an HTTP cookie. See <a href="configurationreference.html#io.micronaut.multitenancy.tenantresolver.CookieTenantResolverConfigurationProperties">CookieTenantResolver Configuration Properties</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/multitenancy/tenantresolver/FixedTenantResolver.html">FixedTenantResolver</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resolves against a fixed tenant id. See <a href="configurationreference.html#io.micronaut.multitenancy.tenantresolver.FixedTenantResolverConfigurationProperties">FixTenantResolver Configuration Properties</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/multitenancy/tenantresolver/HttpHeaderTenantResolver.html">HttpHeaderTenantResolver</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resolves the current tenant from the request HTTP Header. See <a href="configurationreference.html#io.micronaut.multitenancy.tenantresolver.HttpHeaderTenantResolverConfigurationProperties">FixTenantResolver Configuration Properties</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/multitenancy/tenantresolver/PrincipalTenantResolver.html">PrincipalTenantResolver</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resolves the current tenant from the authenticated username. See <a href="configurationreference.html#io.micronaut.multitenancy.tenantresolver.PrincipalTenantResolverConfigurationProperties">PrincipalTenantResolver Configuration Properties</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/multitenancy/tenantresolver/SessionTenantResolver.html">SessionTenantResolver</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resolves the current tenant from the HTTP session. See <a href="configurationreference.html#io.micronaut.multitenancy.tenantresolver.SessionTenantResolverConfigurationProperties">SessionTenantResolver Configuration Properties</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/multitenancy/tenantresolver/SubdomainTenantResolver.html">SubdomainTenantResolver</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resolves the tenant id from the subdomain. See <a href="configurationreference.html#io.micronaut.multitenancy.tenantresolver.SubdomainTenantResolverConfigurationProperties">SubdomainTenantResolver Configuration Properties</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/multitenancy/tenantresolver/SystemPropertyTenantResolver.html">SystemPropertyTenantResolver</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resolves the tenant id from a system property. See <a href="configurationreference.html#io.micronaut.multitenancy.tenantresolver.SystemPropertyTenantResolverConfigurationProperties">SystemPropertyTenantResolver Configuration Properties</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Micronaut supports tenant propagation. As an example, take the following scenario:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../img/multitenancy.svg" alt="multitenancy"></span></p>
+</div>
+<div class="paragraph">
+<p>You want incoming requests to the <code>gateway</code> microservice to resolve the tenant id via subdomain. However, you want
+your requests to other internal microservices to include the <code>tenant Id</code> as an HTTP Header.</p>
+</div>
+<div class="paragraph">
+<p>Your configuration in the <code>gateway</code> microservice will look like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">micronaut:
+  multitenancy:
+    propagation:
+      enabled: true
+      service-id-regex: 'catalogue'
+    tenantresolver:
+      subdomain:
+        enabled: true
+    tenantwriter:
+      httpheader:
+        enabled: true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the <code>catalogue</code> microservice the configuration will look like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">micronaut:
+  multitenancy:
+    tenantresolver:
+      httpheader:
+        enabled: true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To propagate the tenant you will need to write the resolved tenant ID to the outgoing requests.</p>
+</div>
+<div class="paragraph">
+<p>Currently, Micronaut ships with two built-in implementations for <a href="../api/io/micronaut/multitenancy/writer/TenantWriter.html">TenantWriter</a>:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/multitenancy/writer/CookieTenantWriter.html">CookieTenantWriter</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Writes the current tenant to a Cookie in your outgoing requests. See <a href="configurationreference.html#io.micronaut.multitenancy.writer.CookieTenantWriterConfigurationProperties">CookieTenantWriter Configuration Properties</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/multitenancy/writer/HttpHeaderTenantWriter.html">HttpHeaderTenantWriter</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Writes the current tenant to a HTTP Header. See <a href="configurationreference.html#io.micronaut.multitenancy.writer.HttpHeaderTenantWriterConfigurationProperties">HttpHeaderTenantWriter Configuration Properties</a>.</p></td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="multitenancyGorm"><a class="anchor" href="#multitenancyGorm"></a>3 Multi-Tenancy GORM</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master
+/src/main/docs/guide/multitenancyGorm.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p><a href="http://gorm.grails.org">GORM</a> supports Multi-tenancy and integrates with Micronaut Multi-tenancy support.</p>
+</div>
+<div class="paragraph">
+<p>See the <a href="https://micronaut-projects.github.io/micronaut-groovy/latest/guide/index.html#multitenancyGorm">Micronaut Groovy module</a> for more information.</p>
+</div>
+
+<h1 id="repository"><a class="anchor" href="#repository"></a>4 Repository</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master
+/src/main/docs/guide/repository.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>You can find the source code of this project in this repository:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/micronaut-projects/micronaut-multitenancy">https://github.com/micronaut-projects/micronaut-multitenancy</a></p>
+</div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
