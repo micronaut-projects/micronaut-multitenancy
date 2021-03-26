@@ -15,7 +15,7 @@
  */
 package io.micronaut.multitenancy.tenantresolver;
 
-import edu.umd.cs.findbugs.annotations.NonNull;
+import io.micronaut.core.annotation.NonNull;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.multitenancy.exceptions.TenantNotFoundException;
 

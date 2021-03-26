@@ -17,9 +17,8 @@ package io.micronaut.multitenancy.writer;
 
 import io.micronaut.context.annotation.ConfigurationProperties;
 import io.micronaut.http.cookie.SameSite;
-
-import edu.umd.cs.findbugs.annotations.NonNull;
-import edu.umd.cs.findbugs.annotations.Nullable;
+import io.micronaut.core.annotation.NonNull;
+import io.micronaut.core.annotation.Nullable;
 import java.time.temporal.TemporalAmount;
 import java.util.Optional;
 
