@@ -23,7 +23,7 @@ import io.micronaut.http.HttpRequest;
 import io.micronaut.http.context.ServerRequestContext;
 import io.micronaut.multitenancy.exceptions.TenantNotFoundException;
 
-import javax.inject.Singleton;
+import jakarta.inject.Singleton;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.security.Principal;
@@ -43,20 +43,7 @@ public class PrincipalTenantResolver implements TenantResolver, HttpRequestTenan
     @Override
     public Serializable resolveTenantIdentifier() {
         Optional<HttpRequest<Object>> current = ServerRequestContext.currentRequest();
-        return current.map(this::resolveTenantIdentifierAtRequest).orElseThrow(() -> new TenantNotFoundException("Tenant could not be resolved outside a web request"));
-    }
-
-    /**
-     *
-     * @param request The HTTP request
-     * @return the tenant ID if resolved.
-     * @throws TenantNotFoundException if tenant not found
-     * @deprecated Use {@link PrincipalTenantResolver#resolveTenantIdentifier(HttpRequest)} instead;
-     */
-    @Deprecated
-    @NonNull
-    protected Serializable resolveTenantIdentifierAtRequest(HttpRequest<Object> request) throws TenantNotFoundException {
-        return resolveTenantIdentifier(request);
+        return current.map(this::resolveTenantIdentifier).orElseThrow(() -> new TenantNotFoundException("Tenant could not be resolved outside a web request"));
     }
 
     @Override

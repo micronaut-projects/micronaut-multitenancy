@@ -18,8 +18,8 @@ package io.micronaut.multitenancy.propagation.cookie
 import io.micronaut.context.annotation.Requires
 import io.micronaut.context.event.ApplicationEventListener
 import io.micronaut.context.event.StartupEvent
-import javax.inject.Singleton
-import javax.inject.Inject
+import jakarta.inject.Singleton
+import jakarta.inject.Inject
 
 @Requires(property = 'spec.name', value = 'multitenancy.cookie.gorm')
 @Singleton

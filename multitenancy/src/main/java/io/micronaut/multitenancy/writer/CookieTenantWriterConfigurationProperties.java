@@ -38,12 +38,6 @@ public class CookieTenantWriterConfigurationProperties implements CookieTenantWr
     public static final boolean DEFAULT_ENABLED = false;
 
     /**
-     * The default secure value.
-     */
-    @SuppressWarnings("WeakerAccess")
-    public static final boolean DEFAULT_SECURE = true;
-
-    /**
      * The default http only value.
      */
     @SuppressWarnings("WeakerAccess")
@@ -69,12 +63,12 @@ public class CookieTenantWriterConfigurationProperties implements CookieTenantWr
 
     @Nullable
     private String cookiePath = DEFAULT_COOKIEPATH;
-    
+
     @Nullable
     private SameSite sameSite;
 
     private Boolean cookieHttpOnly = DEFAULT_HTTPONLY;
-    private Boolean cookieSecure = DEFAULT_SECURE;
+    private Boolean cookieSecure;
     private TemporalAmount cookieMaxAge;
     private boolean enabled = DEFAULT_ENABLED;
 
@@ -203,7 +197,7 @@ public class CookieTenantWriterConfigurationProperties implements CookieTenantWr
     public Optional<SameSite> getCookieSameSite() {
         return Optional.ofNullable(sameSite);
     }
-    
+
     /**
      * Determines if this this {@link io.micronaut.http.cookie.Cookie} can be sent along cross-site requests.
      * For more information, please look

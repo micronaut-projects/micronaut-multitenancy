@@ -19,7 +19,7 @@ import io.micronaut.context.annotation.Requires;
 import io.micronaut.http.MutableHttpRequest;
 import io.micronaut.http.cookie.Cookie;
 
-import javax.inject.Singleton;
+import jakarta.inject.Singleton;
 import java.io.Serializable;
 
 /**
