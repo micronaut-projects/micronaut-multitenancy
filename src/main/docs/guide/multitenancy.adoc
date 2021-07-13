@@ -2,7 +2,7 @@ Multi-Tenancy, as it relates to software development, is when a single instance 
 
 To use the Micronaut's multitenancy capabilities you must have the `multitenancy` dependency on your classpath.
 
-dependency:micronaut-multitenancy[]
+dependency:io.micronaut.multitenancy:micronaut-multitenancy[]
 
 A common requirement for supporting Multi-tenancy is the ability to resolve the current tenant. Micronaut ships with the following built-in api:multitenancy.tenantresolver.TenantResolver[]s:
 
