@@ -24,7 +24,7 @@ import io.micronaut.multitenancy.exceptions.TenantNotFoundException;
 import io.micronaut.session.Session;
 import io.micronaut.session.http.HttpSessionFilter;
 
-import javax.inject.Singleton;
+import jakarta.inject.Singleton;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Optional;
@@ -58,19 +58,7 @@ public class SessionTenantResolver implements TenantResolver, HttpRequestTenantR
     @NonNull
     public Serializable resolveTenantIdentifier() throws TenantNotFoundException {
         Optional<HttpRequest<Object>> current = ServerRequestContext.currentRequest();
-        return current.map(this::resolveTenantIdentifierAtRequest).orElseThrow(() -> new TenantNotFoundException("Tenant could not be resolved outside a web request"));
-    }
-
-    /**
-     *
-     * @param request The HTTP request
-     * @return the tenant ID if resolved.
-     * @deprecated Use {@link SessionTenantResolver#resolveTenantIdentifier(HttpRequest)} instead;
-     * @throws TenantNotFoundException if tenant not found
-     */
-    @Deprecated
-    protected Serializable resolveTenantIdentifierAtRequest(HttpRequest<Object> request) throws TenantNotFoundException {
-        return resolveTenantIdentifier(request);
+        return current.map(this::resolveTenantIdentifier).orElseThrow(() -> new TenantNotFoundException("Tenant could not be resolved outside a web request"));
     }
 
     @Override

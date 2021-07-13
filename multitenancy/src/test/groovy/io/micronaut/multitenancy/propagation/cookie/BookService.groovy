@@ -18,7 +18,7 @@ package io.micronaut.multitenancy.propagation.cookie
 import io.micronaut.context.annotation.Requires
 import io.micronaut.multitenancy.tenantresolver.TenantResolver
 
-import javax.inject.Singleton
+import jakarta.inject.Singleton
 import java.util.concurrent.ConcurrentHashMap
 
 @Requires(property = 'spec.name', value = 'multitenancy.cookie.gorm')

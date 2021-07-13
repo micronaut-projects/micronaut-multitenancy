@@ -29,7 +29,7 @@ class HttpHeaderTenantResolverSpec extends Specification {
         }
 
         when:
-        new HttpHeaderTenantResolver(null).resolveTenantIdentifierAtRequest(request)
+        new HttpHeaderTenantResolver(null).resolveTenantIdentifier(request)
 
         then:
         def e = thrown(TenantNotFoundException)
@@ -47,7 +47,7 @@ class HttpHeaderTenantResolverSpec extends Specification {
         }
 
         when:
-        def tenantId = new HttpHeaderTenantResolver(new HttpHeaderTenantResolverConfigurationProperties()).resolveTenantIdentifierAtRequest(request)
+        def tenantId = new HttpHeaderTenantResolver(new HttpHeaderTenantResolverConfigurationProperties()).resolveTenantIdentifier(request)
 
         then:
         tenantId == "foo"

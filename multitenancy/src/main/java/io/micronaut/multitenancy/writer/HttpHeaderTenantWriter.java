@@ -18,7 +18,7 @@ package io.micronaut.multitenancy.writer;
 import io.micronaut.context.annotation.Requires;
 import io.micronaut.http.MutableHttpRequest;
 
-import javax.inject.Singleton;
+import jakarta.inject.Singleton;
 import java.io.Serializable;
 
 /**
