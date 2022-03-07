@@ -18,7 +18,7 @@ package io.micronaut.multitenancy.propagation.httpheader
 import io.micronaut.context.annotation.Requires
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
-import io.reactivex.Flowable
+import org.reactivestreams.Publisher
 
 @Requires(property = 'spec.name', value = 'multitenancy.httpheader.gateway')
 @Controller("/")
@@ -31,7 +31,7 @@ class GatewayController {
     }
 
     @Get("/")
-    Flowable<Book> index() {
+    Publisher<Book> index() {
         return bookFetcher.findAll()
     }
 }

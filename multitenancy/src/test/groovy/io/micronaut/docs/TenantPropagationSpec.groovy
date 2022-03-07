@@ -18,7 +18,6 @@ package io.micronaut.docs
 import io.micronaut.context.ApplicationContext
 import io.micronaut.context.env.Environment
 import io.micronaut.context.exceptions.NoSuchBeanException
-import io.micronaut.core.io.socket.SocketUtils
 import io.micronaut.multitenancy.propagation.TenantPropagationHttpClientFilter
 import io.micronaut.multitenancy.tenantresolver.TenantResolver
 import io.micronaut.multitenancy.writer.TenantWriter
@@ -37,7 +36,7 @@ class TenantPropagationSpec  extends Specification implements YamlAsciidocTagCle
 //tag::gatewayConfig[]
 micronaut:
   multitenancy:
-    propagation: 
+    propagation:
       enabled: true
       service-id-regex: 'catalogue'
     tenantresolver:
@@ -45,7 +44,7 @@ micronaut:
         enabled: true
     tenantwriter:
       httpheader:
-        enabled: true                     
+        enabled: true
 '''//end::gatewayConfig[]
 
     String catalogueConfig = '''\
@@ -54,7 +53,7 @@ micronaut:
   multitenancy:
     tenantresolver:
       httpheader:
-        enabled: true                         
+        enabled: true
 '''//end::catalogueConfig[]
 
     @Shared

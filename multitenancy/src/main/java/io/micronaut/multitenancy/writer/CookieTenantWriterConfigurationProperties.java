@@ -16,9 +16,10 @@
 package io.micronaut.multitenancy.writer;
 
 import io.micronaut.context.annotation.ConfigurationProperties;
-import io.micronaut.http.cookie.SameSite;
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.core.annotation.Nullable;
+import io.micronaut.http.cookie.SameSite;
+
 import java.time.temporal.TemporalAmount;
 import java.util.Optional;
 
@@ -178,7 +179,7 @@ public class CookieTenantWriterConfigurationProperties implements CookieTenantWr
     }
 
     /**
-     * Sets whether the cookie is secured. Default value ({@value #DEFAULT_SECURE}.
+     * Sets whether the cookie is secured. Defaults to the secure status of the request.
      * @param cookieSecure True if the cookie is secure
      */
     public void setCookieSecure(boolean cookieSecure) {

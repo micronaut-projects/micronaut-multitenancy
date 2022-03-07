@@ -22,9 +22,8 @@ import io.micronaut.core.type.Argument
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.HttpStatus
-import io.micronaut.http.client.RxHttpClient
+import io.micronaut.http.client.HttpClient
 import io.micronaut.multitenancy.propagation.TenantPropagationHttpClientFilter
-import io.micronaut.multitenancy.tenantresolver.CookieTenantResolver
 import io.micronaut.multitenancy.tenantresolver.HttpHeaderTenantResolver
 import io.micronaut.multitenancy.tenantresolver.HttpRequestTenantResolver
 import io.micronaut.multitenancy.tenantresolver.TenantResolver
@@ -50,7 +49,7 @@ class HttpHeaderTenantResolverSpec extends Specification {
 
     @AutoCleanup
     @Shared
-    RxHttpClient gormClient
+    HttpClient gormClient
 
     @AutoCleanup
     @Shared
@@ -58,7 +57,7 @@ class HttpHeaderTenantResolverSpec extends Specification {
 
     @AutoCleanup
     @Shared
-    RxHttpClient gatewayClient
+    HttpClient gatewayClient
 
     def setupSpec() {
         gormPort = SocketUtils.findAvailableTcpPort()
@@ -74,7 +73,7 @@ class HttpHeaderTenantResolverSpec extends Specification {
 
         gormEmbeddedServer = ApplicationContext.run(EmbeddedServer, gormConfig, Environment.TEST)
 
-        gormClient = gormEmbeddedServer.applicationContext.createBean(RxHttpClient, gormEmbeddedServer.getURL())
+        gormClient = gormEmbeddedServer.applicationContext.createBean(HttpClient, gormEmbeddedServer.getURL())
 
         when:
         for (Class beanClazz : [BookService, BooksController, Bootstrap]) {
@@ -121,7 +120,7 @@ class HttpHeaderTenantResolverSpec extends Specification {
         noExceptionThrown()
 
         when:
-        gatewayClient = gatewayEmbeddedServer.applicationContext.createBean(RxHttpClient, gatewayEmbeddedServer.getURL())
+        gatewayClient = gatewayEmbeddedServer.applicationContext.createBean(HttpClient, gatewayEmbeddedServer.getURL())
 
         then:
         noExceptionThrown()
