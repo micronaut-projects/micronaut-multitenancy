@@ -24,6 +24,9 @@ import io.micronaut.core.util.Toggleable;
  * @since 1.0.0
  */
 public interface HttpHeaderTenantResolverConfiguration extends Toggleable {
+    /**
+     * Default Header Name for HTTP Header Tenant Resolver.
+     */
     String DEFAULT_HEADER_NAME = "tenantId";
 
     /**

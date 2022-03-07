@@ -26,6 +26,10 @@ import io.micronaut.context.annotation.ConfigurationProperties;
 @ConfigurationProperties(SubdomainTenantResolverConfigurationProperties.PREFIX)
 public class SubdomainTenantResolverConfigurationProperties implements SubdomainTenantResolverConfiguration {
 
+    /**
+     * Configuration Properties prefix.
+     */
+    @SuppressWarnings("WeakerAccess")
     public static final String PREFIX = TenantResolver.PREFIX + ".subdomain";
 
     /**

@@ -40,14 +40,29 @@ import java.io.Serializable;
 @Requires(property = TenantPropagationConfigurationProperties.PREFIX + ".enabled")
 public class TenantPropagationHttpClientFilter implements HttpClientFilter  {
 
+    /**
+     * Tenant Propagation Configuration.
+     */
     protected final TenantPropagationConfiguration tenantPropagationConfiguration;
+
+    /**
+     * bean responsible for writing the tenant to the target request.
+     */
     protected final TenantWriter tokenWriter;
+
+    /**
+     * Bean responsible for resolving the tenant.
+     */
     protected final TenantResolver tenantResolver;
+
+    /**
+     * Utility to decide whether to process the request.
+     */
     protected final OutgoingHttpRequestProcessor outgoingHttpRequestProcessor;
 
     /**
-     * @param tenantResolver bean responsible of resolving the tenant
-     * @param tokenWriter bean responsible of writing the token to the target request
+     * @param tenantResolver bean responsible for resolving the tenant
+     * @param tokenWriter bean responsible for writing the token to the target request
      * @param tenantPropagationConfiguration Tenant Propagation configuration
      * @param outgoingHttpRequestProcessor Utility to decide whether to process the request
      */

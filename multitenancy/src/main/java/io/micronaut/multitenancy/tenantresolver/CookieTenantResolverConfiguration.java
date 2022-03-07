@@ -24,6 +24,9 @@ import io.micronaut.core.util.Toggleable;
  * @since 1.0.0
  */
 public interface CookieTenantResolverConfiguration extends Toggleable {
+    /**
+     * Default Cookie name.
+     */
     String DEFAULT_COOKIENAME = "tenantId";
 
     /**
