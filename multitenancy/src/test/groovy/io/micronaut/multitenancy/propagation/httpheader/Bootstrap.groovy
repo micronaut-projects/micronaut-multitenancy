@@ -18,8 +18,8 @@ package io.micronaut.multitenancy.propagation.httpheader
 import io.micronaut.context.annotation.Requires
 import io.micronaut.context.event.ApplicationEventListener
 import io.micronaut.context.event.StartupEvent
-import jakarta.inject.Singleton
 import jakarta.inject.Inject
+import jakarta.inject.Singleton
 
 @Requires(property = 'spec.name', value = 'multitenancy.httpheader.gorm')
 @Singleton

@@ -17,8 +17,8 @@ package io.micronaut.multitenancy.propagation.httpheader
 
 import io.micronaut.context.annotation.Requires
 import io.micronaut.multitenancy.tenantresolver.TenantResolver
-
 import jakarta.inject.Singleton
+
 import java.util.concurrent.ConcurrentHashMap
 
 @Requires(property = 'spec.name', value = 'multitenancy.httpheader.gorm')

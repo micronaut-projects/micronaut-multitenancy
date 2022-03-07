@@ -17,8 +17,8 @@ package io.micronaut.multitenancy.propagation
 
 import io.micronaut.context.ApplicationContext
 import io.micronaut.context.env.Environment
-import io.micronaut.multitenancy.tenantresolver.TenantResolver
 import io.micronaut.multitenancy.propagation.TenantPropagationHttpClientFilter
+import io.micronaut.multitenancy.tenantresolver.TenantResolver
 import io.micronaut.multitenancy.writer.TenantWriter
 import spock.lang.AutoCleanup
 import spock.lang.Shared

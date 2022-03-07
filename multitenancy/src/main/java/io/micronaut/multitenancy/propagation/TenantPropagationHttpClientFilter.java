@@ -22,8 +22,8 @@ import io.micronaut.http.annotation.Filter;
 import io.micronaut.http.filter.ClientFilterChain;
 import io.micronaut.http.filter.HttpClientFilter;
 import io.micronaut.http.util.OutgoingHttpRequestProcessor;
-import io.micronaut.multitenancy.tenantresolver.TenantResolver;
 import io.micronaut.multitenancy.exceptions.TenantException;
+import io.micronaut.multitenancy.tenantresolver.TenantResolver;
 import io.micronaut.multitenancy.writer.TenantWriter;
 import org.reactivestreams.Publisher;
 
