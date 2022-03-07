@@ -31,7 +31,12 @@ import java.util.Optional;
  */
 @ConfigurationProperties(CookieTenantWriterConfigurationProperties.PREFIX)
 public class CookieTenantWriterConfigurationProperties implements CookieTenantWriterConfiguration {
+    /**
+     * Configuration Properties Prefix.
+     */
+    @SuppressWarnings("WeakerAccess")
     public static final String PREFIX = TenantWriter.PREFIX + ".cookie";
+
     /**
      * The default enable value.
      */

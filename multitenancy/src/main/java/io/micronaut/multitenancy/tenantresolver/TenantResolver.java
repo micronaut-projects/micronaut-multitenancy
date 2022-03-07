@@ -30,6 +30,9 @@ import java.io.Serializable;
 @FunctionalInterface
 public interface TenantResolver {
 
+    /**
+     * Tenant Resolver Configuration Prefix.
+     */
     String PREFIX = MultitenancyConfiguration.PREFIX + ".tenantresolver";
 
     /**

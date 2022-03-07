@@ -28,6 +28,9 @@ import java.io.Serializable;
  */
 public interface TenantWriter {
 
+    /**
+     * Tenant Writer prefix.
+     */
     String PREFIX = MultitenancyConfiguration.PREFIX + ".tenantwriter";
 
     /**

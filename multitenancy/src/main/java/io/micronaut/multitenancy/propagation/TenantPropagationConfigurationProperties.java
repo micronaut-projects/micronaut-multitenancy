@@ -29,6 +29,10 @@ import java.util.regex.Pattern;
 @ConfigurationProperties(TenantPropagationConfigurationProperties.PREFIX)
 public class TenantPropagationConfigurationProperties implements TenantPropagationConfiguration {
 
+    /**
+     * Configuration Properties prefix.
+     */
+    @SuppressWarnings("WeakerAccess")
     public static final String PREFIX = MultitenancyConfiguration.PREFIX + ".propagation";
 
     /**

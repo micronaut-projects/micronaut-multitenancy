@@ -25,7 +25,12 @@ import io.micronaut.context.annotation.ConfigurationProperties;
  */
 @ConfigurationProperties(HttpHeaderTenantWriterConfigurationProperties.PREFIX)
 public class HttpHeaderTenantWriterConfigurationProperties implements HttpHeaderTenantWriterConfiguration {
+    /**
+     * Configuration Properties Prefix.
+     */
+    @SuppressWarnings("WeakerAccess")
     public static final String PREFIX = TenantWriter.PREFIX + ".httpheader";
+
     /**
      * The default enable value.
      */

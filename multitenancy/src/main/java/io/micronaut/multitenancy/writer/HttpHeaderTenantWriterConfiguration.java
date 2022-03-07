@@ -23,8 +23,7 @@ import io.micronaut.core.util.Toggleable;
  * @author Sergio del Amo
  * @since 1.0
  */
-interface HttpHeaderTenantWriterConfiguration extends Toggleable {
-
+public interface HttpHeaderTenantWriterConfiguration extends Toggleable {
     /**
      *
      * @return an HTTP Header name. e.g. Authorization

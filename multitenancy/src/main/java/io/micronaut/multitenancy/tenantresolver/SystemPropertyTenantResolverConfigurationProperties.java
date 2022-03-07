@@ -26,6 +26,10 @@ import io.micronaut.context.annotation.ConfigurationProperties;
 @ConfigurationProperties(SystemPropertyTenantResolverConfigurationProperties.PREFIX)
 public class SystemPropertyTenantResolverConfigurationProperties implements SystemPropertyTenantResolverConfiguration {
 
+    /**
+     * Configuration Properties Prefix.
+     */
+    @SuppressWarnings("WeakerAccess")
     public static final String PREFIX = TenantResolver.PREFIX + ".systemproperty";
 
     /**
@@ -34,6 +38,10 @@ public class SystemPropertyTenantResolverConfigurationProperties implements Syst
     @SuppressWarnings("WeakerAccess")
     public static final boolean DEFAULT_ENABLE = false;
 
+    /**
+     * The default system property name.
+     */
+    @SuppressWarnings("WeakerAccess")
     public static final String DEFAULT_SYSTEM_PROPERTY_NAME = "tenantId";
 
     /**

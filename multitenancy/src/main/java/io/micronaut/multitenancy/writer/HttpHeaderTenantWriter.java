@@ -31,6 +31,10 @@ import java.io.Serializable;
 @Requires(property = HttpHeaderTenantWriterConfigurationProperties.PREFIX + ".enabled")
 @Requires(beans = {HttpHeaderTenantWriterConfiguration.class})
 public class HttpHeaderTenantWriter implements TenantWriter {
+
+    /**
+     * The {@link HttpHeaderTenantWriter} configuration.
+     */
     protected final HttpHeaderTenantWriterConfiguration httpHeaderTenantWriterConfiguration;
 
     /**
