@@ -19,7 +19,8 @@ import groovy.transform.CompileStatic
 import io.micronaut.context.annotation.Requires
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
-import io.reactivex.Flowable
+import org.reactivestreams.Publisher
+import reactor.core.publisher.Flux
 
 @Requires(property = 'spec.name', value = 'multitenancy.httpheader.gorm')
 @CompileStatic
@@ -33,7 +34,7 @@ class BooksController {
     }
 
     @Get("/books")
-    Flowable<Book> books() {
-        Flowable.fromIterable(bookService.list())
+    Publisher<Book> books() {
+        Flux.fromIterable(bookService.list())
     }
 }
