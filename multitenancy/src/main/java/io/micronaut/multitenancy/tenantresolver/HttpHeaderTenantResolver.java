@@ -15,14 +15,14 @@
  */
 package io.micronaut.multitenancy.tenantresolver;
 
-import io.micronaut.core.annotation.NonNull;
 import io.micronaut.context.annotation.Requires;
+import io.micronaut.core.annotation.NonNull;
 import io.micronaut.core.util.StringUtils;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.context.ServerRequestContext;
 import io.micronaut.multitenancy.exceptions.TenantNotFoundException;
-
 import jakarta.inject.Singleton;
+
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Optional;

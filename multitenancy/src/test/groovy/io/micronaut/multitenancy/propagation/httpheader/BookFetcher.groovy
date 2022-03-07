@@ -15,8 +15,8 @@
  */
 package io.micronaut.multitenancy.propagation.httpheader
 
-import io.reactivex.Flowable
+import org.reactivestreams.Publisher
 
 interface BookFetcher {
-    Flowable<Book> findAll()
+    Publisher<Book> findAll()
 }
