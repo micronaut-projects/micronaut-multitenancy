@@ -26,6 +26,10 @@ import io.micronaut.context.annotation.ConfigurationProperties;
 @ConfigurationProperties(SessionTenantResolverConfigurationProperties.PREFIX)
 public class SessionTenantResolverConfigurationProperties implements SessionTenantResolverConfiguration {
 
+    /**
+     * Configuration Properties prefix.
+     */
+    @SuppressWarnings("WeakerAccess")
     public static final String PREFIX = TenantResolver.PREFIX + ".session";
 
     /**

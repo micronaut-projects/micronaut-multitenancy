@@ -26,6 +26,10 @@ import io.micronaut.context.annotation.ConfigurationProperties;
 @ConfigurationProperties(HttpHeaderTenantResolverConfigurationProperties.PREFIX)
 public class HttpHeaderTenantResolverConfigurationProperties implements HttpHeaderTenantResolverConfiguration {
 
+    /**
+     * Configuration Properties Prefix.
+     */
+    @SuppressWarnings("WeakerAccess")
     public static final String PREFIX = TenantResolver.PREFIX + ".httpheader";
 
     /**

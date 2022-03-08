@@ -26,6 +26,10 @@ import io.micronaut.context.annotation.ConfigurationProperties;
 @ConfigurationProperties(PrincipalTenantResolverConfigurationProperties.PREFIX)
 public class PrincipalTenantResolverConfigurationProperties implements PrincipalTenantResolverConfiguration {
 
+    /**
+     * Configuration Properties prefix.
+     */
+    @SuppressWarnings("WeakerAccess")
     public static final String PREFIX = TenantResolver.PREFIX + ".principal";
 
     /**

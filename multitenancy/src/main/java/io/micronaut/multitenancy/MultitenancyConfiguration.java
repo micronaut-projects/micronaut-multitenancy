@@ -22,6 +22,9 @@ package io.micronaut.multitenancy;
  * @since 1.0
  */
 public interface MultitenancyConfiguration {
+    /**
+     * Configuration prefix.
+     */
     String PREFIX = "micronaut.multitenancy";
 }
 

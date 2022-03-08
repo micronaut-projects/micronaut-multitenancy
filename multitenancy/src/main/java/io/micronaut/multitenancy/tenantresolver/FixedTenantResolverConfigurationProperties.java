@@ -25,6 +25,10 @@ import io.micronaut.context.annotation.ConfigurationProperties;
  */
 @ConfigurationProperties(FixedTenantResolverConfigurationProperties.PREFIX)
 public class FixedTenantResolverConfigurationProperties implements FixedTenantResolverConfiguration {
+    /**
+     * Configuration Properties Prefix.
+     */
+    @SuppressWarnings("WeakerAccess")
     public static final String PREFIX = TenantResolver.PREFIX + ".fixed";
 
     /**

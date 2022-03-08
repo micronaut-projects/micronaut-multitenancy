@@ -32,6 +32,9 @@ import java.io.Serializable;
 @Requires(property = CookieTenantWriterConfigurationProperties.PREFIX + ".enabled")
 @Requires(beans = {CookieTenantWriterConfiguration.class})
 public class CookieTenantWriter implements TenantWriter {
+    /**
+     * The {@link CookieTenantWriter} configuration.
+     */
     protected final CookieTenantWriterConfiguration cookieTenantWriterConfiguration;
 
     /**

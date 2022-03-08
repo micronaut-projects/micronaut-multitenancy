@@ -24,6 +24,9 @@ import io.micronaut.core.util.Toggleable;
  * @since 1.0.0
  */
 public interface SessionTenantResolverConfiguration extends Toggleable {
+    /**
+     * default session attribute name.
+     */
     String DEFAULT_ATTRIBUTE = "tenantId";
 
     /**

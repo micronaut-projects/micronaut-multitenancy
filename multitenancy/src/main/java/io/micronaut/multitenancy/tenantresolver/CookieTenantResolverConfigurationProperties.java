@@ -26,6 +26,10 @@ import io.micronaut.context.annotation.ConfigurationProperties;
 @ConfigurationProperties(CookieTenantResolverConfigurationProperties.PREFIX)
 public class CookieTenantResolverConfigurationProperties implements CookieTenantResolverConfiguration {
 
+    /**
+     * Configuration Properties Prefix.
+     */
+    @SuppressWarnings("WeakerAccess")
     public static final String PREFIX = TenantResolver.PREFIX + ".cookie";
 
     /**
