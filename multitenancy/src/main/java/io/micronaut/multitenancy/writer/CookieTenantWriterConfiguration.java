@@ -24,7 +24,7 @@ import io.micronaut.http.cookie.CookieConfiguration;
  * @author Sergio del Amo
  * @since 1.0
  */
-interface CookieTenantWriterConfiguration extends CookieConfiguration, Toggleable {
+public interface CookieTenantWriterConfiguration extends CookieConfiguration, Toggleable {
 
     /**
      *
