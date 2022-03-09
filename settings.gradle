@@ -6,9 +6,9 @@ pluginManagement {
 }
 
 plugins {
-    id 'io.micronaut.build.shared.settings' version '5.2.2'
+    id 'io.micronaut.build.shared.settings' version '5.2.3'
 }
 
-rootProject.name = 'micronaut-multitenancy'
+rootProject.name = 'multitenancy-parent'
 
 include 'multitenancy'
