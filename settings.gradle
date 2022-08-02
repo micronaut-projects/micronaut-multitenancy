@@ -11,4 +11,9 @@ plugins {
 
 rootProject.name = 'multitenancy-parent'
 
+include 'multitenancy-bom'
 include 'multitenancy'
+
+micronautBuild {
+    importMicronautCatalog()
+}
