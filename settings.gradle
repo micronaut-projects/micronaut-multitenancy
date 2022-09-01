@@ -12,3 +12,7 @@ plugins {
 rootProject.name = 'multitenancy-parent'
 
 include 'multitenancy'
+
+micronautBuild {
+    importMicronautCatalog()
+}
