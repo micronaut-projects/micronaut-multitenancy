@@ -4,3 +4,7 @@ micronaut-docs = "2.0.0"
 micronaut-test = "3.5.0"
 groovy = "3.0.12"
 spock = "2.1-groovy-3.0"
+jakarta-inject-api = "2.0.1"
+
+[libraries]
+jakarta-inject-api = { module = "jakarta.inject:jakarta.inject-api", version.ref = "jakarta-inject-api" }

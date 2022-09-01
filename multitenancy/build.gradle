@@ -3,18 +3,17 @@ plugins {
 }
 
 dependencies {
+    api(mn.micronaut.http)
+    api(mn.micronaut.inject)
+    api(mn.micronaut.validation)
 
-    api 'io.micronaut:micronaut-http'
-    api 'io.micronaut:micronaut-inject'
-    api 'io.micronaut:micronaut-validation'
+    compileOnly(mn.micronaut.session)
+    compileOnly(libs.jakarta.inject.api)
 
-    compileOnly 'io.micronaut:micronaut-session'
-    compileOnly 'jakarta.inject:jakarta.inject-api:2.0.1'
+    testCompileOnly(libs.jakarta.inject.api)
 
-    testCompileOnly 'jakarta.inject:jakarta.inject-api:2.0.1'
-
-    testImplementation 'io.micronaut.reactor:micronaut-reactor'
-    testImplementation 'io.micronaut:micronaut-http-client'
-    testImplementation 'io.micronaut:micronaut-http-server-netty'
-    testImplementation 'io.micronaut:micronaut-session'
+    testImplementation(mn.micronaut.reactor)
+    testImplementation(mn.micronaut.http.client)
+    testImplementation(mn.micronaut.http.server.netty)
+    testImplementation(mn.micronaut.session)
 }
