@@ -1,4 +1,9 @@
 [versions]
+micronaut = "3.6.1"
+micronaut-docs = "2.0.0"
+micronaut-test = "3.5.0"
+groovy = "3.0.12"
+spock = "2.1-groovy-3.0"
 jakarta-inject-api = "2.0.1"
 
 [libraries]
