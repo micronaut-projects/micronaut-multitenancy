@@ -12,6 +12,7 @@ dependencies {
 
     testCompileOnly(libs.jakarta.inject.api)
 
+    testImplementation(mn.micronaut.jackson.databind)
     testImplementation(mn.micronaut.reactor)
     testImplementation(mn.micronaut.http.client)
     testImplementation(mn.micronaut.http.server.netty)
