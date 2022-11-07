@@ -15,6 +15,9 @@
  */
 package io.micronaut.multitenancy.propagation.httpheader
 
+import io.micronaut.serde.annotation.Serdeable
+
+@Serdeable
 class Book {
     String title
 }
