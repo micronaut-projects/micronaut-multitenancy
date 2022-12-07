@@ -46,14 +46,14 @@
         <div class="docs-content">
             <div class="project">
                 <h1>Configuration Reference</h1>
-                <p><strong>Version:</strong>5.0.0-SNAPSHOT</p>
+                <p><strong>Version:</strong>4.2.1-SNAPSHOT</p>
                 <p></p>
             </div>
 <div class="sect2">
 <h3 id="_multitenancy_config_properties">Multitenancy Config Properties</h3>
-<a id="io.micronaut.multitenancy.tenantresolver.SubdomainTenantResolverConfigurationProperties" href="#io.micronaut.multitenancy.tenantresolver.SubdomainTenantResolverConfigurationProperties">&#128279;</a>
+<a id="io.micronaut.multitenancy.tenantresolver.FixedTenantResolverConfigurationProperties" href="#io.micronaut.multitenancy.tenantresolver.FixedTenantResolverConfigurationProperties">&#128279;</a>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. Configuration Properties for <a href="../api/io/micronaut/multitenancy/tenantresolver/SubdomainTenantResolverConfigurationProperties.html">SubdomainTenantResolverConfigurationProperties</a></caption>
+<caption class="title">Table 1. Configuration Properties for <a href="../api/io/micronaut/multitenancy/tenantresolver/FixedTenantResolverConfigurationProperties.html">FixedTenantResolverConfigurationProperties</a></caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -68,106 +68,21 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.subdomain.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.fixed.enabled</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables . Default value ().</p></td>
-</tr>
-</tbody>
-</table>
-<div style="page-break-after: always;"></div>
-<a id="io.micronaut.multitenancy.writer.CookieTenantWriterConfigurationProperties" href="#io.micronaut.multitenancy.writer.CookieTenantWriterConfigurationProperties">&#128279;</a>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. Configuration Properties for <a href="../api/io/micronaut/multitenancy/writer/CookieTenantWriterConfigurationProperties.html">CookieTenantWriterConfigurationProperties</a></caption>
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Property</th>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.cookie.enabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables . Default value ().</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables <a href="../api/io/micronaut/multitenancy/tenantresolver/FixedTenantResolver.html">FixedTenantResolver</a>. Default value (false).</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.cookie.cookiename</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.fixed.tenant-id</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.cookie.cookie-domain</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.cookie.cookie-path</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.cookie.cookie-http-only</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.cookie.cookie-secure</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.cookie.cookie-max-age</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">java.time.temporal.TemporalAmount</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.cookie.cookie-same-site</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/http/cookie/SameSite.html">SameSite</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Determines if this this  can be sent along cross-site requests.
- For more information, please look
-  &lt;a href="https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis-05"&gt;here&lt;/a&gt;</p></td>
-</tr>
-</tbody>
-</table>
-<div style="page-break-after: always;"></div>
-<a id="io.micronaut.multitenancy.writer.HttpHeaderTenantWriterConfigurationProperties" href="#io.micronaut.multitenancy.writer.HttpHeaderTenantWriterConfigurationProperties">&#128279;</a>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Configuration Properties for <a href="../api/io/micronaut/multitenancy/writer/HttpHeaderTenantWriterConfigurationProperties.html">HttpHeaderTenantWriterConfigurationProperties</a></caption>
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Property</th>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.httpheader.enabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables . Default value ().</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.httpheader.header-name</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The fixed tenant ID. Default value to ("DEFAULT").</p></td>
 </tr>
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
 <a id="io.micronaut.multitenancy.tenantresolver.SystemPropertyTenantResolverConfigurationProperties" href="#io.micronaut.multitenancy.tenantresolver.SystemPropertyTenantResolverConfigurationProperties">&#128279;</a>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. Configuration Properties for <a href="../api/io/micronaut/multitenancy/tenantresolver/SystemPropertyTenantResolverConfigurationProperties.html">SystemPropertyTenantResolverConfigurationProperties</a></caption>
+<caption class="title">Table 2. Configuration Properties for <a href="../api/io/micronaut/multitenancy/tenantresolver/SystemPropertyTenantResolverConfigurationProperties.html">SystemPropertyTenantResolverConfigurationProperties</a></caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -181,22 +96,22 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.systemproperty.property-name</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">System property name. Default value ().</p></td>
-</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.systemproperty.enabled</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enable . Default value ().</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable <a href="../api/io/micronaut/multitenancy/tenantresolver/SystemPropertyTenantResolver.html">SystemPropertyTenantResolver</a>. Default value (false).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.systemproperty.property-name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System property name. Default value ("tenantId").</p></td>
 </tr>
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
-<a id="io.micronaut.multitenancy.tenantresolver.SessionTenantResolverConfigurationProperties" href="#io.micronaut.multitenancy.tenantresolver.SessionTenantResolverConfigurationProperties">&#128279;</a>
+<a id="io.micronaut.multitenancy.tenantresolver.HttpHeaderTenantResolverConfigurationProperties" href="#io.micronaut.multitenancy.tenantresolver.HttpHeaderTenantResolverConfigurationProperties">&#128279;</a>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 5. Configuration Properties for <a href="../api/io/micronaut/multitenancy/tenantresolver/SessionTenantResolverConfigurationProperties.html">SessionTenantResolverConfigurationProperties</a></caption>
+<caption class="title">Table 3. Configuration Properties for <a href="../api/io/micronaut/multitenancy/tenantresolver/HttpHeaderTenantResolverConfigurationProperties.html">HttpHeaderTenantResolverConfigurationProperties</a></caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -211,60 +126,21 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.session.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.httpheader.header-name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Http Header name which should be used to resolve the tenant id from. Default value ("tenantId").</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.httpheader.enabled</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables . The default value ().</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.session.attribute</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Session Attribute name. Default value ()</p></td>
-</tr>
-</tbody>
-</table>
-<div style="page-break-after: always;"></div>
-<a id="io.micronaut.multitenancy.propagation.TenantPropagationConfigurationProperties" href="#io.micronaut.multitenancy.propagation.TenantPropagationConfigurationProperties">&#128279;</a>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 6. Configuration Properties for <a href="../api/io/micronaut/multitenancy/propagation/TenantPropagationConfigurationProperties.html">TenantPropagationConfigurationProperties</a></caption>
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Property</th>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.propagation.service-id-regex</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.propagation.uri-regex</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.propagation.enabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether  should be enabled. Default value ().</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.propagation.path</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables <a href="../api/io/micronaut/multitenancy/tenantresolver/HttpHeaderTenantResolver.html">HttpHeaderTenantResolver</a>. Default value (false).</p></td>
 </tr>
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
 <a id="io.micronaut.multitenancy.tenantresolver.PrincipalTenantResolverConfigurationProperties" href="#io.micronaut.multitenancy.tenantresolver.PrincipalTenantResolverConfigurationProperties">&#128279;</a>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 7. Configuration Properties for <a href="../api/io/micronaut/multitenancy/tenantresolver/PrincipalTenantResolverConfigurationProperties.html">PrincipalTenantResolverConfigurationProperties</a></caption>
+<caption class="title">Table 4. Configuration Properties for <a href="../api/io/micronaut/multitenancy/tenantresolver/PrincipalTenantResolverConfigurationProperties.html">PrincipalTenantResolverConfigurationProperties</a></caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -281,14 +157,14 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.principal.enabled</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables . The default enable is .</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables <a href="../api/io/micronaut/multitenancy/tenantresolver/PrincipalTenantResolver.html">PrincipalTenantResolver</a>. The default enable is false.</p></td>
 </tr>
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
 <a id="io.micronaut.multitenancy.tenantresolver.CookieTenantResolverConfigurationProperties" href="#io.micronaut.multitenancy.tenantresolver.CookieTenantResolverConfigurationProperties">&#128279;</a>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 8. Configuration Properties for <a href="../api/io/micronaut/multitenancy/tenantresolver/CookieTenantResolverConfigurationProperties.html">CookieTenantResolverConfigurationProperties</a></caption>
+<caption class="title">Table 5. Configuration Properties for <a href="../api/io/micronaut/multitenancy/tenantresolver/CookieTenantResolverConfigurationProperties.html">CookieTenantResolverConfigurationProperties</a></caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -302,22 +178,22 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.cookie.enabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to enable . Default value ().</p></td>
-</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.cookie.cookiename</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cookie name which should be used to resolve the tenant id from. Default value ().</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cookie name which should be used to resolve the tenant id from. Default value ("tenantId").</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.cookie.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to enable <a href="../api/io/micronaut/multitenancy/tenantresolver/CookieTenantResolver.html">CookieTenantResolver</a>. Default value (false).</p></td>
 </tr>
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
-<a id="io.micronaut.multitenancy.tenantresolver.HttpHeaderTenantResolverConfigurationProperties" href="#io.micronaut.multitenancy.tenantresolver.HttpHeaderTenantResolverConfigurationProperties">&#128279;</a>
+<a id="io.micronaut.multitenancy.tenantresolver.SessionTenantResolverConfigurationProperties" href="#io.micronaut.multitenancy.tenantresolver.SessionTenantResolverConfigurationProperties">&#128279;</a>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 9. Configuration Properties for <a href="../api/io/micronaut/multitenancy/tenantresolver/HttpHeaderTenantResolverConfigurationProperties.html">HttpHeaderTenantResolverConfigurationProperties</a></caption>
+<caption class="title">Table 6. Configuration Properties for <a href="../api/io/micronaut/multitenancy/tenantresolver/SessionTenantResolverConfigurationProperties.html">SessionTenantResolverConfigurationProperties</a></caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -332,21 +208,21 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.httpheader.enabled</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables . Default value ().</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.session.attribute</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Session Attribute name. Default value ("tenantId")</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.httpheader.header-name</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Http Header name which should be used to resolve the tenant id from. Default value ().</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.session.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables <a href="../api/io/micronaut/multitenancy/tenantresolver/SessionTenantResolver.html">SessionTenantResolver</a>. The default value (false).</p></td>
 </tr>
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
-<a id="io.micronaut.multitenancy.tenantresolver.FixedTenantResolverConfigurationProperties" href="#io.micronaut.multitenancy.tenantresolver.FixedTenantResolverConfigurationProperties">&#128279;</a>
+<a id="io.micronaut.multitenancy.propagation.TenantPropagationConfigurationProperties" href="#io.micronaut.multitenancy.propagation.TenantPropagationConfigurationProperties">&#128279;</a>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 10. Configuration Properties for <a href="../api/io/micronaut/multitenancy/tenantresolver/FixedTenantResolverConfigurationProperties.html">FixedTenantResolverConfigurationProperties</a></caption>
+<caption class="title">Table 7. Configuration Properties for <a href="../api/io/micronaut/multitenancy/propagation/TenantPropagationConfigurationProperties.html">TenantPropagationConfigurationProperties</a></caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -361,14 +237,138 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.fixed.tenant-id</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The fixed tenant ID. Default value to ().</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.propagation.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether <a href="../api/io/micronaut/multitenancy/propagation/TenantPropagationHttpClientFilter.html">TenantPropagationHttpClientFilter</a> should be enabled. Default value (false).</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.fixed.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.propagation.service-id-regex</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Regular expression to match service ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.propagation.uri-regex</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Regular expression to match URI.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.propagation.path</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Configures <a href="../api/io/micronaut/multitenancy/propagation/TenantPropagationHttpClientFilter.html">TenantPropagationHttpClientFilter</a> path. Default value "/**"</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+<a id="io.micronaut.multitenancy.writer.CookieTenantWriterConfigurationProperties" href="#io.micronaut.multitenancy.writer.CookieTenantWriterConfigurationProperties">&#128279;</a>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 8. Configuration Properties for <a href="../api/io/micronaut/multitenancy/writer/CookieTenantWriterConfigurationProperties.html">CookieTenantWriterConfigurationProperties</a></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.cookie.cookiename</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cookie Name. Default value ("tenantId").</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.cookie.cookie-domain</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sets the domain name of this Cookie. Default value ("tenantId").</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.cookie.cookie-path</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sets the path of the cookie. Default value ("/".</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.cookie.cookie-http-only</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether the Cookie can only be accessed via HTTP. Default value (true.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.cookie.cookie-secure</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sets whether the cookie is secured. Defaults to the secure status of the request.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.cookie.cookie-max-age</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.time.temporal.TemporalAmount</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sets the maximum age of the cookie.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.cookie.enabled</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables . Default value ().</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables <a href="../api/io/micronaut/multitenancy/writer/CookieTenantWriter.html">CookieTenantWriter</a>. Default value (false).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.cookie.cookie-same-site</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/http/cookie/SameSite.html">SameSite</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Determines if this this <a href="../api/io/micronaut/http/cookie/Cookie.html">Cookie</a> can be sent along cross-site requests.
+ For more information, please look
+  &lt;a href="https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis-05"&gt;here&lt;/a&gt;</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+<a id="io.micronaut.multitenancy.tenantresolver.SubdomainTenantResolverConfigurationProperties" href="#io.micronaut.multitenancy.tenantresolver.SubdomainTenantResolverConfigurationProperties">&#128279;</a>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 9. Configuration Properties for <a href="../api/io/micronaut/multitenancy/tenantresolver/SubdomainTenantResolverConfigurationProperties.html">SubdomainTenantResolverConfigurationProperties</a></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantresolver.subdomain.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables <a href="../api/io/micronaut/multitenancy/tenantresolver/SubdomainTenantResolver.html">SubdomainTenantResolver</a>. Default value (false).</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+<a id="io.micronaut.multitenancy.writer.HttpHeaderTenantWriterConfigurationProperties" href="#io.micronaut.multitenancy.writer.HttpHeaderTenantWriterConfigurationProperties">&#128279;</a>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 10. Configuration Properties for <a href="../api/io/micronaut/multitenancy/writer/HttpHeaderTenantWriterConfigurationProperties.html">HttpHeaderTenantWriterConfigurationProperties</a></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.httpheader.header-name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Http Header name. Default value ("tenantId").</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.httpheader.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables <a href="../api/io/micronaut/multitenancy/writer/HttpHeaderTenantWriter.html">HttpHeaderTenantWriter</a>. Default value (false).</p></td>
 </tr>
 </tbody>
 </table>
