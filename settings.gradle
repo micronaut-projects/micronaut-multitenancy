@@ -14,13 +14,10 @@ rootProject.name = 'multitenancy-parent'
 include 'multitenancy-bom'
 include 'multitenancy'
 
-dependencyResolutionManagement {
-    repositories {
-        mavenCentral()
-        maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
-    }
+micronautBuild {
+    addSnapshotRepository()
+    importMicronautCatalog()
+    importMicronautCatalog("micronaut-serde")
+    importMicronautCatalog("micronaut-reactor")
 }
 
-micronautBuild {
-    importMicronautCatalog()
-}

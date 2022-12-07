@@ -6,5 +6,10 @@ groovy = "4.0.6"
 spock = "2.3-groovy-4.0"
 jakarta-inject-api = "2.0.1"
 
+micronaut-reactor = "3.0.0-SNAPSHOT"
+micronaut-serde = "2.0.0-SNAPSHOT"
+
 [libraries]
+micronaut-reactor = { module = "io.micronaut.reactor:micronaut-reactor-bom", version.ref = "micronaut-reactor" }
+micronaut-serde = { module = "io.micronaut.serde:micronaut-serde-bom", version.ref = "micronaut-serde" }
 jakarta-inject-api = { module = "jakarta.inject:jakarta.inject-api", version.ref = "jakarta-inject-api" }
