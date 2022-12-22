@@ -24,7 +24,6 @@ import io.micronaut.http.context.ServerRequestContext;
 import io.micronaut.multitenancy.exceptions.TenantNotFoundException;
 import jakarta.inject.Singleton;
 
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.security.Principal;
 import java.util.Optional;
@@ -48,7 +47,7 @@ public class PrincipalTenantResolver implements TenantResolver, HttpRequestTenan
 
     @Override
     @NonNull
-    public Serializable resolveTenantIdentifier(@NonNull @NotNull HttpRequest<?> request) throws TenantNotFoundException {
+    public Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
         return request.getUserPrincipal().map(Principal::getName)
                 .orElseThrow(() ->
                         new TenantNotFoundException("Tenant could not be resolved because " + HttpAttributes.PRINCIPAL + " attribute was not found")

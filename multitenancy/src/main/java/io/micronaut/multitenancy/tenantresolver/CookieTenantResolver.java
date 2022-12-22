@@ -24,7 +24,6 @@ import io.micronaut.http.cookie.Cookie;
 import io.micronaut.multitenancy.exceptions.TenantNotFoundException;
 import jakarta.inject.Singleton;
 
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Optional;
 
@@ -48,7 +47,7 @@ public class CookieTenantResolver implements TenantResolver, HttpRequestTenantRe
      *
      * @param configuration {@link CookieTenantResolver} configuration
      */
-    public CookieTenantResolver(CookieTenantResolverConfiguration configuration) {
+    public CookieTenantResolver(@NonNull CookieTenantResolverConfiguration configuration) {
         if (configuration != null) {
             this.cookiename = configuration.getCookiename();
         }
@@ -68,7 +67,7 @@ public class CookieTenantResolver implements TenantResolver, HttpRequestTenantRe
 
     @Override
     @NonNull
-    public Serializable resolveTenantIdentifier(@NonNull @NotNull HttpRequest<?> request) throws TenantNotFoundException {
+    public Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
         if (request.getCookies() != null) {
             Optional<Cookie> optionalTenantId = request.getCookies().findCookie(cookiename);
             if (optionalTenantId.isPresent()) {
