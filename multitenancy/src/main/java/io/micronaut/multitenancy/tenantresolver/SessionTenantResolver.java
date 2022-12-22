@@ -25,7 +25,6 @@ import io.micronaut.session.Session;
 import io.micronaut.session.http.HttpSessionFilter;
 import jakarta.inject.Singleton;
 
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Optional;
 
@@ -63,7 +62,7 @@ public class SessionTenantResolver implements TenantResolver, HttpRequestTenantR
 
     @Override
     @NonNull
-    public Serializable resolveTenantIdentifier(@NonNull @NotNull HttpRequest<?> request) throws TenantNotFoundException {
+    public Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
         if (this.attribute == null) {
             throw new TenantNotFoundException("Tenant could not be resolved from HTTP Session, because session attribute name is not set");
         }
