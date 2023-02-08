@@ -3,7 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
     <title>Micronaut Multitenancy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8" />
     <link rel="stylesheet" href="../css/custom.css" type="text/css" media="screen, print" title="Style" charset="utf-8" />
@@ -97,13 +96,13 @@
         <h1>Micronaut Multitenancy</h1>
         <p></p>
         <p>Help with common tasks such as tenant resolution for multi-tenancy aware Micronaut applications.</p>
-        <p><strong>Version:</strong> <select style='max-width: 200px' onChange='window.document.location.href=this.options[this.selectedIndex].value;'><option selected='selected' value='https://micronaut-projects.github.io/micronaut-multitenancy/snapshot/guide/index.html'>SNAPSHOT</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/4.2.0/guide/index.html'>4.2.0</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/4.1.0/guide/index.html'>4.1.0</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/4.0.0/guide/index.html'>4.0.0</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/4.0.0-M1/guide/index.html'>4.0.0-M1</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/3.0.0/guide/index.html'>3.0.0</option></select> </p>
+        <p><strong>Version:</strong> <select style='max-width: 200px' onChange='window.document.location.href=this.options[this.selectedIndex].value;'><option selected='selected' value='https://micronaut-projects.github.io/micronaut-multitenancy/snapshot/guide/index.html'>SNAPSHOT</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/latest/guide/index.html'>LATEST</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/4.2.0/guide/index.html'>4.2.0</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/4.1.0/guide/index.html'>4.1.0</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/4.0.0/guide/index.html'>4.0.0</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/4.0.0-M1/guide/index.html'>4.0.0-M1</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/3.0.0/guide/index.html'>3.0.0</option></select> </p>
     </div>
     
 <h1 id="releaseHistory"><a class="anchor" href="#releaseHistory"></a>1 Release History</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/releaseHistory.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/4.2.x/src/main/docs/guide/releaseHistory.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -119,7 +118,7 @@
 <h1 id="multitenancy"><a class="anchor" href="#multitenancy"></a>2 Introduction</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancy.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/4.2.x/src/main/docs/guide/multitenancy.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -203,7 +202,17 @@ your requests to other internal microservices to include the <code>tenant Id</co
 <div class="paragraph">
 <p>Your configuration in the <code>gateway</code> microservice will look like:</p>
 </div>
-<div class="listingblock">
+<div class="openblock">
+<div class="content">
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">micronaut.multitenancy.propagation.enabled=true
+micronaut.multitenancy.propagation.service-id-regex=catalogue
+micronaut.multitenancy.tenantresolver.subdomain.enabled=true
+micronaut.multitenancy.tenantwriter.httpheader.enabled=true</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">micronaut:
   multitenancy:
@@ -218,16 +227,164 @@ your requests to other internal microservices to include the <code>tenant Id</co
         enabled: true</code></pre>
 </div>
 </div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[micronaut]
+  [micronaut.multitenancy]
+    [micronaut.multitenancy.propagation]
+      enabled=true
+      service-id-regex="catalogue"
+    [micronaut.multitenancy.tenantresolver]
+      [micronaut.multitenancy.tenantresolver.subdomain]
+        enabled=true
+    [micronaut.multitenancy.tenantwriter]
+      [micronaut.multitenancy.tenantwriter.httpheader]
+        enabled=true</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy-config hljs" data-lang="groovy-config">micronaut {
+  multitenancy {
+    propagation {
+      enabled = true
+      serviceIdRegex = "catalogue"
+    }
+    tenantresolver {
+      subdomain {
+        enabled = true
+      }
+    }
+    tenantwriter {
+      httpheader {
+        enabled = true
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-hocon hljs" data-lang="hocon">{
+  micronaut {
+    multitenancy {
+      propagation {
+        enabled = true
+        service-id-regex = "catalogue"
+      }
+      tenantresolver {
+        subdomain {
+          enabled = true
+        }
+      }
+      tenantwriter {
+        httpheader {
+          enabled = true
+        }
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json-config hljs" data-lang="json-config">{
+  "micronaut": {
+    "multitenancy": {
+      "propagation": {
+        "enabled": true,
+        "service-id-regex": "catalogue"
+      },
+      "tenantresolver": {
+        "subdomain": {
+          "enabled": true
+        }
+      },
+      "tenantwriter": {
+        "httpheader": {
+          "enabled": true
+        }
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>In the <code>catalogue</code> microservice the configuration will look like:</p>
 </div>
-<div class="listingblock">
+<div class="openblock">
+<div class="content">
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">micronaut.multitenancy.tenantresolver.httpheader.enabled=true</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">micronaut:
   multitenancy:
     tenantresolver:
       httpheader:
         enabled: true</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[micronaut]
+  [micronaut.multitenancy]
+    [micronaut.multitenancy.tenantresolver]
+      [micronaut.multitenancy.tenantresolver.httpheader]
+        enabled=true</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy-config hljs" data-lang="groovy-config">micronaut {
+  multitenancy {
+    tenantresolver {
+      httpheader {
+        enabled = true
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-hocon hljs" data-lang="hocon">{
+  micronaut {
+    multitenancy {
+      tenantresolver {
+        httpheader {
+          enabled = true
+        }
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json-config hljs" data-lang="json-config">{
+  "micronaut": {
+    "multitenancy": {
+      "tenantresolver": {
+        "httpheader": {
+          "enabled": true
+        }
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -260,7 +417,7 @@ your requests to other internal microservices to include the <code>tenant Id</co
 <h1 id="multitenancyGorm"><a class="anchor" href="#multitenancyGorm"></a>3 Multi-Tenancy GORM</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancyGorm.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/4.2.x/src/main/docs/guide/multitenancyGorm.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -276,7 +433,7 @@ your requests to other internal microservices to include the <code>tenant Id</co
 <h1 id="repository"><a class="anchor" href="#repository"></a>4 Repository</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/repository.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/4.2.x/src/main/docs/guide/repository.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
