@@ -6,7 +6,7 @@ pluginManagement {
 }
 
 plugins {
-    id("io.micronaut.build.shared.settings") version "6.2.2"
+    id("io.micronaut.build.shared.settings") version "6.3.5"
 }
 
 rootProject.name = 'multitenancy-parent'
@@ -16,9 +16,11 @@ include 'multitenancy'
 
 micronautBuild {
     addSnapshotRepository()
+    useStandardizedProjectNames = true
     importMicronautCatalog()
     importMicronautCatalog("micronaut-serde")
     importMicronautCatalog("micronaut-reactor")
     importMicronautCatalog("micronaut-session")
+    importMicronautCatalog("micronaut-validation")
 }
 

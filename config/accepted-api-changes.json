@@ -1,0 +1,162 @@
+[
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$CookieTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Field $ANNOTATION_METADATA",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$CookieTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Constructor io.micronaut.multitenancy.tenantresolver.$CookieTenantResolver$Definition$Intercepted$Definition$Reference()",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$CookieTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.core.annotation.AnnotationSource",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$CookieTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.BeanContextConditional",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$CookieTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.core.annotation.AnnotationMetadataProvider",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$CookieTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.AdvisedBeanType",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$CookieTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.BeanType",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$CookieTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.BeanDefinitionReference",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$PrincipalTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Field $ANNOTATION_METADATA",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$PrincipalTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Constructor io.micronaut.multitenancy.tenantresolver.$PrincipalTenantResolver$Definition$Intercepted$Definition$Reference()",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$PrincipalTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.core.annotation.AnnotationSource",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$PrincipalTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.BeanContextConditional",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$PrincipalTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.core.annotation.AnnotationMetadataProvider",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$PrincipalTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.AdvisedBeanType",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$PrincipalTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.BeanType",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$PrincipalTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.BeanDefinitionReference",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$SessionTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Field $ANNOTATION_METADATA",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$SessionTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Constructor io.micronaut.multitenancy.tenantresolver.$SessionTenantResolver$Definition$Intercepted$Definition$Reference()",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$SessionTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.core.annotation.AnnotationSource",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$SessionTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.BeanContextConditional",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$SessionTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.core.annotation.AnnotationMetadataProvider",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$SessionTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.AdvisedBeanType",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$SessionTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.BeanType",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$SessionTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.BeanDefinitionReference",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$SubdomainTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Field $ANNOTATION_METADATA",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$SubdomainTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Constructor io.micronaut.multitenancy.tenantresolver.$SubdomainTenantResolver$Definition$Intercepted$Definition$Reference()",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$SubdomainTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.core.annotation.AnnotationSource",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$SubdomainTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.BeanContextConditional",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$SubdomainTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.core.annotation.AnnotationMetadataProvider",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$SubdomainTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.AdvisedBeanType",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$SubdomainTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.BeanType",
+    "reason": "Changes to Micronaut 4 core APIs."
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.$SubdomainTenantResolver$Definition$Intercepted$Definition$Reference",
+    "member": "Implemented interface io.micronaut.inject.BeanDefinitionReference",
+    "reason": "Changes to Micronaut 4 core APIs."
+  }
+]
