@@ -3,13 +3,13 @@ plugins {
 }
 
 dependencies {
+    annotationProcessor(mnValidation.micronaut.validation.processor)
+    implementation(mnValidation.micronaut.validation)
+
     api(mn.micronaut.http)
     api(mn.micronaut.inject)
 
     compileOnly(mnSession.micronaut.session)
-    compileOnly(libs.jakarta.inject.api)
-
-    testCompileOnly(libs.jakarta.inject.api)
 
     testImplementation(mnSerde.micronaut.serde.api)
     testImplementation(mnSerde.micronaut.serde.jackson)
