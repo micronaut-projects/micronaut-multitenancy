@@ -1,0 +1,5 @@
+io.micronaut.multitenancy
+io.micronaut.multitenancy.exceptions
+io.micronaut.multitenancy.propagation
+io.micronaut.multitenancy.tenantresolver
+io.micronaut.multitenancy.writer
