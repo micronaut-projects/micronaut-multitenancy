@@ -15,7 +15,6 @@ include 'multitenancy-bom'
 include 'multitenancy'
 
 micronautBuild {
-    addSnapshotRepository()
     useStandardizedProjectNames = true
     importMicronautCatalog()
     importMicronautCatalog("micronaut-serde")
