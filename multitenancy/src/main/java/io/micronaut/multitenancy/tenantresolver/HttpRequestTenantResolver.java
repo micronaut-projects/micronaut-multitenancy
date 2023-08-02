@@ -18,6 +18,7 @@ package io.micronaut.multitenancy.tenantresolver;
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.multitenancy.exceptions.TenantNotFoundException;
+import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 
@@ -36,5 +37,5 @@ public interface HttpRequestTenantResolver {
      * @throws TenantNotFoundException if tenant not found
      */
     @NonNull
-    Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException;
+    Serializable resolveTenantIdentifier(@NonNull @NotNull HttpRequest<?> request) throws TenantNotFoundException;
 }

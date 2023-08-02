@@ -23,6 +23,7 @@ import io.micronaut.http.HttpRequest;
 import io.micronaut.http.context.ServerRequestContext;
 import io.micronaut.multitenancy.exceptions.TenantNotFoundException;
 import jakarta.inject.Singleton;
+import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 import java.util.Optional;
@@ -46,7 +47,7 @@ public class SubdomainTenantResolver implements TenantResolver, HttpRequestTenan
 
     @Override
     @NonNull
-    public Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
+    public Serializable resolveTenantIdentifier(@NonNull @NotNull HttpRequest<?> request) throws TenantNotFoundException {
         if (request.getHeaders() != null) {
             String host = request.getHeaders().get(HttpHeaders.HOST);
             if (host != null) {
