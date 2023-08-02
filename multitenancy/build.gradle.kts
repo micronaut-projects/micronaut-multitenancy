@@ -3,14 +3,9 @@ plugins {
 }
 
 dependencies {
-    annotationProcessor(mnValidation.micronaut.validation.processor)
-    api(mnValidation.validation)
     api(mn.micronaut.http)
     api(mn.micronaut.inject)
-
     compileOnly(mnSession.micronaut.session)
-
-    testImplementation(mnValidation.micronaut.validation)
     testImplementation(mnSerde.micronaut.serde.api)
     testImplementation(mnSerde.micronaut.serde.jackson)
     testImplementation(mnReactor.micronaut.reactor)
