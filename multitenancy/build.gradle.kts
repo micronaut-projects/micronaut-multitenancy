@@ -1,5 +1,5 @@
 plugins {
-    id 'io.micronaut.build.internal.multitenancy-module'
+    id("io.micronaut.build.internal.multitenancy-module")
 }
 
 dependencies {
