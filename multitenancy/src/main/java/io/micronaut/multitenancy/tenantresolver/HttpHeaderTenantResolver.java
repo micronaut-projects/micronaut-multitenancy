@@ -23,7 +23,6 @@ import io.micronaut.http.context.ServerRequestContext;
 import io.micronaut.multitenancy.exceptions.TenantNotFoundException;
 import jakarta.inject.Singleton;
 
-import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Optional;
 
@@ -67,7 +66,7 @@ public class HttpHeaderTenantResolver implements TenantResolver, HttpRequestTena
 
     @Override
     @NonNull
-    public Serializable resolveTenantIdentifier(@NonNull @NotNull HttpRequest<?> request) throws TenantNotFoundException {
+    public Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
         String tenantId = request.getHeaders().get(headerName);
         if (tenantId == null) {
             throw new TenantNotFoundException("Tenant could not be resolved. Header " + headerName + " value is null");
