@@ -15,26 +15,22 @@
  */
 package io.micronaut.multitenancy.tenantresolver
 
-import io.micronaut.context.ApplicationContext
-import io.micronaut.context.env.Environment
-import spock.lang.AutoCleanup
-import spock.lang.Shared
+
+import io.micronaut.context.BeanContext
+import io.micronaut.context.annotation.Property
+import io.micronaut.core.util.StringUtils
+import io.micronaut.test.extensions.spock.annotation.MicronautTest
+import jakarta.inject.Inject
 import spock.lang.Specification
 
+@Property(name = "micronaut.multitenancy.tenantresolver.httpheader.enabled", value = StringUtils.TRUE)
+@MicronautTest(startApplication = false)
 class HttpHeaderTenantResolverEnabledSpec extends Specification {
-    static final SPEC_NAME_PROPERTY = 'spec.name'
-
-    @Shared
-    @AutoCleanup ApplicationContext context = ApplicationContext.run([
-            'micronaut.multitenancy.tenantresolver.httpheader.enabled': true,
-            (SPEC_NAME_PROPERTY):getClass().simpleName
-    ], Environment.TEST)
+    @Inject
+    BeanContext beanContext
 
     void "TenantResolver is enabled if micronaut.multitenancy.tenantresolver.httpheader.enabled = true"() {
-        when:
-        context.getBean(TenantResolver)
-
-        then:
-        noExceptionThrown()
+        expect:
+        beanContext.containsBean(TenantResolver)
     }
 }

@@ -26,6 +26,7 @@ import jakarta.inject.Singleton;
 
 import java.io.Serializable;
 import java.security.Principal;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -48,7 +49,7 @@ public class PrincipalTenantResolver implements TenantResolver, HttpRequestTenan
     @Override
     @NonNull
     public Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
-        return request.getUserPrincipal().map(Principal::getName)
+        return Objects.requireNonNull(request, "request must not be null").getUserPrincipal().map(Principal::getName)
                 .orElseThrow(() ->
                         new TenantNotFoundException("Tenant could not be resolved because " + HttpAttributes.PRINCIPAL + " attribute was not found")
                 );

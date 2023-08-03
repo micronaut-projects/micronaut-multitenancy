@@ -24,8 +24,8 @@ import io.micronaut.multitenancy.exceptions.TenantNotFoundException;
 import io.micronaut.session.Session;
 import io.micronaut.session.http.HttpSessionFilter;
 import jakarta.inject.Singleton;
-
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -67,7 +67,7 @@ public class SessionTenantResolver implements TenantResolver, HttpRequestTenantR
             throw new TenantNotFoundException("Tenant could not be resolved from HTTP Session, because session attribute name is not set");
         }
 
-        Optional<Session> opt = request.getAttributes().get(HttpSessionFilter.SESSION_ATTRIBUTE, Session.class);
+        Optional<Session> opt = Objects.requireNonNull(request, "request must not be null").getAttributes().get(HttpSessionFilter.SESSION_ATTRIBUTE, Session.class);
         if (!opt.isPresent()) {
             throw new TenantNotFoundException("Tenant could not be resolved from HTTP Session, if session not present");
         }

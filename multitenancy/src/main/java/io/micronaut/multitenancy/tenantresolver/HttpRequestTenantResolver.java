@@ -18,7 +18,6 @@ package io.micronaut.multitenancy.tenantresolver;
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.multitenancy.exceptions.TenantNotFoundException;
-
 import java.io.Serializable;
 
 /**
