@@ -6,7 +6,7 @@ groovy = "4.0.13"
 spock = "2.3-groovy-4.0"
 
 micronaut-reactor = "3.0.2"
-micronaut-serde = "2.0.0"
+micronaut-serde = "2.2.1"
 micronaut-session = "4.0.0"
 micronaut-validation = "4.0.1"
 
