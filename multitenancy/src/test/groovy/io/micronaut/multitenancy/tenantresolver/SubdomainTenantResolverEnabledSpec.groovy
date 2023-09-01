@@ -17,6 +17,8 @@ package io.micronaut.multitenancy.tenantresolver
 
 import io.micronaut.context.ApplicationContext
 import io.micronaut.context.env.Environment
+import io.micronaut.http.HttpRequest
+import io.micronaut.multitenancy.exceptions.TenantNotFoundException
 import spock.lang.AutoCleanup
 import spock.lang.Shared
 import spock.lang.Specification
@@ -40,5 +42,34 @@ class SubdomainTenantResolverEnabledSpec extends Specification {
         and:
         context.containsBean(HttpRequestTenantResolver)
         context.getBean(HttpRequestTenantResolver) instanceof SubdomainTenantResolver
+    }
+
+    void "TenantResolver resolves tenant identifier"() {
+        given:
+        HttpRequest<?> request = HttpRequest.GET(uri)
+        if (header != null) {
+            request = request.header('Host', header)
+        }
+
+        expect:
+        context.getBean(SubdomainTenantResolver).resolveTenantIdentifier(request) == expected
+
+        where:
+        uri                                     | header         | expected
+        'https://www.example.com/path/resource' | 'test.com'     | 'test'
+        'https://www.example.com/path/resource' | null           | 'www'
+        'https://example.com/path/resource'     | null           | 'example'
+        'https://www.example.com/path/resource' | ''             | 'DEFAULT'
+        'https://www.example.com/path/resource' | 'test'         | 'DEFAULT'
+        'https://www.example.com/path/resource' | 'test.com'     | 'test'
+        'https://example.com/path/resource'     | 'www.test.com' | 'www'
+    }
+
+    void "TenantResolver resolves tenant identifier - no http request"() {
+        when:
+        new SubdomainTenantResolver().resolveTenantIdentifier()
+
+        then:
+        thrown(TenantNotFoundException)
     }
 }
