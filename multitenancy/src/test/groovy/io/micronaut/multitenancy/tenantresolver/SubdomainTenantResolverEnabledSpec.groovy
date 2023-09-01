@@ -65,6 +65,23 @@ class SubdomainTenantResolverEnabledSpec extends Specification {
         'https://example.com/path/resource'     | 'www.test.com' | 'www'
     }
 
+    void "TenantResolver resolves tenant identifier - no http host resolver"() {
+        given:
+        HttpRequest<?> request = HttpRequest.GET(uri).header('Host', header)
+
+        expect:
+        new SubdomainTenantResolver().resolveTenantIdentifier(request) == expected
+
+        where:
+        uri                                     | header             | expected
+        'https://www.example.com/path/resource' | 'test.com'         | 'test'
+        'https://www.example.com/path/resource' | 'https://test.com' | 'test'
+        'https://www.example.com/path/resource' | ''                 | 'DEFAULT'
+        'https://www.example.com/path/resource' | 'test'             | 'DEFAULT'
+        'https://www.example.com/path/resource' | 'test.com'         | 'test'
+        'https://example.com/path/resource'     | 'www.test.com'     | 'www'
+    }
+
     void "TenantResolver resolves tenant identifier - no http request"() {
         when:
         new SubdomainTenantResolver().resolveTenantIdentifier()
