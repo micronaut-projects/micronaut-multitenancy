@@ -21,7 +21,9 @@ import io.micronaut.core.util.StringUtils;
 import io.micronaut.http.HttpHeaders;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.context.ServerRequestContext;
+import io.micronaut.http.server.util.HttpHostResolver;
 import io.micronaut.multitenancy.exceptions.TenantNotFoundException;
+import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import java.io.Serializable;
 import java.util.Objects;
@@ -37,6 +39,25 @@ import java.util.Optional;
 @Requires(property = SubdomainTenantResolverConfigurationProperties.PREFIX + ".enabled", value = StringUtils.TRUE, defaultValue = StringUtils.FALSE)
 public class SubdomainTenantResolver implements TenantResolver, HttpRequestTenantResolver {
 
+    HttpHostResolver httpHostResolver;
+
+    /**
+     * @param httpHostResolver HTTP host resolver.
+     * @since 5.0.3
+     */
+    @Inject
+    SubdomainTenantResolver(HttpHostResolver httpHostResolver) {
+        this.httpHostResolver = httpHostResolver;
+    }
+
+    /**
+     * @deprecated Use {@link SubdomainTenantResolver#SubdomainTenantResolver(HttpHostResolver)}
+     */
+    @Deprecated(since = "5.0.3", forRemoval = true)
+    SubdomainTenantResolver() {
+        this.httpHostResolver = null;
+    }
+
     @Override
     @NonNull
     public Serializable resolveTenantIdentifier() {
@@ -47,18 +68,24 @@ public class SubdomainTenantResolver implements TenantResolver, HttpRequestTenan
     @Override
     @NonNull
     public Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
-        if (Objects.requireNonNull(request, "request must not be null").getHeaders() != null) {
-            String host = request.getHeaders().get(HttpHeaders.HOST);
-            if (host != null) {
-                if (host.contains("/")) {
-                    host = host.substring(host.indexOf("/") + 2);
-                }
-                if (host.contains(".")) {
-                    return host.substring(0, host.indexOf("."));
-                }
-            }
-            return TenantResolver.DEFAULT;
-        }
-        return TenantResolver.DEFAULT;
+        Objects.requireNonNull(request, "request must not be null");
+        return Optional.ofNullable(httpHostResolver)
+            .map(r -> r.resolve(request))
+            .or(() -> getHost(request))
+            .map(this::normalizeHost)
+            .map(this::resolveIdentifier)
+            .orElse(TenantResolver.DEFAULT);
+    }
+
+    private Optional<String> getHost(@NonNull HttpRequest<?> request) {
+        return Optional.ofNullable(request.getHeaders().get(HttpHeaders.HOST));
+    }
+
+    private String normalizeHost(String host) {
+        return host.contains("/") ? host.substring(host.indexOf("/") + 2) : host;
+    }
+
+    private Serializable resolveIdentifier(String host) {
+        return host.contains(".") ? host.substring(0, host.indexOf(".")) : null;
     }
 }
