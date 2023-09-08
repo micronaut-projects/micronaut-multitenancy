@@ -38,6 +38,7 @@ import java.util.Optional;
  * @since 6.0
  */
 @Singleton
+@Requires(bean = HttpHostResolver.class)
 @Requires(property = SubdomainTenantResolverConfigurationProperties.PREFIX + ".enabled", value = StringUtils.TRUE, defaultValue = StringUtils.FALSE)
 public class SubdomainTenantResolver implements TenantResolver, HttpRequestTenantResolver {
 
