@@ -15,10 +15,10 @@
  */
 package io.micronaut.multitenancy.tenantresolver;
 
+import com.google.common.net.InternetDomainName;
 import io.micronaut.context.annotation.Requires;
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.core.util.StringUtils;
-import io.micronaut.http.HttpHeaders;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.context.ServerRequestContext;
 import io.micronaut.http.server.HttpServerConfiguration;
@@ -30,6 +30,8 @@ import jakarta.inject.Singleton;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Optional;
+
+import static java.util.stream.Collectors.joining;
 
 /**
  * A tenant resolver that resolves the tenant from the Subdomain.
@@ -71,17 +73,8 @@ public class SubdomainTenantResolver implements TenantResolver, HttpRequestTenan
     @Override
     @NonNull
     public Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
-        Objects.requireNonNull(request, "request must not be null");
-        return Optional.ofNullable(httpHostResolver)
-            .map(r -> r.resolve(request))
-            .or(() -> getHost(request))
-            .map(this::normalizeHost)
-            .map(this::resolveIdentifier)
-            .orElse(TenantResolver.DEFAULT);
-    }
-
-    private Optional<String> getHost(@NonNull HttpRequest<?> request) {
-        return Optional.ofNullable(request.getHeaders().get(HttpHeaders.HOST));
+        final String host = httpHostResolver.resolve(Objects.requireNonNull(request, "request must not be null"));
+        return resolveIdentifier(normalizeHost(host));
     }
 
     private String normalizeHost(String host) {
@@ -89,6 +82,17 @@ public class SubdomainTenantResolver implements TenantResolver, HttpRequestTenan
     }
 
     private Serializable resolveIdentifier(String host) {
-        return host.contains(".") ? host.substring(0, host.indexOf(".")) : null;
+        if (InternetDomainName.isValid(host)) {
+            final InternetDomainName domain = InternetDomainName.from(host);
+            final int subdomainParts = domain.parts().size() - getTopDomain(domain).parts().size();
+            if (subdomainParts > 0) {
+                return domain.parts().stream().limit(subdomainParts).collect(joining("."));
+            }
+        }
+        return DEFAULT;
+    }
+
+    private InternetDomainName getTopDomain(InternetDomainName domain) {
+        return domain.isUnderPublicSuffix() ? domain.topPrivateDomain() : domain;
     }
 }

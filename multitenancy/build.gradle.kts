@@ -7,6 +7,7 @@ dependencies {
     compileOnly(mn.micronaut.http.server)
     api(mn.micronaut.inject)
     compileOnly(mnSession.micronaut.session)
+    implementation(libs.guava)
     testImplementation(mnSerde.micronaut.serde.api)
     testImplementation(mnSerde.micronaut.serde.jackson)
     testImplementation(mnReactor.micronaut.reactor)
