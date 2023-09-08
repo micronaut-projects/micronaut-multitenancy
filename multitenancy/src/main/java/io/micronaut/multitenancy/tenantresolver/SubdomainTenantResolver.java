@@ -21,6 +21,8 @@ import io.micronaut.core.util.StringUtils;
 import io.micronaut.http.HttpHeaders;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.context.ServerRequestContext;
+import io.micronaut.http.server.HttpServerConfiguration;
+import io.micronaut.http.server.util.DefaultHttpHostResolver;
 import io.micronaut.http.server.util.HttpHostResolver;
 import io.micronaut.multitenancy.exceptions.TenantNotFoundException;
 import jakarta.inject.Inject;
@@ -55,7 +57,7 @@ public class SubdomainTenantResolver implements TenantResolver, HttpRequestTenan
      */
     @Deprecated(since = "5.0.3", forRemoval = true)
     SubdomainTenantResolver() {
-        this.httpHostResolver = null;
+        this(new DefaultHttpHostResolver(new HttpServerConfiguration(), null));
     }
 
     @Override
