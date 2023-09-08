@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
     api(mn.micronaut.http)
-    api(mn.micronaut.http.server)
+    compileOnly(mn.micronaut.http.server)
     api(mn.micronaut.inject)
     compileOnly(mnSession.micronaut.session)
     testImplementation(mnSerde.micronaut.serde.api)
