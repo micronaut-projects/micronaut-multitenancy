@@ -54,32 +54,26 @@ class SubdomainTenantResolverEnabledSpec extends Specification {
         expect:
         context.getBean(SubdomainTenantResolver).resolveTenantIdentifier(request) == expected
 
-        where:
-        uri                                     | header         | expected
-        'https://www.example.com/path/resource' | 'test.com'     | 'test'
-        'https://www.example.com/path/resource' | null           | 'www'
-        'https://example.com/path/resource'     | null           | 'example'
-        'https://www.example.com/path/resource' | ''             | 'DEFAULT'
-        'https://www.example.com/path/resource' | 'test'         | 'DEFAULT'
-        'https://www.example.com/path/resource' | 'test.com'     | 'test'
-        'https://example.com/path/resource'     | 'www.test.com' | 'www'
-    }
-
-    void "TenantResolver resolves tenant identifier - no http host resolver"() {
-        given:
-        HttpRequest<?> request = HttpRequest.GET(uri).header('Host', header)
-
-        expect:
+        and:
         new SubdomainTenantResolver().resolveTenantIdentifier(request) == expected
 
         where:
-        uri                                     | header             | expected
-        'https://www.example.com/path/resource' | 'test.com'         | 'test'
-        'https://www.example.com/path/resource' | 'https://test.com' | 'test'
-        'https://www.example.com/path/resource' | ''                 | 'DEFAULT'
-        'https://www.example.com/path/resource' | 'test'             | 'DEFAULT'
-        'https://www.example.com/path/resource' | 'test.com'         | 'test'
-        'https://example.com/path/resource'     | 'www.test.com'     | 'www'
+        uri                                              | header                     | expected
+        'https://www.example.com/path/resource'          | 'test.com'                 | 'DEFAULT'
+        'https://example.com/path/resource'              | null                       | 'DEFAULT'
+        'https://www.example.com/path/resource'          | null                       | 'www'
+        'https://domain.co.uk/path/resource'             | null                       | 'DEFAULT'
+        'https://duper.domain.co.uk/path/resource'       | null                       | 'duper'
+        'https://super.duper.domain.co.uk/path/resource' | null                       | 'super.duper'
+        'https://example.com/path/resource'              | null                       | 'DEFAULT'
+        'https://www.example.com/path/resource'          | ''                         | 'DEFAULT'
+        'https://www.example.com/path/resource'          | 'test'                     | 'DEFAULT'
+        'https://www.example.com/path/resource'          | 'test.com'                 | 'DEFAULT'
+        'https://example.com/path/resource'              | 'www.test.com'             | 'www'
+        'https://example.com/path/resource'              | 'domain.co.uk'             | 'DEFAULT'
+        'https://example.com/path/resource'              | 'duper.domain.co.uk'       | 'duper'
+        'https://example.com/path/resource'              | 'super.duper.domain.co.uk' | 'super.duper'
+        'https://example.com/path/resource'              | 'lorem.ipsum.dev'          | 'lorem'
     }
 
     void "TenantResolver resolves tenant identifier - no http request"() {
