@@ -15,11 +15,15 @@
  */
 package io.micronaut.multitenancy.tenantresolver
 
+import io.micronaut.http.HttpHeaders
 import io.micronaut.context.ApplicationContext
 import io.micronaut.context.env.Environment
 import io.micronaut.http.HttpRequest
+import io.micronaut.inject.BeanDefinition
 import io.micronaut.multitenancy.exceptions.TenantNotFoundException
+import io.micronaut.context.annotation.Secondary
 import spock.lang.AutoCleanup
+import spock.lang.PendingFeature
 import spock.lang.Shared
 import spock.lang.Specification
 
@@ -34,51 +38,112 @@ class SubdomainTenantResolverEnabledSpec extends Specification {
 
     void "TenantResolver is enabled if micronaut.multitenancy.tenantresolver.subdomain.enabled = true"() {
         when:
-        context.getBean(TenantResolver)
+        List<TenantResolver> resolvers = context.getBeansOfType(TenantResolver)
 
         then:
         noExceptionThrown()
-
-        and:
-        context.containsBean(HttpRequestTenantResolver)
-        context.getBean(HttpRequestTenantResolver) instanceof SubdomainTenantResolver
+        resolvers.stream().any(resolver -> resolver instanceof HttpRequestTenantResolver)
+        resolvers.stream().any(resolver -> resolver instanceof InternetDomainNameSubdomainTenantResolver)
+        resolvers.stream().any(resolver -> resolver instanceof PublicSuffixListSubdomainTenantResolver)
     }
 
-    void "TenantResolver resolves tenant identifier"() {
+    @PendingFeature
+    void "TenantResolver resolves tenant identifier with Second-level domain"(Class<? extends AbstractSubdomainTenantResolver> clazz, String uri, String header, String expected) {
         given:
         HttpRequest<?> request = HttpRequest.GET(uri)
         if (header != null) {
-            request = request.header('Host', header)
+            request = request.header(HttpHeaders.HOST, header)
         }
 
         expect:
-        context.getBean(SubdomainTenantResolver).resolveTenantIdentifier(request) == expected
-
-        and:
-        new SubdomainTenantResolver().resolveTenantIdentifier(request) == expected
+        context.getBean(clazz).resolveTenantIdentifier(request) == expected
 
         where:
-        uri                                              | header                     | expected
-        'https://www.example.com/path/resource'          | 'test.com'                 | 'DEFAULT'
-        'https://example.com/path/resource'              | null                       | 'DEFAULT'
-        'https://www.example.com/path/resource'          | null                       | 'www'
-        'https://domain.co.uk/path/resource'             | null                       | 'DEFAULT'
-        'https://duper.domain.co.uk/path/resource'       | null                       | 'duper'
-        'https://super.duper.domain.co.uk/path/resource' | null                       | 'super.duper'
-        'https://example.com/path/resource'              | null                       | 'DEFAULT'
-        'https://www.example.com/path/resource'          | ''                         | 'DEFAULT'
-        'https://www.example.com/path/resource'          | 'test'                     | 'DEFAULT'
-        'https://www.example.com/path/resource'          | 'test.com'                 | 'DEFAULT'
-        'https://example.com/path/resource'              | 'www.test.com'             | 'www'
-        'https://example.com/path/resource'              | 'domain.co.uk'             | 'DEFAULT'
-        'https://example.com/path/resource'              | 'duper.domain.co.uk'       | 'duper'
-        'https://example.com/path/resource'              | 'super.duper.domain.co.uk' | 'super.duper'
-        'https://example.com/path/resource'              | 'lorem.ipsum.dev'          | 'lorem'
+        clazz                   | uri                                              | header                     | expected
+        SubdomainTenantResolver | 'https://domain.co.uk/path/resource'             | null                       | 'DEFAULT'
+        SubdomainTenantResolver | 'https://duper.domain.co.uk/path/resource'       | null                       | 'duper'
+        SubdomainTenantResolver | 'https://super.duper.domain.co.uk/path/resource' | null                       | 'super.duper'
+        SubdomainTenantResolver | 'https://example.com/path/resource'              | 'domain.co.uk'             | 'DEFAULT'
+        SubdomainTenantResolver | 'https://example.com/path/resource'              | 'duper.domain.co.uk'       | 'duper'
+        SubdomainTenantResolver | 'https://example.com/path/resource'              | 'super.duper.domain.co.uk' | 'super.duper'
+    }
+
+    void "TenantResolver resolves tenant identifier"(Class<? extends AbstractSubdomainTenantResolver> clazz, String uri, String header, String expected) {
+        given:
+        HttpRequest<?> request = HttpRequest.GET(uri)
+        if (header != null) {
+            request = request.header(HttpHeaders.HOST, header)
+        }
+
+        expect:
+        context.getBean(clazz).resolveTenantIdentifier(request) == expected
+
+        where:
+        clazz                                     | uri                                              | header                     | expected
+        SubdomainTenantResolver                   | 'https://www.example.com/path/resource'          | 'test.com'                 | 'DEFAULT'
+        SubdomainTenantResolver                   | 'https://example.com/path/resource'              | null                       | 'DEFAULT'
+        SubdomainTenantResolver                   | 'https://www.example.com/path/resource'          | null                       | 'www'
+        SubdomainTenantResolver                   | 'https://example.com/path/resource'              | null                       | 'DEFAULT'
+        SubdomainTenantResolver                   | 'https://www.example.com/path/resource'          | ''                         | 'DEFAULT'
+        SubdomainTenantResolver                   | 'https://www.example.com/path/resource'          | 'test'                     | 'DEFAULT'
+        SubdomainTenantResolver                   | 'https://www.example.com/path/resource'          | 'test.com'                 | 'DEFAULT'
+        SubdomainTenantResolver                   | 'https://example.com/path/resource'              | 'www.test.com'             | 'www'
+        SubdomainTenantResolver                   | 'https://example.com/path/resource'              | 'lorem.ipsum.dev'          | 'lorem'
+        InternetDomainNameSubdomainTenantResolver | 'https://www.example.com/path/resource'          | 'test.com'                 | 'DEFAULT'
+        InternetDomainNameSubdomainTenantResolver | 'https://example.com/path/resource'              | null                       | 'DEFAULT'
+        InternetDomainNameSubdomainTenantResolver | 'https://www.example.com/path/resource'          | null                       | 'www'
+        InternetDomainNameSubdomainTenantResolver | 'https://domain.co.uk/path/resource'             | null                       | 'DEFAULT'
+        InternetDomainNameSubdomainTenantResolver | 'https://duper.domain.co.uk/path/resource'       | null                       | 'duper'
+        InternetDomainNameSubdomainTenantResolver | 'https://super.duper.domain.co.uk/path/resource' | null                       | 'super.duper'
+        InternetDomainNameSubdomainTenantResolver | 'https://example.com/path/resource'              | null                       | 'DEFAULT'
+        InternetDomainNameSubdomainTenantResolver | 'https://www.example.com/path/resource'          | ''                         | 'DEFAULT'
+        InternetDomainNameSubdomainTenantResolver | 'https://www.example.com/path/resource'          | 'test'                     | 'DEFAULT'
+        InternetDomainNameSubdomainTenantResolver | 'https://www.example.com/path/resource'          | 'test.com'                 | 'DEFAULT'
+        InternetDomainNameSubdomainTenantResolver | 'https://example.com/path/resource'              | 'www.test.com'             | 'www'
+        InternetDomainNameSubdomainTenantResolver | 'https://example.com/path/resource'              | 'domain.co.uk'             | 'DEFAULT'
+        InternetDomainNameSubdomainTenantResolver | 'https://example.com/path/resource'              | 'duper.domain.co.uk'       | 'duper'
+        InternetDomainNameSubdomainTenantResolver | 'https://example.com/path/resource'              | 'super.duper.domain.co.uk' | 'super.duper'
+        InternetDomainNameSubdomainTenantResolver | 'https://example.com/path/resource'              | 'lorem.ipsum.dev'          | 'lorem'
+        PublicSuffixListSubdomainTenantResolver   | 'https://www.example.com/path/resource'          | 'test.com'                 | 'DEFAULT'
+        PublicSuffixListSubdomainTenantResolver   | 'https://example.com/path/resource'              | null                       | 'DEFAULT'
+        PublicSuffixListSubdomainTenantResolver   | 'https://www.example.com/path/resource'          | null                       | 'www'
+        PublicSuffixListSubdomainTenantResolver   | 'https://domain.co.uk/path/resource'             | null                       | 'DEFAULT'
+        PublicSuffixListSubdomainTenantResolver   | 'https://duper.domain.co.uk/path/resource'       | null                       | 'duper'
+        PublicSuffixListSubdomainTenantResolver   | 'https://super.duper.domain.co.uk/path/resource' | null                       | 'super.duper'
+        PublicSuffixListSubdomainTenantResolver   | 'https://example.com/path/resource'              | null                       | 'DEFAULT'
+        PublicSuffixListSubdomainTenantResolver   | 'https://www.example.com/path/resource'          | ''                         | 'DEFAULT'
+        PublicSuffixListSubdomainTenantResolver   | 'https://www.example.com/path/resource'          | 'test'                     | 'DEFAULT'
+        PublicSuffixListSubdomainTenantResolver   | 'https://www.example.com/path/resource'          | 'test.com'                 | 'DEFAULT'
+        PublicSuffixListSubdomainTenantResolver   | 'https://example.com/path/resource'              | 'www.test.com'             | 'www'
+        PublicSuffixListSubdomainTenantResolver   | 'https://example.com/path/resource'              | 'domain.co.uk'             | 'DEFAULT'
+        PublicSuffixListSubdomainTenantResolver   | 'https://example.com/path/resource'              | 'duper.domain.co.uk'       | 'duper'
+        PublicSuffixListSubdomainTenantResolver   | 'https://example.com/path/resource'              | 'super.duper.domain.co.uk' | 'super.duper'
+        PublicSuffixListSubdomainTenantResolver   | 'https://example.com/path/resource'              | 'lorem.ipsum.dev'          | 'lorem'
+    }
+
+    void "SubdomainTenantResolver is annotated with @Secondary"() {
+        when:
+        BeanDefinition bd = context.getBeanDefinition(SubdomainTenantResolver)
+
+        then:
+        bd.hasAnnotation(Secondary.class)
     }
 
     void "TenantResolver resolves tenant identifier - no http request"() {
         when:
-        new SubdomainTenantResolver().resolveTenantIdentifier()
+        context.getBean(InternetDomainNameSubdomainTenantResolver).resolveTenantIdentifier()
+
+        then:
+        thrown(TenantNotFoundException)
+
+        when:
+        context.getBean(PublicSuffixListSubdomainTenantResolver).resolveTenantIdentifier()
+
+        then:
+        thrown(TenantNotFoundException)
+
+        when:
+        context.getBean(SubdomainTenantResolver).resolveTenantIdentifier()
 
         then:
         thrown(TenantNotFoundException)

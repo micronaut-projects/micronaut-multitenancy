@@ -4,6 +4,7 @@ micronaut-docs = "2.0.0"
 micronaut-test = "4.0.0"
 groovy = "4.0.13"
 guava = "32.1.2-jre"
+managed-publicsuffixlist = "2.2.0"
 spock = "2.3-groovy-4.0"
 
 micronaut-reactor = "3.0.2"
@@ -13,6 +14,7 @@ micronaut-validation = "4.0.1"
 
 [libraries]
 guava = { module = 'com.google.guava:guava', version.ref = 'guava' }
+managed-publicsuffixlist = { module = 'de.malkusch.whois-server-list:public-suffix-list', version.ref = 'managed-publicsuffixlist' }
 
 # Core
 micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }

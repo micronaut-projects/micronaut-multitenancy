@@ -1,0 +1,6 @@
+The api:multitenancy.tenantresolver.PublicSuffixListSubdomainTenantResolver[] uses the https://github.com/whois-server-list/public-suffix-list[Public Suffix List API] dependency.
+
+To use it in addition to the `micronaut-multitenancy` dependency, you need to the Public Suffix List API dependency to your classpath:
+
+dependency:de.malkusch.whois-server-list:public-suffix-list[]
+

@@ -18,6 +18,7 @@ package io.micronaut.docs
 import io.micronaut.context.ApplicationContext
 import io.micronaut.context.env.Environment
 import io.micronaut.context.exceptions.NoSuchBeanException
+import io.micronaut.core.util.StringUtils
 import io.micronaut.multitenancy.propagation.TenantPropagationHttpClientFilter
 import io.micronaut.multitenancy.tenantresolver.TenantResolver
 import io.micronaut.multitenancy.writer.TenantWriter
@@ -95,12 +96,13 @@ micronaut:
 
     @Shared
     Map<String, Object> gatewayconfig = [
-            'spec.name' : 'docstenantpropagationgateway',
+            'spec.name': 'docstenantpropagationgateway',
+            'micronaut.multitenancy.tenantresolver.subdomain.guava.enabled': StringUtils.FALSE
     ] << flatten(gatewayConfMap)
 
     @Shared
     Map<String, Object> catalogueconfig = [
-            'spec.name' : 'docstenantpropagationcatalogue',
+            'spec.name' : 'docstenantpropagationcatalogue'
     ] << flatten(catalogueConfMap)
 
     @Shared

@@ -49,7 +49,7 @@ public class SubdomainTenantResolverConfigurationProperties implements Subdomain
     }
 
     /**
-     * Enables {@link io.micronaut.multitenancy.tenantresolver.SubdomainTenantResolver}. Default value ({@value #DEFAULT_ENABLE}).
+     * Enables {@link InternetDomainNameSubdomainTenantResolver}. Default value ({@value #DEFAULT_ENABLE}).
      * @param enabled True or false.
      */
     public void setEnabled(boolean enabled) {

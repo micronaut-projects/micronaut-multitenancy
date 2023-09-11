@@ -1,0 +1,34 @@
+Micronaut supports tenant propagation. As an example, take the following scenario:
+
+image:multitenancy.svg[]
+
+You want incoming requests to the `gateway` microservice to resolve the tenant id via subdomain. However, you want
+your requests to other internal microservices to include the `tenant Id` as an HTTP Header.
+
+Your configuration in the `gateway` microservice will look like:
+
+[source, yaml]
+----
+include::{testsmultitenancy}/TenantPropagationSpec.groovy[tag=gatewayConfig,indent=0]
+----
+
+In the `catalogue` microservice the configuration will look like:
+
+[source, yaml]
+----
+include::{testsmultitenancy}/TenantPropagationSpec.groovy[tag=catalogueConfig,indent=0]
+----
+
+To propagate the tenant you will need to write the resolved tenant ID to the outgoing requests.
+
+Currently, Micronaut ships with two built-in implementations for api:multitenancy.writer.TenantWriter[]:
+
+|===
+| name|description
+| api:multitenancy.writer.CookieTenantWriter[]
+| Writes the current tenant to a Cookie in your outgoing requests. See link:configurationreference.html#io.micronaut.multitenancy.writer.CookieTenantWriterConfigurationProperties[CookieTenantWriter Configuration Properties].
+| api:multitenancy.writer.HttpHeaderTenantWriter[]
+| Writes the current tenant to a HTTP Header. See link:configurationreference.html#io.micronaut.multitenancy.writer.HttpHeaderTenantWriterConfigurationProperties[HttpHeaderTenantWriter Configuration Properties].
+|===
+
+
