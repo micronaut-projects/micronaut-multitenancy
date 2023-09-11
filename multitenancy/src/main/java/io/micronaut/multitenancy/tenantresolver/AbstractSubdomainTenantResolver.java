@@ -71,12 +71,7 @@ public abstract class AbstractSubdomainTenantResolver implements TenantResolver,
 
     @NonNull
     private String hostWithoutProtocol(@NonNull String host) {
-        if (host.startsWith(HTTPS_SLASH_SLASH)) {
-            return host.substring(HTTPS_SLASH_SLASH.length());
-        }
-        if (host.startsWith(HTTP_SLASH_SLASH)) {
-            return host.substring(HTTP_SLASH_SLASH.length());
-        }
-        return host;
+        final int protocol = host.indexOf("://");
+        return protocol < 0 ? host : host.substring(protocol + 3);
     }
 }
