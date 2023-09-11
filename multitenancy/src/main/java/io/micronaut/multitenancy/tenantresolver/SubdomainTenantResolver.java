@@ -39,6 +39,8 @@ import java.io.Serializable;
 @Requires(bean = HttpHostResolver.class)
 @Requires(property = SubdomainTenantResolverConfigurationProperties.PREFIX + ".enabled", value = StringUtils.TRUE, defaultValue = StringUtils.FALSE)
 public class SubdomainTenantResolver extends AbstractSubdomainTenantResolver {
+    private static final char DOT = '.';
+
     /**
      * @param httpHostResolver HTTP host resolver.
      * @since 5.0.3
@@ -59,8 +61,12 @@ public class SubdomainTenantResolver extends AbstractSubdomainTenantResolver {
     @Override
     @NonNull
     protected Serializable resolveSubdomain(@NonNull String host) {
-        if (host.chars().filter(ch -> ch == '.').count() > 1) {
-            return host.substring(0, host.indexOf("."));
+        if (host.chars().filter(ch -> ch == DOT).count() > 1) {
+            String domainWithoutSuffix = host.substring(0, host.lastIndexOf(DOT));
+            int index = domainWithoutSuffix.lastIndexOf(DOT);
+            if (index != -1) {
+                return domainWithoutSuffix.substring(0, index);
+            }
         }
         return TenantResolver.DEFAULT;
     }
