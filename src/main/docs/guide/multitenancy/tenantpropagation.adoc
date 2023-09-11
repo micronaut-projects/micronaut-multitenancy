@@ -14,7 +14,7 @@ include::{testsmultitenancy}/TenantPropagationSpec.groovy[tag=gatewayConfig,inde
 
 In the `catalogue` microservice the configuration will look like:
 
-[source, yaml]
+[configuration]
 ----
 include::{testsmultitenancy}/TenantPropagationSpec.groovy[tag=catalogueConfig,indent=0]
 ----
