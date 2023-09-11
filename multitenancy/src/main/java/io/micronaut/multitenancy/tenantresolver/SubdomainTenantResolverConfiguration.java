@@ -18,7 +18,7 @@ package io.micronaut.multitenancy.tenantresolver;
 import io.micronaut.core.util.Toggleable;
 
 /**
- * An interface defining {@link InternetDomainNameSubdomainTenantResolver} configuration.
+ * An interface defining  {@link io.micronaut.multitenancy.tenantresolver.SubdomainTenantResolver} configuration.
  *
  * @author Sergio del Amo
  * @since 1.0.0
