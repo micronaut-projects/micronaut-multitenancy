@@ -28,10 +28,11 @@ import jakarta.inject.Singleton;
 import java.io.Serializable;
 
 /**
- * Abstract class for a tenant resolver that resolves the tenant from the Subdomain.
+ * Tenant resolver that resolves the tenant from the Subdomain. It requires a bean of type {@link HttpHostResolver}.
+ * It does not support every domain suffix. For example, it does not support second-level domains.
+ * @see <a href="https://publicsuffix.org>publicsuffix.org</a>
  *
  * @author Sergio del Amo
- * @since 6.0
  */
 @Singleton
 @Secondary
