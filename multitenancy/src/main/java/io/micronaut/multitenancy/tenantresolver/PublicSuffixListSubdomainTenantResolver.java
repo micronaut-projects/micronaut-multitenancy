@@ -38,10 +38,11 @@ import java.io.Serializable;
 @Requires(property = SubdomainTenantResolverConfigurationProperties.PREFIX + ".enabled", value = StringUtils.TRUE, defaultValue = StringUtils.FALSE)
 public class PublicSuffixListSubdomainTenantResolver extends AbstractSubdomainTenantResolver {
     private final PublicSuffixList suffixList;
-        /**
-         * @param httpHostResolver HTTP host resolver.
-         * @since 5.0.3
-         */
+
+    /**
+     *
+     * @param httpHostResolver Http Host Resolver
+     */
     PublicSuffixListSubdomainTenantResolver(HttpHostResolver httpHostResolver) {
         super(httpHostResolver);
         PublicSuffixListFactory factory = new PublicSuffixListFactory();
