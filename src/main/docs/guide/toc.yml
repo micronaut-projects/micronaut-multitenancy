@@ -1,5 +1,9 @@
 releaseHistory: Release History
-multitenancy: Introduction
+multitenancy:
+  title: Introduction
+  installation: Installation
+  tenantresolvers: Built-In Tenant Resolvers
+  tenantpropagation: Tenant Propagation
 multitenancyGorm: Multi-Tenancy GORM
 repository: Repository
 

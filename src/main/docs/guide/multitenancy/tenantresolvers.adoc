@@ -1,0 +1,19 @@
+A common requirement for supporting Multi-tenancy is the ability to resolve the current tenant. Micronaut ships with the following built-in api:multitenancy.tenantresolver.TenantResolver[]s:
+
+|===
+| name|description
+| api:multitenancy.tenantresolver.CookieTenantResolver[]
+| Resolves the current tenant from an HTTP cookie. See link:configurationreference.html#io.micronaut.multitenancy.tenantresolver.CookieTenantResolverConfigurationProperties[CookieTenantResolver Configuration Properties].
+| api:multitenancy.tenantresolver.FixedTenantResolver[]
+| Resolves against a fixed tenant id. See link:configurationreference.html#io.micronaut.multitenancy.tenantresolver.FixedTenantResolverConfigurationProperties[FixTenantResolver Configuration Properties].
+| api:multitenancy.tenantresolver.HttpHeaderTenantResolver[]
+| Resolves the current tenant from the request HTTP Header. See link:configurationreference.html#io.micronaut.multitenancy.tenantresolver.HttpHeaderTenantResolverConfigurationProperties[FixTenantResolver Configuration Properties].
+| api:multitenancy.tenantresolver.PrincipalTenantResolver[]
+| Resolves the current tenant from the authenticated username. See link:configurationreference.html#io.micronaut.multitenancy.tenantresolver.PrincipalTenantResolverConfigurationProperties[PrincipalTenantResolver Configuration Properties].
+| api:multitenancy.tenantresolver.SessionTenantResolver[]
+| Resolves the current tenant from the HTTP session. See link:configurationreference.html#io.micronaut.multitenancy.tenantresolver.SessionTenantResolverConfigurationProperties[SessionTenantResolver Configuration Properties].
+| api:multitenancy.tenantresolver.SubdomainTenantResolver[]
+| Resolves the tenant id from the subdomain. See link:configurationreference.html#io.micronaut.multitenancy.tenantresolver.SubdomainTenantResolverConfigurationProperties[SubdomainTenantResolver Configuration Properties].
+| api:multitenancy.tenantresolver.SystemPropertyTenantResolver[]
+| Resolves the tenant id from a system property. See link:configurationreference.html#io.micronaut.multitenancy.tenantresolver.SystemPropertyTenantResolverConfigurationProperties[SystemPropertyTenantResolver Configuration Properties].
+|===
