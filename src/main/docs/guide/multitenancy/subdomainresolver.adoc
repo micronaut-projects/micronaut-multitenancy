@@ -1,2 +1,0 @@
-WARNING: The api:multitenancy.tenantresolver.SubdomainTenantResolver[] does not support every https://publicsuffix.org[domain suffix]. For example, it does not support second-level domains.
-However, Micronaut Multi-tenancy ships with other implementations, api:multitenancy.tenantresolver.PublicSuffixListSubdomainTenantResolver[] and api:multitenancy.tenantresolver.InternetDomainNameSubdomainTenantResolver[], which support every domain suffix but require extra dependencies.
