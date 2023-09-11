@@ -54,7 +54,7 @@ public class PublicSuffixListSubdomainTenantResolver extends AbstractSubdomainTe
     protected Serializable resolveSubdomain(@NonNull String host) {
         String domain = suffixList.getRegistrableDomain(host);
         if (domain != null) {
-            int index = host.indexOf("." + domain);
+            int index = host.lastIndexOf("." + domain);
             if (index != -1) {
                 return host.substring(0, index);
             }
