@@ -32,8 +32,7 @@ import java.util.Optional;
  * @since 5.1.0
  */
 public abstract class AbstractSubdomainTenantResolver implements TenantResolver, HttpRequestTenantResolver {
-    private static final String HTTPS_SLASH_SLASH = "https://";
-    private static final String HTTP_SLASH_SLASH = "http://";
+    private static final String COLON_SLASH_SLASH = "://";
 
     /**
      * Http Host resolver.
@@ -71,7 +70,7 @@ public abstract class AbstractSubdomainTenantResolver implements TenantResolver,
 
     @NonNull
     private String hostWithoutProtocol(@NonNull String host) {
-        final int protocol = host.indexOf("://");
-        return protocol < 0 ? host : host.substring(protocol + 3);
+        final int index = host.indexOf(COLON_SLASH_SLASH);
+        return index < 0 ? host : host.substring(index + COLON_SLASH_SLASH.length());
     }
 }
