@@ -3,6 +3,10 @@ multitenancy:
   title: Introduction
   installation: Installation
   tenantresolvers: Built-In Tenant Resolvers
+  subdomainresolver:
+    title: Subdomain Tenant Resolver
+    publicsuffixlist: Public Suffix List Subdomain Tenant Resolver
+    subdomainguava: Guava Subdomain Tenant Resolver
   tenantpropagation: Tenant Propagation
 multitenancyGorm: Multi-Tenancy GORM
 repository: Repository

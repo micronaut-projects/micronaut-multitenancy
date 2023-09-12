@@ -1,0 +1,5 @@
+The api:multitenancy.tenantresolver.InternetDomainNameSubdomainTenantResolver[]
+uses https://google.github.io/guava/releases/snapshot/api/docs/com/google/common/net/InternetDomainName.html[Guava's class `InternetDomainName`]
+to resolve the domain suffix.
+
+To use it, in addition to the `micronaut-multitenancy` dependency, you need to add the https://central.sonatype.com/artifact/com.google.guava/guava[guava dependency] to your classpath.

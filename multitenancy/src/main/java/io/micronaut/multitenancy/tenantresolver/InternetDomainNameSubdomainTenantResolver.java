@@ -15,59 +15,48 @@
  */
 package io.micronaut.multitenancy.tenantresolver;
 
+import com.google.common.net.InternetDomainName;
 import io.micronaut.context.annotation.Requires;
-import io.micronaut.context.annotation.Secondary;
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.core.util.StringUtils;
-import io.micronaut.http.server.HttpServerConfiguration;
-import io.micronaut.http.server.util.DefaultHttpHostResolver;
 import io.micronaut.http.server.util.HttpHostResolver;
-import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
-
 import java.io.Serializable;
+import static java.util.stream.Collectors.joining;
 
 /**
- * Tenant resolver that resolves the tenant from the Subdomain. It requires a bean of type {@link HttpHostResolver}.
- * It does not support every domain suffix. For example, it does not support second-level domains.
- * @see <a href="https://publicsuffix.org>publicsuffix.org</a>
+ * A tenant resolver that resolves the tenant from the subdomain. To resolve the subdomain it uses Guava {@link com.google.common.net.InternetDomainName}.
  *
  * @author Sergio del Amo
+ * @since 5.1.0
  */
 @Singleton
-@Secondary
 @Requires(bean = HttpHostResolver.class)
+@Requires(classes = InternetDomainName.class)
+@Requires(property = SubdomainTenantResolverConfigurationProperties.PREFIX + ".guava.enabled", value = StringUtils.TRUE, defaultValue = StringUtils.TRUE)
 @Requires(property = SubdomainTenantResolverConfigurationProperties.PREFIX + ".enabled", value = StringUtils.TRUE, defaultValue = StringUtils.FALSE)
-public class SubdomainTenantResolver extends AbstractSubdomainTenantResolver {
-    private static final char DOT = '.';
-
+public class InternetDomainNameSubdomainTenantResolver extends AbstractSubdomainTenantResolver {
     /**
      * @param httpHostResolver HTTP host resolver.
-     * @since 5.0.3
      */
-    @Inject
-    public SubdomainTenantResolver(HttpHostResolver httpHostResolver) {
+    public InternetDomainNameSubdomainTenantResolver(HttpHostResolver httpHostResolver) {
         super(httpHostResolver);
-    }
-
-    /**
-     * @deprecated Use {@link SubdomainTenantResolver#SubdomainTenantResolver(HttpHostResolver)}
-     */
-    @Deprecated(since = "5.0.3", forRemoval = true)
-    public SubdomainTenantResolver() {
-        this(new DefaultHttpHostResolver(new HttpServerConfiguration(), null));
     }
 
     @Override
     @NonNull
     protected Serializable resolveSubdomain(@NonNull String host) {
-        if (host.chars().filter(ch -> ch == DOT).count() > 1) {
-            String domainWithoutSuffix = host.substring(0, host.lastIndexOf(DOT));
-            int index = domainWithoutSuffix.lastIndexOf(DOT);
-            if (index != -1) {
-                return domainWithoutSuffix.substring(0, index);
+        if (InternetDomainName.isValid(host)) {
+            final InternetDomainName domain = InternetDomainName.from(host);
+            final int subdomainParts = domain.parts().size() - getTopDomain(domain).parts().size();
+            if (subdomainParts > 0) {
+                return domain.parts().stream().limit(subdomainParts).collect(joining("."));
             }
         }
-        return TenantResolver.DEFAULT;
+        return DEFAULT;
+    }
+
+    private InternetDomainName getTopDomain(InternetDomainName domain) {
+        return domain.isUnderPublicSuffix() ? domain.topPrivateDomain() : domain;
     }
 }
