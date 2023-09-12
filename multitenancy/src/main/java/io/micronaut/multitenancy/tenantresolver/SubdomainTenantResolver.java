@@ -30,7 +30,7 @@ import java.io.Serializable;
 /**
  * Tenant resolver that resolves the tenant from the Subdomain. It requires a bean of type {@link HttpHostResolver}.
  * It does not support every domain suffix. For example, it does not support second-level domains.
- * @see <a href="https://publicsuffix.org>publicsuffix.org</a>
+ * @see <a href="https://publicsuffix.org">publicsuffix.org</a>
  *
  * @author Sergio del Amo
  */
