@@ -7,14 +7,14 @@ your requests to other internal microservices to include the `tenant Id` as an H
 
 Your configuration in the `gateway` microservice will look like:
 
-[source, yaml]
+[configuration]
 ----
 include::{testsmultitenancy}/TenantPropagationSpec.groovy[tag=gatewayConfig,indent=0]
 ----
 
 In the `catalogue` microservice the configuration will look like:
 
-[source, yaml]
+[configuration]
 ----
 include::{testsmultitenancy}/TenantPropagationSpec.groovy[tag=catalogueConfig,indent=0]
 ----
