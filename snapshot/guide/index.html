@@ -85,6 +85,12 @@
         
         <div class="toc-item" style="margin-left:0px" id="toc-item-multitenancy"><a href="#multitenancy"><strong>2</strong><span>Introduction</span></a></div>
         
+        <div class="toc-item" style="margin-left:10px" id="toc-item-installation"><a href="#installation"><strong>2.1</strong><span>Installation</span></a></div>
+        
+        <div class="toc-item" style="margin-left:10px" id="toc-item-tenantresolvers"><a href="#tenantresolvers"><strong>2.2</strong><span>Built-In Tenant Resolvers</span></a></div>
+        
+        <div class="toc-item" style="margin-left:10px" id="toc-item-tenantpropagation"><a href="#tenantpropagation"><strong>2.3</strong><span>Tenant Propagation</span></a></div>
+        
         <div class="toc-item" style="margin-left:0px" id="toc-item-multitenancyGorm"><a href="#multitenancyGorm"><strong>3</strong><span>Multi-Tenancy GORM</span></a></div>
         
         <div class="toc-item" style="margin-left:0px" id="toc-item-repository"><a href="#repository"><strong>4</strong><span>Repository</span></a></div>
@@ -128,6 +134,16 @@
 <div class="paragraph">
 <p>Multi-Tenancy, as it relates to software development, is when a single instance of an application is used to service multiple clients (tenants) in a way that each tenant&#8217;s data is isolated from the other.</p>
 </div>
+
+<h2 id="installation"><a class="anchor" href="#installation"></a>2.1 Installation</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancy/installation.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
 <div class="paragraph">
 <p>To use the Micronaut&#8217;s multitenancy capabilities you must have the <code>multitenancy</code> dependency on your classpath.</p>
 </div>
@@ -147,6 +163,16 @@
 </div>
 </div></p>
 </div>
+
+<h2 id="tenantresolvers"><a class="anchor" href="#tenantresolvers"></a>2.2 Built-In Tenant Resolvers</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancy/tenantresolvers.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
 <div class="paragraph">
 <p>A common requirement for supporting Multi-tenancy is the ability to resolve the current tenant. Micronaut ships with the following built-in <a href="../api/io/micronaut/multitenancy/tenantresolver/TenantResolver.html">TenantResolver</a>s:</p>
 </div>
@@ -190,6 +216,16 @@
 </tr>
 </tbody>
 </table>
+
+<h2 id="tenantpropagation"><a class="anchor" href="#tenantpropagation"></a>2.3 Tenant Propagation</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancy/tenantpropagation.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
 <div class="paragraph">
 <p>Micronaut supports tenant propagation. As an example, take the following scenario:</p>
 </div>
@@ -203,7 +239,17 @@ your requests to other internal microservices to include the <code>tenant Id</co
 <div class="paragraph">
 <p>Your configuration in the <code>gateway</code> microservice will look like:</p>
 </div>
-<div class="listingblock">
+<div class="openblock">
+<div class="content">
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">micronaut.multitenancy.propagation.enabled=true
+micronaut.multitenancy.propagation.service-id-regex=catalogue
+micronaut.multitenancy.tenantresolver.subdomain.enabled=true
+micronaut.multitenancy.tenantwriter.httpheader.enabled=true</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">micronaut:
   multitenancy:
@@ -218,16 +264,164 @@ your requests to other internal microservices to include the <code>tenant Id</co
         enabled: true</code></pre>
 </div>
 </div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[micronaut]
+  [micronaut.multitenancy]
+    [micronaut.multitenancy.propagation]
+      enabled=true
+      service-id-regex="catalogue"
+    [micronaut.multitenancy.tenantresolver]
+      [micronaut.multitenancy.tenantresolver.subdomain]
+        enabled=true
+    [micronaut.multitenancy.tenantwriter]
+      [micronaut.multitenancy.tenantwriter.httpheader]
+        enabled=true</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy-config hljs" data-lang="groovy-config">micronaut {
+  multitenancy {
+    propagation {
+      enabled = true
+      serviceIdRegex = "catalogue"
+    }
+    tenantresolver {
+      subdomain {
+        enabled = true
+      }
+    }
+    tenantwriter {
+      httpheader {
+        enabled = true
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-hocon hljs" data-lang="hocon">{
+  micronaut {
+    multitenancy {
+      propagation {
+        enabled = true
+        service-id-regex = "catalogue"
+      }
+      tenantresolver {
+        subdomain {
+          enabled = true
+        }
+      }
+      tenantwriter {
+        httpheader {
+          enabled = true
+        }
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json-config hljs" data-lang="json-config">{
+  "micronaut": {
+    "multitenancy": {
+      "propagation": {
+        "enabled": true,
+        "service-id-regex": "catalogue"
+      },
+      "tenantresolver": {
+        "subdomain": {
+          "enabled": true
+        }
+      },
+      "tenantwriter": {
+        "httpheader": {
+          "enabled": true
+        }
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>In the <code>catalogue</code> microservice the configuration will look like:</p>
 </div>
-<div class="listingblock">
+<div class="openblock">
+<div class="content">
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">micronaut.multitenancy.tenantresolver.httpheader.enabled=true</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">micronaut:
   multitenancy:
     tenantresolver:
       httpheader:
         enabled: true</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[micronaut]
+  [micronaut.multitenancy]
+    [micronaut.multitenancy.tenantresolver]
+      [micronaut.multitenancy.tenantresolver.httpheader]
+        enabled=true</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy-config hljs" data-lang="groovy-config">micronaut {
+  multitenancy {
+    tenantresolver {
+      httpheader {
+        enabled = true
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-hocon hljs" data-lang="hocon">{
+  micronaut {
+    multitenancy {
+      tenantresolver {
+        httpheader {
+          enabled = true
+        }
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json-config hljs" data-lang="json-config">{
+  "micronaut": {
+    "multitenancy": {
+      "tenantresolver": {
+        "httpheader": {
+          "enabled": true
+        }
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
