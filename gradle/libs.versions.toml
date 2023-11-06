@@ -7,7 +7,7 @@ guava = "32.1.2-jre"
 managed-publicsuffixlist = "2.2.0"
 spock = "2.3-groovy-4.0"
 
-micronaut-reactor = "3.0.2"
+micronaut-reactor = "3.1.0"
 micronaut-serde = "2.2.4"
 micronaut-session = "4.0.0"
 micronaut-validation = "4.0.2"
