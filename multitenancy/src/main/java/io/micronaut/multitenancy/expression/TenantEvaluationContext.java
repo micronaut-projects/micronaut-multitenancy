@@ -18,6 +18,7 @@ package io.micronaut.multitenancy.expression;
 import io.micronaut.context.annotation.Requires;
 import io.micronaut.core.annotation.Internal;
 import io.micronaut.core.annotation.Nullable;
+import io.micronaut.multitenancy.exceptions.TenantNotFoundException;
 import io.micronaut.multitenancy.tenantresolver.TenantResolver;
 import jakarta.inject.Singleton;
 import org.slf4j.Logger;
@@ -52,16 +53,23 @@ public final class TenantEvaluationContext {
      */
     @Nullable
     public String getTenantId() {
-        Serializable tenant = tenantResolver.resolveTenantIdentifier();
-        if (tenant instanceof CharSequence charSequenceTenant) {
-            if (LOG.isDebugEnabled()) {
-                LOG.debug("Resolved tenant: {}", tenant);
+        try {
+            Serializable tenant = tenantResolver.resolveTenantIdentifier();
+            if (tenant instanceof CharSequence charSequenceTenant) {
+                if (LOG.isDebugEnabled()) {
+                    LOG.debug("Resolved tenant: {}", tenant);
+                }
+                return charSequenceTenant.toString();
             }
-            return charSequenceTenant.toString();
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Tenant not resolvable to a String: {}", tenant);
+            }
+            return null;
+        } catch (TenantNotFoundException ex) {
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Tenant not found: {}", ex.getMessage());
+            }
+            return null;
         }
-        if (LOG.isDebugEnabled()) {
-            LOG.debug("Tenant not resolvable to a String: {}", tenant);
-        }
-        return null;
     }
 }
