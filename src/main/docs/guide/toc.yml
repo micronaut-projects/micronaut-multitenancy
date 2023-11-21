@@ -3,6 +3,7 @@ multitenancy:
   title: Introduction
   installation: Installation
   tenantresolvers: Built-In Tenant Resolvers
+  tenantexpression: Tenant Expression Language
   subdomainresolver:
     title: Subdomain Tenant Resolver
     publicsuffixlist: Public Suffix List Subdomain Tenant Resolver

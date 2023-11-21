@@ -7,6 +7,7 @@ dependencies {
     compileOnly(mn.micronaut.http.server)
     api(mn.micronaut.inject)
     compileOnly(mnSession.micronaut.session)
+    compileOnly(mn.micronaut.core.processor)
     compileOnly(libs.managed.publicsuffixlist)
     compileOnly(libs.guava)
     testImplementation(libs.managed.publicsuffixlist)

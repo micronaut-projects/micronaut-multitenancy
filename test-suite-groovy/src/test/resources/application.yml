@@ -1,0 +1,6 @@
+micronaut:
+  multitenancy:
+    tenantresolver:
+      httpheader:
+        enabled: true
+        headerName: X-Tenant
