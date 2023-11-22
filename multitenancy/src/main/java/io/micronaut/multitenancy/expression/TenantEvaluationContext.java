@@ -49,6 +49,7 @@ public final class TenantEvaluationContext {
     }
 
     /**
+     * Resolves and returns the Tenant ID with {@link TenantResolver#resolveTenantIdentifier()}.
      * @return the tenant id or {@literal null}.
      */
     @Nullable
