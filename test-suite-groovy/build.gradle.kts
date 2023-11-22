@@ -23,7 +23,6 @@ dependencies {
     testImplementation(mnTest.micronaut.test.spock)
 
     testRuntimeOnly(mnLogging.logback.classic)
-    testRuntimeOnly(libs.junit.jupiter.engine)
 }
 
 tasks.withType<Test>().configureEach {
