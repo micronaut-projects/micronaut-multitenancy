@@ -22,7 +22,6 @@ dependencies {
     testImplementation(mnSecurity.micronaut.security)
     testImplementation(mnTest.micronaut.test.spock)
 
-    testRuntimeOnly(mn.snakeyaml)
     testRuntimeOnly(mnLogging.logback.classic)
     testRuntimeOnly(libs.junit.jupiter.engine)
 }
