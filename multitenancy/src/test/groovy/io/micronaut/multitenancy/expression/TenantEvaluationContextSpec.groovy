@@ -7,6 +7,7 @@ import io.micronaut.context.annotation.Property
 import io.micronaut.context.annotation.Requires
 import io.micronaut.context.annotation.Value
 import io.micronaut.core.annotation.Nullable
+import io.micronaut.core.util.StringUtils
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
@@ -21,7 +22,7 @@ import spock.lang.Specification
 
 @MicronautTest
 @Property(name = "spec.name", value = "TenantEvaluationContextSpec")
-@Property(name = "micronaut.multitenancy.tenantresolver.httpheader.enabled", value = "true")
+@Property(name = "micronaut.multitenancy.tenantresolver.httpheader.enabled", value = StringUtils.TRUE)
 class TenantEvaluationContextSpec extends Specification {
 
     @Inject
