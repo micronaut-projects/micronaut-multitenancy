@@ -8,7 +8,6 @@ import io.micronaut.http.client.HttpClient;
 import io.micronaut.http.client.annotation.Client;
 import io.micronaut.http.client.exceptions.HttpClientResponseException;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
-import jakarta.inject.Inject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,12 +16,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @MicronautTest
 class Tests {
 
-    @Inject
-    @Client("/")
-    HttpClient client;
-
     @Test
-    void testSecuredAnnotationCanSeeTenantIds() {
+    void testSecuredAnnotationCanSeeTenantIds(@Client("/") HttpClient client) {
         BlockingHttpClient blockingClient = client.toBlocking();
 
         // Sergio requires authentication as the tenant is not 'allowed'
