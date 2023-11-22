@@ -9,16 +9,24 @@ plugins {
     id("io.micronaut.build.shared.settings") version "6.6.1"
 }
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 rootProject.name = 'multitenancy-parent'
 
+include 'multitenancy-annotations'
 include 'multitenancy-bom'
 include 'multitenancy'
+
+include "test-suite"
+include "test-suite-groovy"
+include "test-suite-kotlin"
 
 micronautBuild {
     useStandardizedProjectNames = true
     importMicronautCatalog()
     importMicronautCatalog("micronaut-serde")
     importMicronautCatalog("micronaut-reactor")
+    importMicronautCatalog("micronaut-security")
     importMicronautCatalog("micronaut-session")
     importMicronautCatalog("micronaut-validation")
 }

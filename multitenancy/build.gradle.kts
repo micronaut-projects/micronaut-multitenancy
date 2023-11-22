@@ -9,6 +9,8 @@ dependencies {
     compileOnly(mnSession.micronaut.session)
     compileOnly(libs.managed.publicsuffixlist)
     compileOnly(libs.guava)
+
+    testImplementation(projects.micronautMultitenancyAnnotations)
     testImplementation(libs.managed.publicsuffixlist)
     testImplementation(libs.guava)
     testImplementation(mnSerde.micronaut.serde.api)
