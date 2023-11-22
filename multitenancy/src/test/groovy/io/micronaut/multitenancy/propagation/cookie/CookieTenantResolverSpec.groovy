@@ -1,23 +1,7 @@
-/*
- * Copyright 2017-2019 original authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package io.micronaut.multitenancy.propagation.cookie
 
 import io.micronaut.context.ApplicationContext
 import io.micronaut.context.env.Environment
-import io.micronaut.core.io.socket.SocketUtils
 import io.micronaut.core.type.Argument
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.HttpResponse
@@ -32,52 +16,33 @@ import io.micronaut.multitenancy.writer.CookieTenantWriter
 import io.micronaut.multitenancy.writer.TenantWriter
 import io.micronaut.runtime.server.EmbeddedServer
 import spock.lang.AutoCleanup
-import spock.lang.Retry
-import spock.lang.Shared
 import spock.lang.Specification
-import spock.lang.Stepwise
 
-@Stepwise
-@Retry(mode = Retry.Mode.SETUP_FEATURE_CLEANUP)
 class CookieTenantResolverSpec extends Specification {
 
-    static final SPEC_NAME_PROPERTY = 'spec.name'
-
-    @Shared
-    int gormPort
+    @AutoCleanup
+    EmbeddedServer gormEmbeddedServer = ApplicationContext.run(EmbeddedServer, [
+    'spec.name'                                           : 'multitenancy.cookie.gorm',
+    'micronaut.multitenancy.tenantresolver.cookie.enabled': true
+    ], Environment.TEST)
 
     @AutoCleanup
-    @Shared
-    EmbeddedServer gormEmbeddedServer
+    HttpClient gormClient = gormEmbeddedServer.applicationContext.createBean(HttpClient, gormEmbeddedServer.URL)
 
     @AutoCleanup
-    @Shared
-    HttpClient gormClient
+    EmbeddedServer gatewayEmbeddedServer = ApplicationContext.run(EmbeddedServer, [
+            'spec.name'                                           : 'multitenancy.cookie.gateway',
+            'micronaut.http.services.books.url'                   : "http://localhost:${gormEmbeddedServer.port}",
+            'micronaut.multitenancy.propagation.enabled'          : true,
+            'micronaut.multitenancy.propagation.service-id-regex' : 'books',
+            'micronaut.multitenancy.tenantwriter.cookie.enabled'  : true,
+            'micronaut.multitenancy.tenantresolver.cookie.enabled': true
+    ])
 
     @AutoCleanup
-    @Shared
-    EmbeddedServer gatewayEmbeddedServer
-
-    @AutoCleanup
-    @Shared
-    HttpClient gatewayClient
-
-    def setupSpec() {
-        gormPort = SocketUtils.findAvailableTcpPort()
-    }
+    HttpClient gatewayClient = gatewayEmbeddedServer.applicationContext.createBean(HttpClient, gatewayEmbeddedServer.URL)
 
     def "setup gorm server"() {
-        given:
-        Map gormConfig = [
-                'micronaut.server.port'                       : gormPort,
-                (SPEC_NAME_PROPERTY)                          : 'multitenancy.cookie.gorm',
-                'micronaut.multitenancy.tenantresolver.cookie.enabled': true
-        ]
-
-        gormEmbeddedServer = ApplicationContext.run(EmbeddedServer, gormConfig, Environment.TEST)
-
-        gormClient = gormEmbeddedServer.applicationContext.createBean(HttpClient, gormEmbeddedServer.getURL())
-
         when:
         for (Class beanClazz : [BookService, BooksController, Bootstrap]) {
             gormEmbeddedServer.applicationContext.getBean(beanClazz)
@@ -94,18 +59,6 @@ class CookieTenantResolverSpec extends Specification {
     }
 
     def "setup gateway server"() {
-        given:
-        Map gatewayConfig = [
-                (SPEC_NAME_PROPERTY): 'multitenancy.cookie.gateway',
-                'micronaut.http.services.books.url': "http://localhost:${gormPort}",
-                'micronaut.multitenancy.propagation.enabled': true,
-                'micronaut.multitenancy.propagation.service-id-regex': 'books',
-                'micronaut.multitenancy.tenantwriter.cookie.enabled': true,
-                'micronaut.multitenancy.tenantresolver.cookie.enabled': true
-        ]
-
-        gatewayEmbeddedServer = ApplicationContext.run(EmbeddedServer, gatewayConfig, Environment.TEST)
-
         when:
         for (Class beanClazz : [
                 GatewayController,
@@ -118,12 +71,6 @@ class CookieTenantResolverSpec extends Specification {
         ]) {
             gatewayEmbeddedServer.applicationContext.getBean(beanClazz)
         }
-
-        then:
-        noExceptionThrown()
-
-        when:
-        gatewayClient = gatewayEmbeddedServer.applicationContext.createBean(HttpClient, gatewayEmbeddedServer.getURL())
 
         then:
         noExceptionThrown()
@@ -151,8 +98,8 @@ class CookieTenantResolverSpec extends Specification {
 
     def "fetch books for watson and sherlock, since the tenant ID is in the HTTP header and its propagated. They get only their books"() {
         when:
-        HttpResponse rsp = gatewayClient.toBlocking().exchange(HttpRequest.GET('/')
-                .cookie(Cookie.of("tenantId", "sherlock")), Argument.of(List, String))
+        def getWithCookie = HttpRequest.GET('/').cookie(Cookie.of("tenantId", "sherlock"))
+        HttpResponse<List<String>> rsp = gatewayClient.toBlocking().exchange(getWithCookie, Argument.listOf(String))
 
         then:
         rsp.status() == HttpStatus.OK
