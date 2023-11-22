@@ -89,13 +89,15 @@
         
         <div class="toc-item" style="margin-left:10px" id="toc-item-tenantresolvers"><a href="#tenantresolvers"><strong>2.2</strong><span>Built-In Tenant Resolvers</span></a></div>
         
-        <div class="toc-item" style="margin-left:10px" id="toc-item-subdomainresolver"><a href="#subdomainresolver"><strong>2.3</strong><span>Subdomain Tenant Resolver</span></a></div>
+        <div class="toc-item" style="margin-left:10px" id="toc-item-tenantexpression"><a href="#tenantexpression"><strong>2.3</strong><span>Tenant Expression Language</span></a></div>
         
-        <div class="toc-item" style="margin-left:20px" id="toc-item-publicsuffixlist"><a href="#publicsuffixlist"><strong>2.3.1</strong><span>Public Suffix List Subdomain Tenant Resolver</span></a></div>
+        <div class="toc-item" style="margin-left:10px" id="toc-item-subdomainresolver"><a href="#subdomainresolver"><strong>2.4</strong><span>Subdomain Tenant Resolver</span></a></div>
         
-        <div class="toc-item" style="margin-left:20px" id="toc-item-subdomainguava"><a href="#subdomainguava"><strong>2.3.2</strong><span>Guava Subdomain Tenant Resolver</span></a></div>
+        <div class="toc-item" style="margin-left:20px" id="toc-item-publicsuffixlist"><a href="#publicsuffixlist"><strong>2.4.1</strong><span>Public Suffix List Subdomain Tenant Resolver</span></a></div>
         
-        <div class="toc-item" style="margin-left:10px" id="toc-item-tenantpropagation"><a href="#tenantpropagation"><strong>2.4</strong><span>Tenant Propagation</span></a></div>
+        <div class="toc-item" style="margin-left:20px" id="toc-item-subdomainguava"><a href="#subdomainguava"><strong>2.4.2</strong><span>Guava Subdomain Tenant Resolver</span></a></div>
+        
+        <div class="toc-item" style="margin-left:10px" id="toc-item-tenantpropagation"><a href="#tenantpropagation"><strong>2.5</strong><span>Tenant Propagation</span></a></div>
         
         <div class="toc-item" style="margin-left:0px" id="toc-item-multitenancyGorm"><a href="#multitenancyGorm"><strong>3</strong><span>Multi-Tenancy GORM</span></a></div>
         
@@ -109,7 +111,7 @@
         <h1>Micronaut Multitenancy</h1>
         <p></p>
         <p>Help with common tasks such as tenant resolution for multi-tenancy aware Micronaut applications.</p>
-        <p><strong>Version:</strong> <select style='max-width: 200px' onChange='window.document.location.href=this.options[this.selectedIndex].value;'><option selected='selected' value='https://micronaut-projects.github.io/micronaut-multitenancy/snapshot/guide/index.html'>SNAPSHOT</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/latest/guide/index.html'>LATEST</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.1.0/guide/index.html'>5.1.0</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.3/guide/index.html'>5.0.3</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.2/guide/index.html'>5.0.2</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.1/guide/index.html'>5.0.1</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.0/guide/index.html'>5.0.0</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.0-M7/guide/index.html'>5.0.0-M7</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.0-M6/guide/index.html'>5.0.0-M6</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.0-M5/guide/index.html'>5.0.0-M5</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.0-M4/guide/index.html'>5.0.0-M4</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.0-M3/guide/index.html'>5.0.0-M3</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.0-M2/guide/index.html'>5.0.0-M2</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.0-M1/guide/index.html'>5.0.0-M1</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/4.2.0/guide/index.html'>4.2.0</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/4.1.0/guide/index.html'>4.1.0</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/4.0.0/guide/index.html'>4.0.0</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/4.0.0-M1/guide/index.html'>4.0.0-M1</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/3.0.0/guide/index.html'>3.0.0</option></select> </p>
+        <p><strong>Version:</strong> <select style='max-width: 200px' onChange='window.document.location.href=this.options[this.selectedIndex].value;'><option selected='selected' value='https://micronaut-projects.github.io/micronaut-multitenancy/snapshot/guide/index.html'>SNAPSHOT</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/latest/guide/index.html'>LATEST</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.2.0/guide/index.html'>5.2.0</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.1.0/guide/index.html'>5.1.0</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.3/guide/index.html'>5.0.3</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.2/guide/index.html'>5.0.2</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.1/guide/index.html'>5.0.1</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.0/guide/index.html'>5.0.0</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.0-M7/guide/index.html'>5.0.0-M7</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.0-M6/guide/index.html'>5.0.0-M6</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.0-M5/guide/index.html'>5.0.0-M5</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.0-M4/guide/index.html'>5.0.0-M4</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.0-M3/guide/index.html'>5.0.0-M3</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.0-M2/guide/index.html'>5.0.0-M2</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/5.0.0-M1/guide/index.html'>5.0.0-M1</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/4.2.0/guide/index.html'>4.2.0</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/4.1.0/guide/index.html'>4.1.0</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/4.0.0/guide/index.html'>4.0.0</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/4.0.0-M1/guide/index.html'>4.0.0-M1</option><option value='https://micronaut-projects.github.io/micronaut-multitenancy/3.0.0/guide/index.html'>3.0.0</option></select> </p>
     </div>
     
 <h1 id="releaseHistory"><a class="anchor" href="#releaseHistory"></a>1 Release History</h1>
@@ -223,7 +225,87 @@
 </tbody>
 </table>
 
-<h2 id="subdomainresolver"><a class="anchor" href="#subdomainresolver"></a>2.3 Subdomain Tenant Resolver</h2>
+<h2 id="tenantexpression"><a class="anchor" href="#tenantexpression"></a>2.3 Tenant Expression Language</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancy/tenantexpression.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>To allow using the current request tenant Id in the <a href="https://docs.micronaut.io/latest/guide/#evaluatedExpressions">Micronaut Expression Language</a>, you need to include the multitenancy-annotation as an annotation processor dependency.</p>
+</div>
+<div class="paragraph">
+<p>        <div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">annotationProcessor(<span class="hljs-string">"io.micronaut.multitenancy:micronaut-multitenancy-annotation")</span></code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;annotationProcessorPaths&gt;
+    &lt;path&gt;
+        &lt;groupId&gt;io.micronaut.multitenancy&lt;/groupId&gt;
+        &lt;artifactId&gt;micronaut-multitenancy-annotation&lt;/artifactId&gt;
+    &lt;/path&gt;
+&lt;/annotationProcessorPaths&gt;</code></pre>
+</div>
+</div></p>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Controller
+public class TenantCheckingSecuredController {
+
+    @Get
+    @Produces(MediaType.TEXT_PLAIN)
+    @Secured("#{ tenantId == 'allowed' }") // <b class="conum">(1)</b>
+    public String index() {
+        return "Hello World";
+    }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">@Controller
+class TenantCheckingSecuredController {
+
+    @Get
+    @Produces(MediaType.TEXT_PLAIN)
+    @Secured("#{ tenantId == 'allowed' }") // <b class="conum">(1)</b>
+    String index() {
+        "Hello World"
+    }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Controller
+class TenantCheckingSecuredController {
+
+    @Get
+    @Produces(MediaType.TEXT_PLAIN)
+    @Secured("#{ tenantId == 'allowed' }") // <b class="conum">(1)</b>
+    fun index() = "Hello World"
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>If <code>tenantId</code> (provided by the configured TenantResolver) is equal to <code>'allowed'</code> then allow the request.</td>
+</tr>
+</table>
+</div>
+
+<h2 id="subdomainresolver"><a class="anchor" href="#subdomainresolver"></a>2.4 Subdomain Tenant Resolver</h2>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancy/subdomainresolver.adoc"'>
@@ -246,7 +328,7 @@ However, Micronaut Multi-tenancy ships with other implementations, <a href="../a
 </table>
 </div>
 
-<h2 id="publicsuffixlist"><a class="anchor" href="#publicsuffixlist"></a>2.3.1 Public Suffix List Subdomain Tenant Resolver</h2>
+<h2 id="publicsuffixlist"><a class="anchor" href="#publicsuffixlist"></a>2.4.1 Public Suffix List Subdomain Tenant Resolver</h2>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancy/subdomainresolver/publicsuffixlist.adoc"'>
@@ -278,7 +360,7 @@ However, Micronaut Multi-tenancy ships with other implementations, <a href="../a
 </div></p>
 </div>
 
-<h2 id="subdomainguava"><a class="anchor" href="#subdomainguava"></a>2.3.2 Guava Subdomain Tenant Resolver</h2>
+<h2 id="subdomainguava"><a class="anchor" href="#subdomainguava"></a>2.4.2 Guava Subdomain Tenant Resolver</h2>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancy/subdomainresolver/subdomainguava.adoc"'>
@@ -296,7 +378,7 @@ to resolve the domain suffix.</p>
 <p>To use it, in addition to the <code>micronaut-multitenancy</code> dependency, you need to add the <a href="https://central.sonatype.com/artifact/com.google.guava/guava">guava dependency</a> to your classpath.</p>
 </div>
 
-<h2 id="tenantpropagation"><a class="anchor" href="#tenantpropagation"></a>2.4 Tenant Propagation</h2>
+<h2 id="tenantpropagation"><a class="anchor" href="#tenantpropagation"></a>2.5 Tenant Propagation</h2>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancy/tenantpropagation.adoc"'>

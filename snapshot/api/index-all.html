@@ -221,6 +221,8 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="io/micronaut/multitenancy/tenantresolver/SessionTenantResolverConfigurationProperties.html#getAttribute()" class="member-name-link">getAttribute()</a> - Method in class io.micronaut.multitenancy.tenantresolver.<a href="io/micronaut/multitenancy/tenantresolver/SessionTenantResolverConfigurationProperties.html" title="class in io.micronaut.multitenancy.tenantresolver">SessionTenantResolverConfigurationProperties</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="io/micronaut/multitenancy/expression/TenantEvaluationContextRegistrar.html#getContextClassName()" class="member-name-link">getContextClassName()</a> - Method in class io.micronaut.multitenancy.expression.<a href="io/micronaut/multitenancy/expression/TenantEvaluationContextRegistrar.html" title="class in io.micronaut.multitenancy.expression">TenantEvaluationContextRegistrar</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="io/micronaut/multitenancy/writer/CookieTenantWriterConfigurationProperties.html#getCookieDomain()" class="member-name-link">getCookieDomain()</a> - Method in class io.micronaut.multitenancy.writer.<a href="io/micronaut/multitenancy/writer/CookieTenantWriterConfigurationProperties.html" title="class in io.micronaut.multitenancy.writer">CookieTenantWriterConfigurationProperties</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="io/micronaut/multitenancy/writer/CookieTenantWriterConfigurationProperties.html#getCookieMaxAge()" class="member-name-link">getCookieMaxAge()</a> - Method in class io.micronaut.multitenancy.writer.<a href="io/micronaut/multitenancy/writer/CookieTenantWriterConfigurationProperties.html" title="class in io.micronaut.multitenancy.writer">CookieTenantWriterConfigurationProperties</a></dt>
@@ -265,6 +267,10 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="io/micronaut/multitenancy/tenantresolver/SystemPropertyTenantResolverConfigurationProperties.html#getSystemPropertyName()" class="member-name-link">getSystemPropertyName()</a> - Method in class io.micronaut.multitenancy.tenantresolver.<a href="io/micronaut/multitenancy/tenantresolver/SystemPropertyTenantResolverConfigurationProperties.html" title="class in io.micronaut.multitenancy.tenantresolver">SystemPropertyTenantResolverConfigurationProperties</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="io/micronaut/multitenancy/expression/TenantEvaluationContext.html#getTenantId()" class="member-name-link">getTenantId()</a> - Method in class io.micronaut.multitenancy.expression.<a href="io/micronaut/multitenancy/expression/TenantEvaluationContext.html" title="class in io.micronaut.multitenancy.expression">TenantEvaluationContext</a></dt>
+<dd>
+<div class="block">Resolves and returns the Tenant ID with <a href="io/micronaut/multitenancy/tenantresolver/TenantResolver.html#resolveTenantIdentifier()"><code>TenantResolver.resolveTenantIdentifier()</code></a>.</div>
+</dd>
 <dt><a href="io/micronaut/multitenancy/tenantresolver/FixedTenantResolverConfiguration.html#getTenantId()" class="member-name-link">getTenantId()</a> - Method in interface io.micronaut.multitenancy.tenantresolver.<a href="io/micronaut/multitenancy/tenantresolver/FixedTenantResolverConfiguration.html" title="interface in io.micronaut.multitenancy.tenantresolver">FixedTenantResolverConfiguration</a></dt>
 <dd>
 <div class="block">Returns the fixed Tenant ID.</div>
@@ -342,6 +348,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="io/micronaut/multitenancy/exceptions/package-summary.html">io.micronaut.multitenancy.exceptions</a> - package io.micronaut.multitenancy.exceptions</dt>
 <dd>
 <div class="block">Encapsulate classes related with Multitenancy exceptions.</div>
+</dd>
+<dt><a href="io/micronaut/multitenancy/expression/package-summary.html">io.micronaut.multitenancy.expression</a> - package io.micronaut.multitenancy.expression</dt>
+<dd>
+<div class="block">Expression Language support for multi-tenancy.</div>
 </dd>
 <dt><a href="io/micronaut/multitenancy/propagation/package-summary.html">io.micronaut.multitenancy.propagation</a> - package io.micronaut.multitenancy.propagation</dt>
 <dd>
@@ -677,6 +687,18 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:T">T</h2>
 <dl class="index">
+<dt><a href="io/micronaut/multitenancy/expression/TenantEvaluationContext.html" class="type-name-link" title="class in io.micronaut.multitenancy.expression">TenantEvaluationContext</a> - Class in <a href="io/micronaut/multitenancy/expression/package-summary.html">io.micronaut.multitenancy.expression</a></dt>
+<dd>
+<div class="block">Context for supporting annotation expressions with tenant id.</div>
+</dd>
+<dt><a href="io/micronaut/multitenancy/expression/TenantEvaluationContext.html#%3Cinit%3E(io.micronaut.multitenancy.tenantresolver.TenantResolver)" class="member-name-link">TenantEvaluationContext(TenantResolver)</a> - Constructor for class io.micronaut.multitenancy.expression.<a href="io/micronaut/multitenancy/expression/TenantEvaluationContext.html" title="class in io.micronaut.multitenancy.expression">TenantEvaluationContext</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="io/micronaut/multitenancy/expression/TenantEvaluationContextRegistrar.html" class="type-name-link" title="class in io.micronaut.multitenancy.expression">TenantEvaluationContextRegistrar</a> - Class in <a href="io/micronaut/multitenancy/expression/package-summary.html">io.micronaut.multitenancy.expression</a></dt>
+<dd>
+<div class="block">Registers the `TenantEvaluationContext` from the main module as an Evaluation context.</div>
+</dd>
+<dt><a href="io/micronaut/multitenancy/expression/TenantEvaluationContextRegistrar.html#%3Cinit%3E()" class="member-name-link">TenantEvaluationContextRegistrar()</a> - Constructor for class io.micronaut.multitenancy.expression.<a href="io/micronaut/multitenancy/expression/TenantEvaluationContextRegistrar.html" title="class in io.micronaut.multitenancy.expression">TenantEvaluationContextRegistrar</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="io/micronaut/multitenancy/exceptions/TenantException.html" class="type-name-link" title="class in io.micronaut.multitenancy.exceptions">TenantException</a> - Exception in <a href="io/micronaut/multitenancy/exceptions/package-summary.html">io.micronaut.multitenancy.exceptions</a></dt>
 <dd>
 <div class="block">Exception thrown when an error occurs resolving the tenant.</div>
