@@ -1,4 +1,4 @@
-To allow using the current request tenant Id in the Micronaut Expression Language, you need to include the multitenancy-annotation as an annotation processor dependency.
+To allow using the current request tenant Id in the https://docs.micronaut.io/latest/guide/#evaluatedExpressions[Micronaut Expression Language], you need to include the multitenancy-annotation as an annotation processor dependency.
 
 dependency:io.micronaut.multitenancy:micronaut-multitenancy-annotation[scope="annotationProcessor"]
 
