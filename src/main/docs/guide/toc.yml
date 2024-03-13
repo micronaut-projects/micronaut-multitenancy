@@ -10,5 +10,6 @@ multitenancy:
     subdomainguava: Guava Subdomain Tenant Resolver
   tenantpropagation: Tenant Propagation
 multitenancyGorm: Multi-Tenancy GORM
+breaks: Breaking Changes
 repository: Repository
 

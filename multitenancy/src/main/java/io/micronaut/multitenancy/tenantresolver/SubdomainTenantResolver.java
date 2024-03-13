@@ -19,10 +19,7 @@ import io.micronaut.context.annotation.Requires;
 import io.micronaut.context.annotation.Secondary;
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.core.util.StringUtils;
-import io.micronaut.http.server.HttpServerConfiguration;
-import io.micronaut.http.server.util.DefaultHttpHostResolver;
 import io.micronaut.http.server.util.HttpHostResolver;
-import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 
 import java.io.Serializable;
@@ -45,17 +42,8 @@ public class SubdomainTenantResolver extends AbstractSubdomainTenantResolver {
      * @param httpHostResolver HTTP host resolver.
      * @since 5.0.3
      */
-    @Inject
     public SubdomainTenantResolver(HttpHostResolver httpHostResolver) {
         super(httpHostResolver);
-    }
-
-    /**
-     * @deprecated Use {@link SubdomainTenantResolver#SubdomainTenantResolver(HttpHostResolver)}
-     */
-    @Deprecated(since = "5.0.3", forRemoval = true)
-    public SubdomainTenantResolver() {
-        this(new DefaultHttpHostResolver(new HttpServerConfiguration(), null));
     }
 
     @Override
