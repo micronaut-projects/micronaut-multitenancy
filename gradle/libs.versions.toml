@@ -14,7 +14,7 @@ micronaut-serde = "2.8.1"
 micronaut-session = "4.2.0"
 micronaut-validation = "4.4.0"
 
-kotlin-gradle-plugin = "1.9.22"
+kotlin-gradle-plugin = "1.9.23"
 
 [libraries]
 guava = { module = 'com.google.guava:guava', version.ref = 'guava' }
