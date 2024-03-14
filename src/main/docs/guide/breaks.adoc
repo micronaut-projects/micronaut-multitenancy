@@ -1,0 +1,6 @@
+This section documents breaking changes between Micronaut Multitenancy versions:
+
+=== Micronaut Multitenancy 6.0.0
+
+- The Singleton constructor `io.micronaut.multitenancy.tenantresolver.SubdomainTenantResolver()` deprecated previously has been removed. `SubdomainTenantResolver(HttpHostResolver)` is used in its place.
+
