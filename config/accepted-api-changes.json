@@ -168,5 +168,10 @@
     "type": "io.micronaut.multitenancy.propagation.TenantPropagationConfigurationProperties",
     "member": "Implemented interface io.micronaut.http.util.OutgointRequestProcessorMatcher",
     "reason": "Class name corrected for Micronaut 4"
+  },
+  {
+    "type": "io.micronaut.multitenancy.tenantresolver.SubdomainTenantResolver",
+    "member": "Constructor io.micronaut.multitenancy.tenantresolver.SubdomainTenantResolver()",
+    "reason": "Removed deprecated constructor for Micronaut Framework 5"
   }
 ]
