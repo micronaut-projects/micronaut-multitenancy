@@ -50,7 +50,9 @@
                                 
                                 <div class="toc-item" style="margin-left:0"><a href="#multitenancyGorm"><strong>3</strong><span>Multi-Tenancy GORM</span></a></div>
                                 
-                                <div class="toc-item" style="margin-left:0"><a href="#repository"><strong>4</strong><span>Repository</span></a></div>
+                                <div class="toc-item" style="margin-left:0"><a href="#breaks"><strong>4</strong><span>Breaking Changes</span></a></div>
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#repository"><strong>5</strong><span>Repository</span></a></div>
                                 
                             </div>
                         </div>
@@ -101,7 +103,9 @@
         
         <div class="toc-item" style="margin-left:0px" id="toc-item-multitenancyGorm"><a href="#multitenancyGorm"><strong>3</strong><span>Multi-Tenancy GORM</span></a></div>
         
-        <div class="toc-item" style="margin-left:0px" id="toc-item-repository"><a href="#repository"><strong>4</strong><span>Repository</span></a></div>
+        <div class="toc-item" style="margin-left:0px" id="toc-item-breaks"><a href="#breaks"><strong>4</strong><span>Breaking Changes</span></a></div>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-repository"><a href="#repository"><strong>5</strong><span>Repository</span></a></div>
         
         </div>
     </div>
@@ -111,13 +115,13 @@
         <h1>Micronaut Multitenancy</h1>
         <p></p>
         <p>Help with common tasks such as tenant resolution for multi-tenancy aware Micronaut applications.</p>
-        <p><strong>Version:</strong> 5.3.0-SNAPSHOT </p>
+        <p><strong>Version:</strong> 6.0.0-SNAPSHOT </p>
     </div>
     
 <h1 id="releaseHistory"><a class="anchor" href="#releaseHistory"></a>1 Release History</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/5.3.x/src/main/docs/guide/releaseHistory.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/releaseHistory.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -133,7 +137,7 @@
 <h1 id="multitenancy"><a class="anchor" href="#multitenancy"></a>2 Introduction</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/5.3.x/src/main/docs/guide/multitenancy.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancy.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -146,7 +150,7 @@
 <h2 id="installation"><a class="anchor" href="#installation"></a>2.1 Installation</h2>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/5.3.x/src/main/docs/guide/multitenancy/installation.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancy/installation.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -175,7 +179,7 @@
 <h2 id="tenantresolvers"><a class="anchor" href="#tenantresolvers"></a>2.2 Built-In Tenant Resolvers</h2>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/5.3.x/src/main/docs/guide/multitenancy/tenantresolvers.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancy/tenantresolvers.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -228,7 +232,7 @@
 <h2 id="tenantexpression"><a class="anchor" href="#tenantexpression"></a>2.3 Tenant Expression Language</h2>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/5.3.x/src/main/docs/guide/multitenancy/tenantexpression.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancy/tenantexpression.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -308,7 +312,7 @@ class TenantCheckingSecuredController {
 <h2 id="subdomainresolver"><a class="anchor" href="#subdomainresolver"></a>2.4 Subdomain Tenant Resolver</h2>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/5.3.x/src/main/docs/guide/multitenancy/subdomainresolver.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancy/subdomainresolver.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -331,7 +335,7 @@ However, Micronaut Multi-tenancy ships with other implementations, <a href="../a
 <h2 id="publicsuffixlist"><a class="anchor" href="#publicsuffixlist"></a>2.4.1 Public Suffix List Subdomain Tenant Resolver</h2>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/5.3.x/src/main/docs/guide/multitenancy/subdomainresolver/publicsuffixlist.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancy/subdomainresolver/publicsuffixlist.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -363,7 +367,7 @@ However, Micronaut Multi-tenancy ships with other implementations, <a href="../a
 <h2 id="subdomainguava"><a class="anchor" href="#subdomainguava"></a>2.4.2 Guava Subdomain Tenant Resolver</h2>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/5.3.x/src/main/docs/guide/multitenancy/subdomainresolver/subdomainguava.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancy/subdomainresolver/subdomainguava.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -381,7 +385,7 @@ to resolve the domain suffix.</p>
 <h2 id="tenantpropagation"><a class="anchor" href="#tenantpropagation"></a>2.5 Tenant Propagation</h2>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/5.3.x/src/main/docs/guide/multitenancy/tenantpropagation.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancy/tenantpropagation.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -615,7 +619,7 @@ micronaut.multitenancy.tenantwriter.httpheader.enabled=true</code></pre>
 <h1 id="multitenancyGorm"><a class="anchor" href="#multitenancyGorm"></a>3 Multi-Tenancy GORM</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/5.3.x/src/main/docs/guide/multitenancyGorm.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/multitenancyGorm.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -628,10 +632,33 @@ micronaut.multitenancy.tenantwriter.httpheader.enabled=true</code></pre>
 <p>See the <a href="https://micronaut-projects.github.io/micronaut-groovy/latest/guide/index.html#multitenancyGorm">Micronaut Groovy module</a> for more information.</p>
 </div>
 
-<h1 id="repository"><a class="anchor" href="#repository"></a>4 Repository</h1>
+<h1 id="breaks"><a class="anchor" href="#breaks"></a>4 Breaking Changes</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/5.3.x/src/main/docs/guide/repository.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/breaks.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>This section documents breaking changes between Micronaut Multitenancy versions:</p>
+</div>
+<div class="sect2">
+<h3 id="_micronaut_multitenancy_6_0_0">Micronaut Multitenancy 6.0.0</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The Singleton constructor <code>io.micronaut.multitenancy.tenantresolver.SubdomainTenantResolver()</code> deprecated previously has been removed. <code>SubdomainTenantResolver(HttpHostResolver)</code> is used in its place.</p>
+</li>
+</ul>
+</div>
+</div>
+
+<h1 id="repository"><a class="anchor" href="#repository"></a>5 Repository</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/master/src/main/docs/guide/repository.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
