@@ -12,7 +12,7 @@ micronaut-reactor = "3.2.1"
 micronaut-security = "4.6.9"
 micronaut-serde = "2.8.2"
 micronaut-session = "4.2.0"
-micronaut-validation = "4.4.4"
+micronaut-validation = "4.7.0"
 
 kotlin-gradle-plugin = "1.9.24"
 
