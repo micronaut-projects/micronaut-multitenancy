@@ -3,7 +3,7 @@ micronaut = "4.6.1"
 micronaut-docs = "2.0.0"
 micronaut-test = "4.5.0"
 groovy = "4.0.15"
-guava = "33.3.0-jre"
+guava = "33.3.1-jre"
 managed-publicsuffixlist = "2.2.0"
 spock = "2.3-groovy-4.0"
 
