@@ -21,7 +21,6 @@ package io.micronaut.multitenancy;
  * @since 5.5.0
  */
 
-@FunctionalInterface
 public interface Tenant {
     /**
      * A Unique identifier for the tenant.
