@@ -20,4 +20,12 @@ dependencies {
     testImplementation(mn.micronaut.http.server.netty)
     testImplementation(mnSession.micronaut.session)
     testImplementation(mn.snakeyaml)
+
+    testAnnotationProcessor(mn.micronaut.inject.java)
+    testImplementation(mnTest.micronaut.test.junit5)
+    testRuntimeOnly(libs.junit.jupiter.engine)
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }

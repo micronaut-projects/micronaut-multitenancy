@@ -1,0 +1,3 @@
+To access the resolved tenant, you can bind api:multitenancy.Tenant[] as a controller method parameter.
+
+snippet::io.micronaut.multitenancy.TenantBindingController[]
