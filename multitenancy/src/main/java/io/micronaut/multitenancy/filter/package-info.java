@@ -18,7 +18,7 @@
  * @author Sergio del Amo
  * @since 5.5.0
  */
-@Requires(property = TenantResolverFilterConfigurationProperties.PREFIX + ".enabled",
+@Requires(property = TenantResolverFilterConfigurationProperties.ENABLED,
         notEquals = StringUtils.FALSE,
         defaultValue = StringUtils.TRUE)
 @Configuration
