@@ -15,6 +15,7 @@
  */
 package io.micronaut.multitenancy.filter;
 
+import io.micronaut.context.annotation.Requires;
 import io.micronaut.core.annotation.Internal;
 import io.micronaut.core.annotation.Nullable;
 import io.micronaut.core.order.Ordered;
@@ -40,6 +41,7 @@ import java.util.Optional;
 @ServerFilter(patternStyle = FilterPatternStyle.REGEX,
         value = "${" + TenantResolverFilterConfigurationProperties.PREFIX + ".regex-pattern:" + TenantResolverFilterConfigurationProperties.DEFAULT_REGEX_PATTERN + "}")
 @Internal
+@Requires(condition = TenantResolverExistsCondition.class)
 final class TenantResolverFilter implements Ordered {
     /**
      * Request attribute for tenant Identifier.
