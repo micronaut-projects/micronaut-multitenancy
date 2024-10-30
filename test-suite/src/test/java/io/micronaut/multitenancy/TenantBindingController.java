@@ -13,7 +13,7 @@ class TenantBindingController {
     @Secured(SecurityRule.IS_ANONYMOUS)
     @Produces(MediaType.TEXT_PLAIN)
     @Get
-    String echoTenant(Tenant tenant) {
-        return tenant.id();
+    String echoTenant(SerializableTenant tenant) {
+        return tenant.id().toString();
     }
 }

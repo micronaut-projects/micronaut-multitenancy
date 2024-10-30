@@ -12,6 +12,7 @@ import io.micronaut.http.annotation.Produces;
 import io.micronaut.http.client.BlockingHttpClient;
 import io.micronaut.http.client.HttpClient;
 import io.micronaut.http.client.annotation.Client;
+import io.micronaut.multitenancy.SerializableTenant;
 import io.micronaut.multitenancy.Tenant;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
@@ -49,8 +50,8 @@ class TenantResolverFilterPatternTest {
 
         @Produces(MediaType.TEXT_PLAIN)
         @Get("/images/logo.png")
-        String echoTenant(@Nullable Tenant tenant) {
-            return tenant != null ? tenant.id() : "no tenant";
+        String echoTenant(@Nullable SerializableTenant tenant) {
+            return tenant != null ? tenant.id().toString() : "no tenant";
         }
     }
 
@@ -60,8 +61,8 @@ class TenantResolverFilterPatternTest {
 
         @Produces(MediaType.TEXT_PLAIN)
         @Get
-        String echoTenant(Tenant tenant) {
-            return tenant.id();
+        String echoTenant(SerializableTenant tenant) {
+            return tenant.id().toString();
         }
     }
 

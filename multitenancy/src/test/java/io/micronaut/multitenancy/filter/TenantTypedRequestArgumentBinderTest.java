@@ -12,6 +12,7 @@ import io.micronaut.http.annotation.Produces;
 import io.micronaut.http.client.BlockingHttpClient;
 import io.micronaut.http.client.HttpClient;
 import io.micronaut.http.client.annotation.Client;
+import io.micronaut.multitenancy.SerializableTenant;
 import io.micronaut.multitenancy.Tenant;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
@@ -40,8 +41,8 @@ class TenantTypedRequestArgumentBinderTest  {
 
         @Produces(MediaType.TEXT_PLAIN)
         @Get
-        String echoTenant(Tenant tenant) {
-            return tenant.id();
+        String echoTenant(SerializableTenant tenant) {
+            return tenant.id().toString();
         }
     }
 }

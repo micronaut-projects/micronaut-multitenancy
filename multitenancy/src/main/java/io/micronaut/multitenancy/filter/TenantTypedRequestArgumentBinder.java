@@ -20,26 +20,27 @@ import io.micronaut.core.convert.ArgumentConversionContext;
 import io.micronaut.core.type.Argument;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.bind.binders.TypedRequestArgumentBinder;
-import io.micronaut.multitenancy.Tenant;
+import io.micronaut.multitenancy.SerializableTenant;
 import jakarta.inject.Singleton;
 
+import java.io.Serializable;
 import java.util.Optional;
 
 @Internal
 @Singleton
-final class TenantTypedRequestArgumentBinder implements TypedRequestArgumentBinder<Tenant> {
+final class TenantTypedRequestArgumentBinder implements TypedRequestArgumentBinder<SerializableTenant> {
     @Override
-    public Argument<Tenant> argumentType() {
-        return Argument.of(Tenant.class);
+    public Argument<SerializableTenant> argumentType() {
+        return Argument.of(SerializableTenant.class);
     }
 
     @Override
-    public BindingResult<Tenant> bind(ArgumentConversionContext<Tenant> context, HttpRequest<?> source) {
+    public BindingResult<SerializableTenant> bind(ArgumentConversionContext<SerializableTenant> context, HttpRequest<?> source) {
         if (!source.getAttributes().contains(TenantResolverFilter.ATTRIBUTE_TENANT)) {
             return BindingResult.UNSATISFIED;
         }
-        Optional<BindingResult<Tenant>> bindingResult = source.getAttribute(TenantResolverFilter.ATTRIBUTE_TENANT, String.class)
-                .map(tenantId -> (Tenant) () -> tenantId)
+        Optional<BindingResult<SerializableTenant>> bindingResult = source.getAttribute(TenantResolverFilter.ATTRIBUTE_TENANT, Serializable.class)
+                .map(tenantId -> (SerializableTenant) () -> tenantId)
                 .map(tenant -> () -> Optional.of(tenant));
         return bindingResult.isEmpty()
                 ? BindingResult.EMPTY

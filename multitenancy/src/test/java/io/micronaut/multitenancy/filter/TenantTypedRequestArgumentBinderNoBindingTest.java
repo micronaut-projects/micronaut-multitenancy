@@ -40,7 +40,7 @@ class TenantTypedRequestArgumentBinderNoBindingTest {
         @Produces(MediaType.TEXT_PLAIN)
         @Get
         String echoTenant(@Nullable Tenant tenant) {
-            return tenant != null ? tenant.id() : "no tenant";
+            return tenant != null ? tenant.id().toString() : "no tenant";
         }
     }
 }
