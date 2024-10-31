@@ -7,13 +7,15 @@ import io.micronaut.http.annotation.Produces;
 import io.micronaut.security.annotation.Secured;
 import io.micronaut.security.rules.SecurityRule;
 
+import java.io.Serializable;
+
 @Controller("/tenant")
 class TenantBindingController {
 
     @Secured(SecurityRule.IS_ANONYMOUS)
     @Produces(MediaType.TEXT_PLAIN)
     @Get
-    String echoTenant(SerializableTenant tenant) {
+    String echoTenant(Tenant<Serializable> tenant) {
         return tenant.id().toString();
     }
 }

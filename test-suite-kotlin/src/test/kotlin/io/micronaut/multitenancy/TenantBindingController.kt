@@ -6,11 +6,12 @@ import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Produces
 import io.micronaut.security.annotation.Secured
 import io.micronaut.security.rules.SecurityRule
+import java.io.Serializable
 
 @Controller("/tenant")
 internal class TenantBindingController {
     @Secured(SecurityRule.IS_ANONYMOUS)
     @Produces(MediaType.TEXT_PLAIN)
     @Get
-    fun echoTenant(tenant: SerializableTenant): String = tenant.id().toString()
+    fun echoTenant(tenant: Tenant<Serializable>): Serializable = tenant.id()
 }

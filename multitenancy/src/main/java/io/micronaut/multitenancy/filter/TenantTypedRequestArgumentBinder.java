@@ -20,30 +20,36 @@ import io.micronaut.core.convert.ArgumentConversionContext;
 import io.micronaut.core.type.Argument;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.bind.binders.TypedRequestArgumentBinder;
-import io.micronaut.multitenancy.SerializableTenant;
+import io.micronaut.multitenancy.Tenant;
 import jakarta.inject.Singleton;
 
 import java.io.Serializable;
 import java.util.Optional;
 
+/**
+ * {@link TypedRequestArgumentBinder} for {@link Tenant}.
+ * @author Sergio del Amo
+ * @since 5.5.0
+ */
 @Internal
 @Singleton
-final class TenantTypedRequestArgumentBinder implements TypedRequestArgumentBinder<SerializableTenant> {
+final class TenantTypedRequestArgumentBinder implements TypedRequestArgumentBinder<Tenant> {
     @Override
-    public Argument<SerializableTenant> argumentType() {
-        return Argument.of(SerializableTenant.class);
+    public Argument<Tenant> argumentType() {
+        return Argument.of(Tenant.class);
     }
 
     @Override
-    public BindingResult<SerializableTenant> bind(ArgumentConversionContext<SerializableTenant> context, HttpRequest<?> source) {
+    public BindingResult<Tenant> bind(ArgumentConversionContext<Tenant> context, HttpRequest<?> source) {
         if (!source.getAttributes().contains(TenantResolverFilter.ATTRIBUTE_TENANT)) {
             return BindingResult.UNSATISFIED;
         }
-        Optional<BindingResult<SerializableTenant>> bindingResult = source.getAttribute(TenantResolverFilter.ATTRIBUTE_TENANT, Serializable.class)
-                .map(tenantId -> (SerializableTenant) () -> tenantId)
-                .map(tenant -> () -> Optional.of(tenant));
-        return bindingResult.isEmpty()
-                ? BindingResult.EMPTY
-                : bindingResult.get();
+        Optional<Serializable> serializableOptional = source.getAttribute(TenantResolverFilter.ATTRIBUTE_TENANT, Serializable.class);
+        if (serializableOptional.isEmpty()) {
+            return BindingResult.EMPTY;
+        }
+        Serializable serializable = serializableOptional.get();
+        Tenant<Serializable> tenant = () -> serializable;
+        return () -> Optional.of(tenant);
     }
 }
