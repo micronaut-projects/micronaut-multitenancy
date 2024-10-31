@@ -31,7 +31,7 @@ final class TenantResolverFilterConfigurationProperties implements TenantResolve
      * The default regex pattern.
      */
     @SuppressWarnings("WeakerAccess")
-    public static final String  DEFAULT_REGEX_PATTERN = "^.*$";
+    public static final String DEFAULT_REGEX_PATTERN = "^.*$";
 
     /**
      * The default enable value.
