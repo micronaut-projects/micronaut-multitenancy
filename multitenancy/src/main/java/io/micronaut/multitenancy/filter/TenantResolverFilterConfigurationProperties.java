@@ -26,7 +26,7 @@ import io.micronaut.multitenancy.MultitenancyConfiguration;
 @Internal
 final class TenantResolverFilterConfigurationProperties implements TenantResolverFilterConfiguration {
     public static final String PREFIX = MultitenancyConfiguration.PREFIX + ".filter";
-    public static final String ENABLED = PREFIX + ".enabled";
+    public static final String PROPERTY_ENABLED = PREFIX + ".enabled";
     /**
      * The default regex pattern.
      */
