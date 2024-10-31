@@ -33,6 +33,6 @@ final class TenantResolverExistsCondition implements Condition {
     public boolean matches(ConditionContext context) {
         BeanContext beanContext = context.getBeanContext();
         return beanContext.containsBean(HttpRequestTenantResolver.class)
-                || context.getBeanContext().containsBean(TenantResolver.class);
+                || beanContext.containsBean(TenantResolver.class);
     }
 }
