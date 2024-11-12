@@ -48,16 +48,30 @@ public abstract class AbstractSubdomainTenantResolver implements TenantResolver,
 
     @Override
     @NonNull
-    public Serializable resolveTenantIdentifier() {
+    public String resolveTenantId() {
         Optional<HttpRequest<Object>> current = ServerRequestContext.currentRequest();
-        return current.map(this::resolveTenantIdentifier).orElseThrow(() -> new TenantNotFoundException("Tenant could not be resolved outside a web request"));
+        return current.map(this::resolveTenantId).orElseThrow(() -> new TenantNotFoundException("Tenant could not be resolved outside a web request"));
     }
 
     @Override
     @NonNull
-    public Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
+    public String resolveTenantId(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
         final String host = httpHostResolver.resolve(Objects.requireNonNull(request, "request must not be null"));
-        return resolveSubdomain(hostWithoutProtocol(host));
+        return resolveSubdomain(hostWithoutProtocol(host)).toString();
+    }
+
+    @Override
+    @NonNull
+    @Deprecated(forRemoval = true, since = "5.5.0")
+    public Serializable resolveTenantIdentifier() {
+        return resolveTenantId();
+    }
+
+    @Override
+    @NonNull
+    @Deprecated(forRemoval = true, since = "5.5.0")
+    public Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
+        return resolveTenantId(request);
     }
 
     /**

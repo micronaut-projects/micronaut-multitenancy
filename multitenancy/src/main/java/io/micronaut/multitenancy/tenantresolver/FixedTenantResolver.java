@@ -47,11 +47,23 @@ public class FixedTenantResolver implements TenantResolver {
     /**
      * @return the tenant ID if resolved.
      * @throws TenantNotFoundException if tenant not found
+     * @deprecated Use {@link #resolveTenantId()} instead
      */
+    @Deprecated(forRemoval = true, since = "5.5.0")
     @Override
     @NonNull
     public Serializable resolveTenantIdentifier() throws TenantNotFoundException {
-        final Serializable tenantId = fixedTenantResolverConfiguration.getTenantId();
+        return resolveTenantId();
+    }
+
+    /**
+     * @return the tenant ID if resolved.
+     * @throws TenantNotFoundException if tenant not found
+     */
+    @Override
+    @NonNull
+    public String resolveTenantId() throws TenantNotFoundException {
+        final String tenantId = fixedTenantResolverConfiguration.getTenantId();
 
         if (tenantId == null) {
             throw new TenantNotFoundException("TenantId could not be resolved. tenantId is null at FixedTenantResolver");

@@ -1,0 +1,6 @@
+The module ships a filter which resolves the current tenant and sets it as a request attribute named `tenantIdentifier`.
+
+The following global configuration options are available for the `TenantResolverFilter`:
+
+include::{includedir}configurationProperties/io.micronaut.multitenancy.filter.TenantResolverFilterConfigurationProperties.adoc[]
+

@@ -3,9 +3,7 @@ plugins {
 }
 
 dependencies {
-    api(mn.micronaut.http)
     compileOnly(mn.micronaut.http.server)
-    api(mn.micronaut.inject)
     compileOnly(mnSession.micronaut.session)
     compileOnly(libs.managed.publicsuffixlist)
     compileOnly(libs.guava)
@@ -20,4 +18,12 @@ dependencies {
     testImplementation(mn.micronaut.http.server.netty)
     testImplementation(mnSession.micronaut.session)
     testImplementation(mn.snakeyaml)
+
+    testAnnotationProcessor(mn.micronaut.inject.java)
+    testImplementation(mnTest.micronaut.test.junit5)
+    testRuntimeOnly(libs.junit.jupiter.engine)
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }

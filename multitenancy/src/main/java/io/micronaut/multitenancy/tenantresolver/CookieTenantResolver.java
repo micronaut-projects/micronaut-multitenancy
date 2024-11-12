@@ -57,17 +57,37 @@ public class CookieTenantResolver implements TenantResolver, HttpRequestTenantRe
      *
      * @return the tenant ID if resolved.
      * @throws TenantNotFoundException if tenant not found
+     * @deprecated Use {@link #resolveTenantId()} instead
+     */
+    @Override
+    @Deprecated(forRemoval = true, since = "5.5.0")
+    @NonNull
+    public Serializable resolveTenantIdentifier() throws TenantNotFoundException {
+        return resolveTenantId();
+    }
+
+    @Override
+    @Deprecated(forRemoval = true, since = "5.5.0")
+    @NonNull
+    public Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
+        return resolveTenantId(request);
+    }
+
+    /**
+     *
+     * @return the tenant ID if resolved.
+     * @throws TenantNotFoundException if tenant not found
      */
     @Override
     @NonNull
-    public Serializable resolveTenantIdentifier() throws TenantNotFoundException {
+    public String resolveTenantId() throws TenantNotFoundException {
         Optional<HttpRequest<Object>> current = ServerRequestContext.currentRequest();
-        return current.map(this::resolveTenantIdentifier).orElseThrow(() -> new TenantNotFoundException("Tenant could not be resolved outside a web request"));
+        return current.map(this::resolveTenantId).orElseThrow(() -> new TenantNotFoundException("Tenant could not be resolved outside a web request"));
     }
 
     @Override
     @NonNull
-    public Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
+    public String resolveTenantId(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
         if (Objects.requireNonNull(request, "request must not be null").getCookies() != null) {
             Optional<Cookie> optionalTenantId = request.getCookies().findCookie(cookiename);
             if (optionalTenantId.isPresent()) {
@@ -76,5 +96,4 @@ public class CookieTenantResolver implements TenantResolver, HttpRequestTenantRe
         }
         throw new TenantNotFoundException("Tenant could not be resolved from the Cookie: " + cookiename);
     }
-
 }

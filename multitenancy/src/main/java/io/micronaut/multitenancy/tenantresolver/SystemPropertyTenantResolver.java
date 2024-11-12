@@ -50,11 +50,23 @@ public class SystemPropertyTenantResolver implements TenantResolver {
      */
     @Override
     @NonNull
-    public Serializable resolveTenantIdentifier() throws TenantNotFoundException {
+    public String resolveTenantId() throws TenantNotFoundException {
         String value = System.getProperty(systemPropertyTenantResolverConfiguration.getSystemPropertyName());
         if (value == null) {
             throw new TenantNotFoundException("System property (" + systemPropertyTenantResolverConfiguration.getSystemPropertyName() + ") not found");
         }
         return value;
+    }
+
+    /**
+     * @return the tenant ID if resolved.
+     * @throws TenantNotFoundException if tenant not found.
+     * @deprecated Use {@link #resolveTenantId()} instead
+     */
+    @Deprecated(forRemoval = true, since = "5.5.0")
+    @Override
+    @NonNull
+    public Serializable resolveTenantIdentifier() throws TenantNotFoundException {
+        return resolveTenantId();
     }
 }
