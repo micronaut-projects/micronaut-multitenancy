@@ -89,15 +89,19 @@
         
         <div class="toc-item" style="margin-left:10px" id="toc-item-tenantresolvers"><a href="#tenantresolvers"><strong>2.2</strong><span>Built-In Tenant Resolvers</span></a></div>
         
-        <div class="toc-item" style="margin-left:10px" id="toc-item-tenantexpression"><a href="#tenantexpression"><strong>2.3</strong><span>Tenant Expression Language</span></a></div>
+        <div class="toc-item" style="margin-left:10px" id="toc-item-bindingResolvedTenant"><a href="#bindingResolvedTenant"><strong>2.3</strong><span>Tenant Binding</span></a></div>
         
-        <div class="toc-item" style="margin-left:10px" id="toc-item-subdomainresolver"><a href="#subdomainresolver"><strong>2.4</strong><span>Subdomain Tenant Resolver</span></a></div>
+        <div class="toc-item" style="margin-left:10px" id="toc-item-tenantAsRequestAttribute"><a href="#tenantAsRequestAttribute"><strong>2.4</strong><span>Tenant Request Attribute</span></a></div>
         
-        <div class="toc-item" style="margin-left:20px" id="toc-item-publicsuffixlist"><a href="#publicsuffixlist"><strong>2.4.1</strong><span>Public Suffix List Subdomain Tenant Resolver</span></a></div>
+        <div class="toc-item" style="margin-left:10px" id="toc-item-tenantexpression"><a href="#tenantexpression"><strong>2.5</strong><span>Tenant Expression Language</span></a></div>
         
-        <div class="toc-item" style="margin-left:20px" id="toc-item-subdomainguava"><a href="#subdomainguava"><strong>2.4.2</strong><span>Guava Subdomain Tenant Resolver</span></a></div>
+        <div class="toc-item" style="margin-left:10px" id="toc-item-subdomainresolver"><a href="#subdomainresolver"><strong>2.6</strong><span>Subdomain Tenant Resolver</span></a></div>
         
-        <div class="toc-item" style="margin-left:10px" id="toc-item-tenantpropagation"><a href="#tenantpropagation"><strong>2.5</strong><span>Tenant Propagation</span></a></div>
+        <div class="toc-item" style="margin-left:20px" id="toc-item-publicsuffixlist"><a href="#publicsuffixlist"><strong>2.6.1</strong><span>Public Suffix List Subdomain Tenant Resolver</span></a></div>
+        
+        <div class="toc-item" style="margin-left:20px" id="toc-item-subdomainguava"><a href="#subdomainguava"><strong>2.6.2</strong><span>Guava Subdomain Tenant Resolver</span></a></div>
+        
+        <div class="toc-item" style="margin-left:10px" id="toc-item-tenantpropagation"><a href="#tenantpropagation"><strong>2.7</strong><span>Tenant Propagation</span></a></div>
         
         <div class="toc-item" style="margin-left:0px" id="toc-item-multitenancyGorm"><a href="#multitenancyGorm"><strong>3</strong><span>Multi-Tenancy GORM</span></a></div>
         
@@ -225,7 +229,133 @@
 </tbody>
 </table>
 
-<h2 id="tenantexpression"><a class="anchor" href="#tenantexpression"></a>2.3 Tenant Expression Language</h2>
+<h2 id="bindingResolvedTenant"><a class="anchor" href="#bindingResolvedTenant"></a>2.3 Tenant Binding</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/5.5.x/src/main/docs/guide/multitenancy/bindingResolvedTenant.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>To access the resolved tenant, you can bind <a href="../api/io/micronaut/multitenancy/Tenant.html">Tenant</a> as a controller method parameter.</p>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.micronaut.multitenancy;
+
+import io.micronaut.http.MediaType;
+import io.micronaut.http.annotation.Controller;
+import io.micronaut.http.annotation.Get;
+import io.micronaut.http.annotation.Produces;
+import io.micronaut.security.annotation.Secured;
+import io.micronaut.security.rules.SecurityRule;
+
+import java.io.Serializable;
+
+@Controller("/tenant")
+class TenantBindingController {
+
+    @Secured(SecurityRule.IS_ANONYMOUS)
+    @Produces(MediaType.TEXT_PLAIN)
+    @Get
+    Serializable echoTenant(Tenant tenant) {
+        return tenant.id();
+    }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">package io.micronaut.multitenancy
+
+import io.micronaut.http.MediaType
+import io.micronaut.http.annotation.Controller
+import io.micronaut.http.annotation.Get
+import io.micronaut.http.annotation.Produces
+import io.micronaut.security.annotation.Secured
+import io.micronaut.security.rules.SecurityRule
+
+@Controller("/tenant")
+class TenantBindingController {
+
+    @Secured(SecurityRule.IS_ANONYMOUS)
+    @Produces(MediaType.TEXT_PLAIN)
+    @Get
+    Serializable echoTenant(Tenant tenant) {
+        tenant.id()
+    }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package io.micronaut.multitenancy
+
+import io.micronaut.http.MediaType
+import io.micronaut.http.annotation.Controller
+import io.micronaut.http.annotation.Get
+import io.micronaut.http.annotation.Produces
+import io.micronaut.security.annotation.Secured
+import io.micronaut.security.rules.SecurityRule
+import java.io.Serializable
+
+@Controller("/tenant")
+internal class TenantBindingController {
+    @Secured(SecurityRule.IS_ANONYMOUS)
+    @Produces(MediaType.TEXT_PLAIN)
+    @Get
+    fun echoTenant(tenant: Tenant): Serializable = tenant.id()
+}</code></pre>
+</div>
+</div>
+
+<h2 id="tenantAsRequestAttribute"><a class="anchor" href="#tenantAsRequestAttribute"></a>2.4 Tenant Request Attribute</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/5.5.x/src/main/docs/guide/multitenancy/tenantAsRequestAttribute.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>The module ships a filter which resolves the current tenant and sets it as a request attribute named <code>tenantIdentifier</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following global configuration options are available for the <code>TenantResolverFilter</code>:</p>
+</div>
+<a id="io.micronaut.multitenancy.filter.TenantResolverFilterConfigurationProperties" href="#io.micronaut.multitenancy.filter.TenantResolverFilterConfigurationProperties">&#128279;</a>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Configuration Properties for <a href="../api/io/micronaut/multitenancy/filter/TenantResolverFilterConfigurationProperties.html">TenantResolverFilterConfigurationProperties</a></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.filter.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether <a href="../api/io/micronaut/multitenancy/filter/TenantResolverFilter.html">TenantResolverFilter</a> should be enabled. Default value (true).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.filter.regex-pattern</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tenant Resolver filter processes only request paths matching this regular expression. Default Value: "^.*$"</p></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="tenantexpression"><a class="anchor" href="#tenantexpression"></a>2.5 Tenant Expression Language</h2>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/5.5.x/src/main/docs/guide/multitenancy/tenantexpression.adoc"'>
@@ -317,7 +447,7 @@ class TenantCheckingSecuredController {
 </table>
 </div>
 
-<h2 id="subdomainresolver"><a class="anchor" href="#subdomainresolver"></a>2.4 Subdomain Tenant Resolver</h2>
+<h2 id="subdomainresolver"><a class="anchor" href="#subdomainresolver"></a>2.6 Subdomain Tenant Resolver</h2>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/5.5.x/src/main/docs/guide/multitenancy/subdomainresolver.adoc"'>
@@ -340,7 +470,7 @@ However, Micronaut Multi-tenancy ships with other implementations, <a href="../a
 </table>
 </div>
 
-<h2 id="publicsuffixlist"><a class="anchor" href="#publicsuffixlist"></a>2.4.1 Public Suffix List Subdomain Tenant Resolver</h2>
+<h2 id="publicsuffixlist"><a class="anchor" href="#publicsuffixlist"></a>2.6.1 Public Suffix List Subdomain Tenant Resolver</h2>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/5.5.x/src/main/docs/guide/multitenancy/subdomainresolver/publicsuffixlist.adoc"'>
@@ -372,7 +502,7 @@ However, Micronaut Multi-tenancy ships with other implementations, <a href="../a
 </div></p>
 </div>
 
-<h2 id="subdomainguava"><a class="anchor" href="#subdomainguava"></a>2.4.2 Guava Subdomain Tenant Resolver</h2>
+<h2 id="subdomainguava"><a class="anchor" href="#subdomainguava"></a>2.6.2 Guava Subdomain Tenant Resolver</h2>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/5.5.x/src/main/docs/guide/multitenancy/subdomainresolver/subdomainguava.adoc"'>
@@ -390,7 +520,7 @@ to resolve the domain suffix.</p>
 <p>To use it, in addition to the <code>micronaut-multitenancy</code> dependency, you need to add the <a href="https://central.sonatype.com/artifact/com.google.guava/guava">guava dependency</a> to your classpath.</p>
 </div>
 
-<h2 id="tenantpropagation"><a class="anchor" href="#tenantpropagation"></a>2.5 Tenant Propagation</h2>
+<h2 id="tenantpropagation"><a class="anchor" href="#tenantpropagation"></a>2.7 Tenant Propagation</h2>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-multitenancy/edit/5.5.x/src/main/docs/guide/multitenancy/tenantpropagation.adoc"'>

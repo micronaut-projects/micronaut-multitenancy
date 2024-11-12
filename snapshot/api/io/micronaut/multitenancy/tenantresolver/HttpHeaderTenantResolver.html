@@ -133,21 +133,33 @@ implements <a href="TenantResolver.html" title="interface in io.micronaut.multit
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button><button id="method-summary-table-tab6" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab6', 3)" class="table-tab">Deprecated Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel">
 <div class="summary-table three-column-summary" aria-labelledby="method-summary-table-tab0">
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@NonNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resolveTenantIdentifier()" class="member-name-link">resolveTenantIdentifier</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@NonNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resolveTenantId()" class="member-name-link">resolveTenantId</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Resolves the current tenant identifier.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@NonNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resolveTenantIdentifier(io.micronaut.http.HttpRequest)" class="member-name-link">resolveTenantIdentifier</a><wbr>(@NonNull io.micronaut.http.HttpRequest&lt;?&gt;&nbsp;request)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@NonNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resolveTenantId(io.micronaut.http.HttpRequest)" class="member-name-link">resolveTenantId</a><wbr>(@NonNull io.micronaut.http.HttpRequest&lt;?&gt;&nbsp;request)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Resolves the current tenant identifier.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code>@NonNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#resolveTenantIdentifier()" class="member-name-link">resolveTenantIdentifier</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Use <a href="#resolveTenantId()"><code>resolveTenantId()</code></a> instead</div>
+</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#resolveTenantIdentifier(io.micronaut.http.HttpRequest)" class="member-name-link">resolveTenantIdentifier</a><wbr>(@NonNull io.micronaut.http.HttpRequest&lt;?&gt;&nbsp;request)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 </div>
 </div>
 </div>
@@ -200,13 +212,59 @@ implements <a href="TenantResolver.html" title="interface in io.micronaut.multit
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="resolveTenantId()">
+<h3>resolveTenantId</h3>
+<div class="member-signature"><span class="annotations">@NonNull
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type">@NonNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">resolveTenantId</span>()
+                                throws <span class="exceptions"><a href="../exceptions/TenantNotFoundException.html" title="class in io.micronaut.multitenancy.exceptions">TenantNotFoundException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="TenantResolver.html#resolveTenantId()">TenantResolver</a></code></span></div>
+<div class="block"><p>Resolves the current tenant identifier.</p>
+
+ <p>In a Multi Tenant setup where a single database is being used amongst multiple tenants this would be the object that is used as the tenantId property for each domain class.</p></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="TenantResolver.html#resolveTenantId()">resolveTenantId</a></code>&nbsp;in interface&nbsp;<code><a href="TenantResolver.html" title="interface in io.micronaut.multitenancy.tenantresolver">TenantResolver</a></code></dd>
+<dt>Returns:</dt>
+<dd>the tenant ID if resolved.</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../exceptions/TenantNotFoundException.html" title="class in io.micronaut.multitenancy.exceptions">TenantNotFoundException</a></code> - if tenant not found</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="resolveTenantId(io.micronaut.http.HttpRequest)">
+<h3>resolveTenantId</h3>
+<div class="member-signature"><span class="annotations">@NonNull
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type">@NonNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">resolveTenantId</span><wbr><span class="parameters">(@NonNull
+ @NonNull io.micronaut.http.HttpRequest&lt;?&gt;&nbsp;request)</span>
+                                throws <span class="exceptions"><a href="../exceptions/TenantNotFoundException.html" title="class in io.micronaut.multitenancy.exceptions">TenantNotFoundException</a></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="HttpRequestTenantResolver.html#resolveTenantId(io.micronaut.http.HttpRequest)">HttpRequestTenantResolver</a></code></span></div>
+<div class="block">Resolves the current tenant identifier.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="HttpRequestTenantResolver.html#resolveTenantId(io.micronaut.http.HttpRequest)">resolveTenantId</a></code>&nbsp;in interface&nbsp;<code><a href="HttpRequestTenantResolver.html" title="interface in io.micronaut.multitenancy.tenantresolver">HttpRequestTenantResolver</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>request</code> - The HTTP request</dd>
+<dt>Returns:</dt>
+<dd>The tenant identifier</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../exceptions/TenantNotFoundException.html" title="class in io.micronaut.multitenancy.exceptions">TenantNotFoundException</a></code> - if tenant not found</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="resolveTenantIdentifier()">
 <h3>resolveTenantIdentifier</h3>
-<div class="member-signature"><span class="annotations">@NonNull
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html#forRemoval()" title="class or interface in java.lang" class="external-link">forRemoval</a>=true,
+            <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="5.5.0")
+@NonNull
 </span><span class="modifiers">public</span>&nbsp;<span class="return-type">@NonNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></span>&nbsp;<span class="element-name">resolveTenantIdentifier</span>()
                                               throws <span class="exceptions"><a href="../exceptions/TenantNotFoundException.html" title="class in io.micronaut.multitenancy.exceptions">TenantNotFoundException</a></span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Use <a href="#resolveTenantId()"><code>resolveTenantId()</code></a> instead</div>
+</div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="TenantResolver.html#resolveTenantIdentifier()">TenantResolver</a></code></span></div>
-<div class="block"><p>Resolves the current tenant identifier.
+<div class="block"><p>Resolves the current tenant identifier.</p>
 
  <p>In a Multi Tenant setup where a single database is being used amongst multiple tenants this would be the object that is used as the tenantId property for each domain class.</p></div>
 <dl class="notes">
@@ -222,10 +280,12 @@ implements <a href="TenantResolver.html" title="interface in io.micronaut.multit
 <li>
 <section class="detail" id="resolveTenantIdentifier(io.micronaut.http.HttpRequest)">
 <h3>resolveTenantIdentifier</h3>
-<div class="member-signature"><span class="annotations">@NonNull
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type">@NonNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></span>&nbsp;<span class="element-name">resolveTenantIdentifier</span><wbr><span class="parameters">(@NonNull
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html#forRemoval()" title="class or interface in java.lang" class="external-link">forRemoval</a>=true,
+            <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="5.5.0")
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></span>&nbsp;<span class="element-name">resolveTenantIdentifier</span><wbr><span class="parameters">(@NonNull
  @NonNull io.micronaut.http.HttpRequest&lt;?&gt;&nbsp;request)</span>
-                                              throws <span class="exceptions"><a href="../exceptions/TenantNotFoundException.html" title="class in io.micronaut.multitenancy.exceptions">TenantNotFoundException</a></span></div>
+                                     throws <span class="exceptions"><a href="../exceptions/TenantNotFoundException.html" title="class in io.micronaut.multitenancy.exceptions">TenantNotFoundException</a></span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="HttpRequestTenantResolver.html#resolveTenantIdentifier(io.micronaut.http.HttpRequest)">HttpRequestTenantResolver</a></code></span></div>
 <div class="block">Resolves the current tenant identifier.</div>
 <dl class="notes">

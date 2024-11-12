@@ -52,6 +52,7 @@ loadScripts(document, 'script');</script>
 <h2 title="Contents">Contents</h2>
 <ul>
 <li><a href="#for-removal">Terminally Deprecated</a></li>
+<li><a href="#method">Methods</a></li>
 <li><a href="#constructor">Constructors</a></li>
 </ul>
 </div>
@@ -62,9 +63,100 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Element</div>
 <div class="table-header col-last">Description</div>
+<div class="col-summary-item-name even-row-color"><a href="io/micronaut/multitenancy/tenantresolver/AbstractSubdomainTenantResolver.html#resolveTenantIdentifier()">io.micronaut.multitenancy.tenantresolver.AbstractSubdomainTenantResolver.resolveTenantIdentifier()</a></div>
+<div class="col-last even-row-color"></div>
+<div class="col-summary-item-name odd-row-color"><a href="io/micronaut/multitenancy/tenantresolver/AbstractSubdomainTenantResolver.html#resolveTenantIdentifier(io.micronaut.http.HttpRequest)">io.micronaut.multitenancy.tenantresolver.AbstractSubdomainTenantResolver.resolveTenantIdentifier<wbr>(HttpRequest&lt;?&gt;)</a></div>
+<div class="col-last odd-row-color"></div>
+<div class="col-summary-item-name even-row-color"><a href="io/micronaut/multitenancy/tenantresolver/CookieTenantResolver.html#resolveTenantIdentifier()">io.micronaut.multitenancy.tenantresolver.CookieTenantResolver.resolveTenantIdentifier()</a></div>
+<div class="col-last even-row-color">
+<div class="deprecation-comment">Use <a href="io/micronaut/multitenancy/tenantresolver/CookieTenantResolver.html#resolveTenantId()"><code>CookieTenantResolver.resolveTenantId()</code></a> instead</div>
+</div>
+<div class="col-summary-item-name odd-row-color"><a href="io/micronaut/multitenancy/tenantresolver/CookieTenantResolver.html#resolveTenantIdentifier(io.micronaut.http.HttpRequest)">io.micronaut.multitenancy.tenantresolver.CookieTenantResolver.resolveTenantIdentifier<wbr>(HttpRequest&lt;?&gt;)</a></div>
+<div class="col-last odd-row-color"></div>
+<div class="col-summary-item-name even-row-color"><a href="io/micronaut/multitenancy/tenantresolver/FixedTenantResolver.html#resolveTenantIdentifier()">io.micronaut.multitenancy.tenantresolver.FixedTenantResolver.resolveTenantIdentifier()</a></div>
+<div class="col-last even-row-color">
+<div class="deprecation-comment">Use <a href="io/micronaut/multitenancy/tenantresolver/FixedTenantResolver.html#resolveTenantId()"><code>FixedTenantResolver.resolveTenantId()</code></a> instead</div>
+</div>
+<div class="col-summary-item-name odd-row-color"><a href="io/micronaut/multitenancy/tenantresolver/HttpHeaderTenantResolver.html#resolveTenantIdentifier()">io.micronaut.multitenancy.tenantresolver.HttpHeaderTenantResolver.resolveTenantIdentifier()</a></div>
+<div class="col-last odd-row-color">
+<div class="deprecation-comment">Use <a href="io/micronaut/multitenancy/tenantresolver/HttpHeaderTenantResolver.html#resolveTenantId()"><code>HttpHeaderTenantResolver.resolveTenantId()</code></a> instead</div>
+</div>
+<div class="col-summary-item-name even-row-color"><a href="io/micronaut/multitenancy/tenantresolver/HttpHeaderTenantResolver.html#resolveTenantIdentifier(io.micronaut.http.HttpRequest)">io.micronaut.multitenancy.tenantresolver.HttpHeaderTenantResolver.resolveTenantIdentifier<wbr>(HttpRequest&lt;?&gt;)</a></div>
+<div class="col-last even-row-color"></div>
+<div class="col-summary-item-name odd-row-color"><a href="io/micronaut/multitenancy/tenantresolver/HttpRequestTenantResolver.html#resolveTenantIdentifier(io.micronaut.http.HttpRequest)">io.micronaut.multitenancy.tenantresolver.HttpRequestTenantResolver.resolveTenantIdentifier<wbr>(HttpRequest&lt;?&gt;)</a></div>
+<div class="col-last odd-row-color">
+<div class="deprecation-comment">Use <a href="io/micronaut/multitenancy/tenantresolver/HttpRequestTenantResolver.html#resolveTenantId(io.micronaut.http.HttpRequest)"><code>HttpRequestTenantResolver.resolveTenantId(HttpRequest)</code></a> instead</div>
+</div>
+<div class="col-summary-item-name even-row-color"><a href="io/micronaut/multitenancy/tenantresolver/PrincipalTenantResolver.html#resolveTenantIdentifier()">io.micronaut.multitenancy.tenantresolver.PrincipalTenantResolver.resolveTenantIdentifier()</a></div>
+<div class="col-last even-row-color"></div>
+<div class="col-summary-item-name odd-row-color"><a href="io/micronaut/multitenancy/tenantresolver/PrincipalTenantResolver.html#resolveTenantIdentifier(io.micronaut.http.HttpRequest)">io.micronaut.multitenancy.tenantresolver.PrincipalTenantResolver.resolveTenantIdentifier<wbr>(HttpRequest&lt;?&gt;)</a></div>
+<div class="col-last odd-row-color"></div>
+<div class="col-summary-item-name even-row-color"><a href="io/micronaut/multitenancy/tenantresolver/SessionTenantResolver.html#resolveTenantIdentifier()">io.micronaut.multitenancy.tenantresolver.SessionTenantResolver.resolveTenantIdentifier()</a></div>
+<div class="col-last even-row-color"></div>
+<div class="col-summary-item-name odd-row-color"><a href="io/micronaut/multitenancy/tenantresolver/SessionTenantResolver.html#resolveTenantIdentifier(io.micronaut.http.HttpRequest)">io.micronaut.multitenancy.tenantresolver.SessionTenantResolver.resolveTenantIdentifier<wbr>(HttpRequest&lt;?&gt;)</a></div>
+<div class="col-last odd-row-color"></div>
 <div class="col-summary-item-name even-row-color"><a href="io/micronaut/multitenancy/tenantresolver/SubdomainTenantResolver.html#%3Cinit%3E()">io.micronaut.multitenancy.tenantresolver.SubdomainTenantResolver()</a></div>
 <div class="col-last even-row-color">
 <div class="deprecation-comment">Use <a href="io/micronaut/multitenancy/tenantresolver/SubdomainTenantResolver.html#%3Cinit%3E(io.micronaut.http.server.util.HttpHostResolver)"><code>SubdomainTenantResolver(HttpHostResolver)</code></a></div>
+</div>
+<div class="col-summary-item-name odd-row-color"><a href="io/micronaut/multitenancy/tenantresolver/SystemPropertyTenantResolver.html#resolveTenantIdentifier()">io.micronaut.multitenancy.tenantresolver.SystemPropertyTenantResolver.resolveTenantIdentifier()</a></div>
+<div class="col-last odd-row-color">
+<div class="deprecation-comment">Use <a href="io/micronaut/multitenancy/tenantresolver/SystemPropertyTenantResolver.html#resolveTenantId()"><code>SystemPropertyTenantResolver.resolveTenantId()</code></a> instead</div>
+</div>
+<div class="col-summary-item-name even-row-color"><a href="io/micronaut/multitenancy/tenantresolver/TenantResolver.html#resolveTenantIdentifier()">io.micronaut.multitenancy.tenantresolver.TenantResolver.resolveTenantIdentifier()</a></div>
+<div class="col-last even-row-color">
+<div class="deprecation-comment">Use <a href="io/micronaut/multitenancy/tenantresolver/TenantResolver.html#resolveTenantId()"><code>TenantResolver.resolveTenantId()</code></a> instead</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<ul class="block-list">
+<li>
+<div id="method">
+<div class="caption"><span>Deprecated Methods</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-summary-item-name even-row-color"><a href="io/micronaut/multitenancy/tenantresolver/AbstractSubdomainTenantResolver.html#resolveTenantIdentifier()">io.micronaut.multitenancy.tenantresolver.AbstractSubdomainTenantResolver.resolveTenantIdentifier()</a></div>
+<div class="col-last even-row-color"></div>
+<div class="col-summary-item-name odd-row-color"><a href="io/micronaut/multitenancy/tenantresolver/AbstractSubdomainTenantResolver.html#resolveTenantIdentifier(io.micronaut.http.HttpRequest)">io.micronaut.multitenancy.tenantresolver.AbstractSubdomainTenantResolver.resolveTenantIdentifier<wbr>(HttpRequest&lt;?&gt;)</a></div>
+<div class="col-last odd-row-color"></div>
+<div class="col-summary-item-name even-row-color"><a href="io/micronaut/multitenancy/tenantresolver/CookieTenantResolver.html#resolveTenantIdentifier()">io.micronaut.multitenancy.tenantresolver.CookieTenantResolver.resolveTenantIdentifier()</a></div>
+<div class="col-last even-row-color">
+<div class="deprecation-comment">Use <a href="io/micronaut/multitenancy/tenantresolver/CookieTenantResolver.html#resolveTenantId()"><code>CookieTenantResolver.resolveTenantId()</code></a> instead</div>
+</div>
+<div class="col-summary-item-name odd-row-color"><a href="io/micronaut/multitenancy/tenantresolver/CookieTenantResolver.html#resolveTenantIdentifier(io.micronaut.http.HttpRequest)">io.micronaut.multitenancy.tenantresolver.CookieTenantResolver.resolveTenantIdentifier<wbr>(HttpRequest&lt;?&gt;)</a></div>
+<div class="col-last odd-row-color"></div>
+<div class="col-summary-item-name even-row-color"><a href="io/micronaut/multitenancy/tenantresolver/FixedTenantResolver.html#resolveTenantIdentifier()">io.micronaut.multitenancy.tenantresolver.FixedTenantResolver.resolveTenantIdentifier()</a></div>
+<div class="col-last even-row-color">
+<div class="deprecation-comment">Use <a href="io/micronaut/multitenancy/tenantresolver/FixedTenantResolver.html#resolveTenantId()"><code>FixedTenantResolver.resolveTenantId()</code></a> instead</div>
+</div>
+<div class="col-summary-item-name odd-row-color"><a href="io/micronaut/multitenancy/tenantresolver/HttpHeaderTenantResolver.html#resolveTenantIdentifier()">io.micronaut.multitenancy.tenantresolver.HttpHeaderTenantResolver.resolveTenantIdentifier()</a></div>
+<div class="col-last odd-row-color">
+<div class="deprecation-comment">Use <a href="io/micronaut/multitenancy/tenantresolver/HttpHeaderTenantResolver.html#resolveTenantId()"><code>HttpHeaderTenantResolver.resolveTenantId()</code></a> instead</div>
+</div>
+<div class="col-summary-item-name even-row-color"><a href="io/micronaut/multitenancy/tenantresolver/HttpHeaderTenantResolver.html#resolveTenantIdentifier(io.micronaut.http.HttpRequest)">io.micronaut.multitenancy.tenantresolver.HttpHeaderTenantResolver.resolveTenantIdentifier<wbr>(HttpRequest&lt;?&gt;)</a></div>
+<div class="col-last even-row-color"></div>
+<div class="col-summary-item-name odd-row-color"><a href="io/micronaut/multitenancy/tenantresolver/HttpRequestTenantResolver.html#resolveTenantIdentifier(io.micronaut.http.HttpRequest)">io.micronaut.multitenancy.tenantresolver.HttpRequestTenantResolver.resolveTenantIdentifier<wbr>(HttpRequest&lt;?&gt;)</a></div>
+<div class="col-last odd-row-color">
+<div class="deprecation-comment">Use <a href="io/micronaut/multitenancy/tenantresolver/HttpRequestTenantResolver.html#resolveTenantId(io.micronaut.http.HttpRequest)"><code>HttpRequestTenantResolver.resolveTenantId(HttpRequest)</code></a> instead</div>
+</div>
+<div class="col-summary-item-name even-row-color"><a href="io/micronaut/multitenancy/tenantresolver/PrincipalTenantResolver.html#resolveTenantIdentifier()">io.micronaut.multitenancy.tenantresolver.PrincipalTenantResolver.resolveTenantIdentifier()</a></div>
+<div class="col-last even-row-color"></div>
+<div class="col-summary-item-name odd-row-color"><a href="io/micronaut/multitenancy/tenantresolver/PrincipalTenantResolver.html#resolveTenantIdentifier(io.micronaut.http.HttpRequest)">io.micronaut.multitenancy.tenantresolver.PrincipalTenantResolver.resolveTenantIdentifier<wbr>(HttpRequest&lt;?&gt;)</a></div>
+<div class="col-last odd-row-color"></div>
+<div class="col-summary-item-name even-row-color"><a href="io/micronaut/multitenancy/tenantresolver/SessionTenantResolver.html#resolveTenantIdentifier()">io.micronaut.multitenancy.tenantresolver.SessionTenantResolver.resolveTenantIdentifier()</a></div>
+<div class="col-last even-row-color"></div>
+<div class="col-summary-item-name odd-row-color"><a href="io/micronaut/multitenancy/tenantresolver/SessionTenantResolver.html#resolveTenantIdentifier(io.micronaut.http.HttpRequest)">io.micronaut.multitenancy.tenantresolver.SessionTenantResolver.resolveTenantIdentifier<wbr>(HttpRequest&lt;?&gt;)</a></div>
+<div class="col-last odd-row-color"></div>
+<div class="col-summary-item-name even-row-color"><a href="io/micronaut/multitenancy/tenantresolver/SystemPropertyTenantResolver.html#resolveTenantIdentifier()">io.micronaut.multitenancy.tenantresolver.SystemPropertyTenantResolver.resolveTenantIdentifier()</a></div>
+<div class="col-last even-row-color">
+<div class="deprecation-comment">Use <a href="io/micronaut/multitenancy/tenantresolver/SystemPropertyTenantResolver.html#resolveTenantId()"><code>SystemPropertyTenantResolver.resolveTenantId()</code></a> instead</div>
+</div>
+<div class="col-summary-item-name odd-row-color"><a href="io/micronaut/multitenancy/tenantresolver/TenantResolver.html#resolveTenantIdentifier()">io.micronaut.multitenancy.tenantresolver.TenantResolver.resolveTenantIdentifier()</a></div>
+<div class="col-last odd-row-color">
+<div class="deprecation-comment">Use <a href="io/micronaut/multitenancy/tenantresolver/TenantResolver.html#resolveTenantId()"><code>TenantResolver.resolveTenantId()</code></a> instead</div>
 </div>
 </div>
 </div>
