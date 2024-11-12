@@ -55,14 +55,14 @@ public class SessionTenantResolver implements TenantResolver, HttpRequestTenantR
 
     @Override
     @NonNull
-    public Serializable resolveTenantIdentifier() throws TenantNotFoundException {
+    public String resolveTenantId() throws TenantNotFoundException {
         Optional<HttpRequest<Object>> current = ServerRequestContext.currentRequest();
-        return current.map(this::resolveTenantIdentifier).orElseThrow(() -> new TenantNotFoundException("Tenant could not be resolved outside a web request"));
+        return current.map(this::resolveTenantId).orElseThrow(() -> new TenantNotFoundException("Tenant could not be resolved outside a web request"));
     }
 
     @Override
     @NonNull
-    public Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
+    public String resolveTenantId(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
         if (this.attribute == null) {
             throw new TenantNotFoundException("Tenant could not be resolved from HTTP Session, because session attribute name is not set");
         }
@@ -79,7 +79,20 @@ public class SessionTenantResolver implements TenantResolver, HttpRequestTenantR
         if (!(tenantId.get() instanceof Serializable)) {
             throw new TenantNotFoundException("Tenant was resolved from HTTP Session, but it is not serializable");
         }
-        return (Serializable) tenantId.get();
+        return tenantId.get().toString();
     }
 
+    @Override
+    @NonNull
+    @Deprecated(forRemoval = true, since = "5.5.0")
+    public Serializable resolveTenantIdentifier() throws TenantNotFoundException {
+        return resolveTenantId();
+    }
+
+    @Override
+    @NonNull
+    @Deprecated(forRemoval = true, since = "5.5.0")
+    public Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
+        return resolveTenantId(request);
+    }
 }

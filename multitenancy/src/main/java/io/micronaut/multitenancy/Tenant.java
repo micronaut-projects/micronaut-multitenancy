@@ -15,19 +15,16 @@
  */
 package io.micronaut.multitenancy;
 
-import java.io.Serializable;
-
 /**
  * This interface represents the abstract notion of a tenant.
  * @author Sergio del Amo
  * @since 5.5.0
- * @param <T> The type of the tenant identifier
  */
 
-public interface Tenant<T extends Serializable> {
+public interface Tenant {
     /**
      * A Unique identifier for the tenant.
      * @return A Unique identifier for the tenant.
      */
-    T id();
+    String id();
 }

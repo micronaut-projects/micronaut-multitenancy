@@ -26,8 +26,18 @@ import java.io.Serializable;
  * @author Sergio del Amo
  * @since 2.1.2
  */
-@FunctionalInterface
 public interface HttpRequestTenantResolver {
+    /**
+     * Resolves the current tenant identifier.
+     * @param request The HTTP request
+     * @return The tenant identifier
+     * @throws TenantNotFoundException if tenant not found
+     * @deprecated Use {@link #resolveTenantId(HttpRequest)} instead
+     */
+    @Deprecated(forRemoval = true, since = "5.5.0")
+    @NonNull
+    Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException;
+
     /**
      * Resolves the current tenant identifier.
      * @param request The HTTP request
@@ -35,5 +45,7 @@ public interface HttpRequestTenantResolver {
      * @throws TenantNotFoundException if tenant not found
      */
     @NonNull
-    Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException;
+    default String resolveTenantId(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
+        return resolveTenantIdentifier(request).toString();
+    }
 }

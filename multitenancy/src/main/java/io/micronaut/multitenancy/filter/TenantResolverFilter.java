@@ -30,7 +30,6 @@ import io.micronaut.multitenancy.tenantresolver.TenantResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.Serializable;
 import java.util.Optional;
 
 /**
@@ -74,19 +73,19 @@ final class TenantResolverFilter implements Ordered {
 
     @RequestFilter
     void filter(HttpRequest<?> request) {
-        Optional<Serializable> tenantOptional = resolveTenant(request);
+        Optional<String> tenantOptional = resolveTenant(request);
         if (tenantOptional.isEmpty()) {
             tenantOptional = resolveTenant();
         }
         tenantOptional.ifPresent(tenant -> request.setAttribute(ATTRIBUTE_TENANT, tenant));
     }
 
-    private Optional<Serializable> resolveTenant(HttpRequest<?> request) {
+    private Optional<String> resolveTenant(HttpRequest<?> request) {
         if (httpRequestTenantResolver == null) {
             return Optional.empty();
         }
         try {
-            return Optional.of(httpRequestTenantResolver.resolveTenantIdentifier(request));
+            return Optional.of(httpRequestTenantResolver.resolveTenantId(request));
         } catch (TenantNotFoundException ex) {
             if (LOG.isTraceEnabled()) {
                 LOG.trace("Tenant could not be resolved");
@@ -95,13 +94,12 @@ final class TenantResolverFilter implements Ordered {
         return Optional.empty();
     }
 
-
-    private Optional<Serializable> resolveTenant() {
+    private Optional<String> resolveTenant() {
         if (tenantResolver == null) {
             return Optional.empty();
         }
         try {
-            return Optional.of(tenantResolver.resolveTenantIdentifier());
+            return Optional.of(tenantResolver.resolveTenantId());
         } catch (TenantNotFoundException ex) {
             if (LOG.isTraceEnabled()) {
                 LOG.trace("Tenant could not be resolved");

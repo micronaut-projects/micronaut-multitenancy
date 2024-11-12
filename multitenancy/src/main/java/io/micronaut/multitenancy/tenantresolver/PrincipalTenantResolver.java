@@ -38,20 +38,33 @@ import java.util.Optional;
 @Singleton
 @Requires(property = PrincipalTenantResolverConfigurationProperties.PREFIX + ".enabled", value = StringUtils.TRUE, defaultValue = StringUtils.FALSE)
 public class PrincipalTenantResolver implements TenantResolver, HttpRequestTenantResolver {
-
     @NonNull
     @Override
-    public Serializable resolveTenantIdentifier() {
+    public String resolveTenantId() {
         Optional<HttpRequest<Object>> current = ServerRequestContext.currentRequest();
-        return current.map(this::resolveTenantIdentifier).orElseThrow(() -> new TenantNotFoundException("Tenant could not be resolved outside a web request"));
+        return current.map(this::resolveTenantId).orElseThrow(() -> new TenantNotFoundException("Tenant could not be resolved outside a web request"));
     }
 
     @Override
     @NonNull
-    public Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
+    public String resolveTenantId(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
         return Objects.requireNonNull(request, "request must not be null").getUserPrincipal().map(Principal::getName)
                 .orElseThrow(() ->
                         new TenantNotFoundException("Tenant could not be resolved because " + HttpAttributes.PRINCIPAL + " attribute was not found")
                 );
+    }
+
+    @NonNull
+    @Override
+    @Deprecated(forRemoval = true, since = "5.5.0")
+    public Serializable resolveTenantIdentifier() {
+        return resolveTenantId();
+    }
+
+    @Override
+    @NonNull
+    @Deprecated(forRemoval = true, since = "5.5.0")
+    public Serializable resolveTenantIdentifier(@NonNull HttpRequest<?> request) throws TenantNotFoundException {
+        return resolveTenantId(request);
     }
 }

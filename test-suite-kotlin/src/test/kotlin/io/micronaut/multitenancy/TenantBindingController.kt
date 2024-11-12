@@ -13,5 +13,5 @@ internal class TenantBindingController {
     @Secured(SecurityRule.IS_ANONYMOUS)
     @Produces(MediaType.TEXT_PLAIN)
     @Get
-    fun echoTenant(tenant: Tenant<Serializable>): Serializable = tenant.id()
+    fun echoTenant(tenant: Tenant): Serializable = tenant.id()
 }

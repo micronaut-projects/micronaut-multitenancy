@@ -23,7 +23,6 @@ import io.micronaut.http.bind.binders.TypedRequestArgumentBinder;
 import io.micronaut.multitenancy.Tenant;
 import jakarta.inject.Singleton;
 
-import java.io.Serializable;
 import java.util.Optional;
 
 /**
@@ -44,12 +43,10 @@ final class TenantTypedRequestArgumentBinder implements TypedRequestArgumentBind
         if (!source.getAttributes().contains(TenantResolverFilter.ATTRIBUTE_TENANT)) {
             return BindingResult.UNSATISFIED;
         }
-        Optional<Serializable> serializableOptional = source.getAttribute(TenantResolverFilter.ATTRIBUTE_TENANT, Serializable.class);
-        if (serializableOptional.isEmpty()) {
+        Optional<String> tenantOptional = source.getAttribute(TenantResolverFilter.ATTRIBUTE_TENANT, String.class);
+        if (tenantOptional.isEmpty()) {
             return BindingResult.EMPTY;
         }
-        Serializable serializable = serializableOptional.get();
-        Tenant<Serializable> tenant = () -> serializable;
-        return () -> Optional.of(tenant);
+        return () -> Optional.of(tenantOptional::get);
     }
 }

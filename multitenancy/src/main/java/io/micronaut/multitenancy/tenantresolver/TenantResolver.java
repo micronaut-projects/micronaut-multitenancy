@@ -27,7 +27,6 @@ import java.io.Serializable;
  * @author Sergio del Amo
  * @since 1.0
  */
-@FunctionalInterface
 public interface TenantResolver {
 
     /**
@@ -46,13 +45,27 @@ public interface TenantResolver {
     String ALL = "DEFAULT";
 
     /**
-     * <p>Resolves the current tenant identifier.
+     * <p>Resolves the current tenant identifier.</p>
      *
      * <p>In a Multi Tenant setup where a single database is being used amongst multiple tenants this would be the object that is used as the tenantId property for each domain class.</p>
      *
      * @return The tenant identifier
      * @throws TenantNotFoundException if tenant not found
+     * @deprecated Use {@link #resolveTenantId()} instead
      */
+    @Deprecated(forRemoval = true, since = "5.5.0")
     @NonNull
     Serializable resolveTenantIdentifier() throws TenantNotFoundException;
+
+    /**
+     * <p>Resolves the current tenant identifier.</p>
+     *
+     * <p>In a Multi Tenant setup where a single database is being used amongst multiple tenants this would be the object that is used as the tenantId property for each domain class.</p>
+     * @return The tenant identifier
+     * @throws TenantNotFoundException if tenant not found
+     * @since 5.5.0
+     */
+    default String resolveTenantId() throws TenantNotFoundException {
+        return resolveTenantIdentifier().toString();
+    }
 }

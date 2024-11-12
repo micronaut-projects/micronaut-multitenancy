@@ -15,7 +15,7 @@ class TenantBindingController {
     @Secured(SecurityRule.IS_ANONYMOUS)
     @Produces(MediaType.TEXT_PLAIN)
     @Get
-    Serializable echoTenant(Tenant<Serializable> tenant) {
+    Serializable echoTenant(Tenant tenant) {
         return tenant.id();
     }
 }

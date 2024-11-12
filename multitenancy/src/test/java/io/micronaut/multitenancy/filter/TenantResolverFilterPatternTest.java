@@ -51,8 +51,8 @@ class TenantResolverFilterPatternTest {
 
         @Produces(MediaType.TEXT_PLAIN)
         @Get("/images/logo.png")
-        String echoTenant(@Nullable Tenant<Serializable> tenant) {
-            return tenant != null ? tenant.id().toString() : "no tenant";
+        String echoTenant(@Nullable Tenant tenant) {
+            return tenant != null ? tenant.id() : "no tenant";
         }
     }
 
@@ -62,8 +62,8 @@ class TenantResolverFilterPatternTest {
 
         @Produces(MediaType.TEXT_PLAIN)
         @Get
-        String echoTenant(Tenant<Serializable> tenant) {
-            return tenant.id().toString();
+        String echoTenant(Tenant tenant) {
+            return tenant.id();
         }
     }
 

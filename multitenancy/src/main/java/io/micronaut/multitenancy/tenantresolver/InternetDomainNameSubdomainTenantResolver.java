@@ -21,7 +21,6 @@ import io.micronaut.core.annotation.NonNull;
 import io.micronaut.core.util.StringUtils;
 import io.micronaut.http.server.util.HttpHostResolver;
 import jakarta.inject.Singleton;
-import java.io.Serializable;
 import static java.util.stream.Collectors.joining;
 
 /**
@@ -45,7 +44,7 @@ public class InternetDomainNameSubdomainTenantResolver extends AbstractSubdomain
 
     @Override
     @NonNull
-    protected Serializable resolveSubdomain(@NonNull String host) {
+    protected String resolveSubdomain(@NonNull String host) {
         if (InternetDomainName.isValid(host)) {
             final InternetDomainName domain = InternetDomainName.from(host);
             final int subdomainParts = domain.parts().size() - getTopDomain(domain).parts().size();
