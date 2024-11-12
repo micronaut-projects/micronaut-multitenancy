@@ -18,6 +18,7 @@
  * @author Sergio del Amo
  * @since 5.5.0
  */
+@Requires(classes = HttpRequest.class)
 @Requires(property = TenantResolverFilterConfigurationProperties.PROPERTY_ENABLED,
         notEquals = StringUtils.FALSE,
         defaultValue = StringUtils.TRUE)
@@ -27,3 +28,4 @@ package io.micronaut.multitenancy.filter;
 import io.micronaut.context.annotation.Configuration;
 import io.micronaut.context.annotation.Requires;
 import io.micronaut.core.util.StringUtils;
+import io.micronaut.http.HttpRequest;
