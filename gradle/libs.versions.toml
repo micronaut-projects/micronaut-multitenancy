@@ -8,7 +8,7 @@ managed-publicsuffixlist = "2.2.0"
 spock = "2.3-groovy-4.0"
 
 micronaut-logging = "1.4.0"
-micronaut-reactor = "3.6.0"
+micronaut-reactor = "3.7.0"
 micronaut-security = "4.12.0"
 micronaut-serde = "2.14.0"
 micronaut-session = "4.6.0"
