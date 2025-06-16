@@ -1,21 +1,21 @@
 [versions]
-micronaut = "4.8.9"
+micronaut = "4.8.18"
 micronaut-docs = "2.0.0"
 micronaut-test = "4.5.0"
 groovy = "4.0.24"
-guava = "33.4.7-android"
+guava = "33.4.8-jre"
 managed-publicsuffixlist = "2.2.0"
 spock = "2.3-groovy-4.0"
 
 micronaut-logging = "1.4.0"
 micronaut-reactor = "3.7.0"
-micronaut-security = "4.12.1"
-micronaut-serde = "2.14.0"
+micronaut-security = "4.12.2"
+micronaut-serde = "2.14.1"
 micronaut-session = "4.6.0"
 micronaut-validation = "4.9.0"
 
 kotlin-gradle-plugin = "1.9.25"
-sonatype-scan = "3.0.0"
+sonatype-scan = "3.1.1"
 
 [libraries]
 guava = { module = 'com.google.guava:guava', version.ref = 'guava' }
