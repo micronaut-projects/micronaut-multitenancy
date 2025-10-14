@@ -3,6 +3,8 @@ multitenancy:
   title: Introduction
   installation: Installation
   tenantresolvers: Built-In Tenant Resolvers
+  bindingResolvedTenant: Tenant Binding
+  tenantAsRequestAttribute: Tenant Request Attribute
   tenantexpression: Tenant Expression Language
   subdomainresolver:
     title: Subdomain Tenant Resolver

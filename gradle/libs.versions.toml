@@ -1,20 +1,17 @@
 [versions]
-micronaut = "4.4.1"
-micronaut-docs = "2.0.0"
-micronaut-test = "4.1.0"
-groovy = "4.0.15"
-guava = "33.1.0-jre"
+micronaut = "4.10.4"
+micronaut-docs = "3.0.0"
+micronaut-test = "4.7.0"
+groovy = "4.0.24"
+guava = "33.4.8-jre"
 managed-publicsuffixlist = "2.2.0"
-spock = "2.3-groovy-4.0"
-
-micronaut-logging = "1.1.2"
-micronaut-reactor = "3.3.0"
-micronaut-security = "4.7.0"
-micronaut-serde = "2.8.2"
-micronaut-session = "4.2.0"
-micronaut-validation = "4.4.4"
-
-kotlin-gradle-plugin = "1.9.23"
+micronaut-logging = "1.7.0"
+micronaut-reactor = "3.9.0"
+micronaut-security = "4.15.0"
+micronaut-serde = "2.15.5"
+micronaut-session = "4.7.0"
+micronaut-validation = "4.11.0"
+kotlin-gradle-plugin = "1.9.25"
 
 [libraries]
 guava = { module = 'com.google.guava:guava', version.ref = 'guava' }
