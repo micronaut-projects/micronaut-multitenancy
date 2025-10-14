@@ -7,7 +7,7 @@ A common requirement for supporting Multi-tenancy is the ability to resolve the 
 | api:multitenancy.tenantresolver.FixedTenantResolver[]
 | Resolves against a fixed tenant id. See link:configurationreference.html#io.micronaut.multitenancy.tenantresolver.FixedTenantResolverConfigurationProperties[FixTenantResolver Configuration Properties].
 | api:multitenancy.tenantresolver.HttpHeaderTenantResolver[]
-| Resolves the current tenant from the request HTTP Header. See link:configurationreference.html#io.micronaut.multitenancy.tenantresolver.HttpHeaderTenantResolverConfigurationProperties[FixTenantResolver Configuration Properties].
+| Resolves the current tenant from the request HTTP Header. See link:configurationreference.html#io.micronaut.multitenancy.tenantresolver.HttpHeaderTenantResolverConfigurationProperties[HttpHeaderTenantResolver Configuration Properties].
 | api:multitenancy.tenantresolver.PrincipalTenantResolver[]
 | Resolves the current tenant from the authenticated username. See link:configurationreference.html#io.micronaut.multitenancy.tenantresolver.PrincipalTenantResolverConfigurationProperties[PrincipalTenantResolver Configuration Properties].
 | api:multitenancy.tenantresolver.SessionTenantResolver[]
