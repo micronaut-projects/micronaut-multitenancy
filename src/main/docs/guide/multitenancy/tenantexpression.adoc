@@ -1,6 +1,6 @@
 To allow using the current request tenant Id in the https://docs.micronaut.io/latest/guide/#evaluatedExpressions[Micronaut Expression Language], you need to include the multitenancy-annotation as an annotation processor dependency.
 
-dependency:io.micronaut.multitenancy:micronaut-multitenancy-annotation[scope="annotationProcessor"]
+dependency:io.micronaut.multitenancy:micronaut-multitenancy-annotations[scope="annotationProcessor"]
 
 NOTE: For Kotlin, add the `micronaut-multitenancy-annotation` dependency in https://docs.micronaut.io/4.4.3/guide/#kaptOrKsp[kapt or ksp scope], and for Groovy add `micronaut-multitenancy-annotation` in compileOnly scope.
 
