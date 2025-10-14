@@ -22,6 +22,12 @@ dependencies {
     testAnnotationProcessor(mn.micronaut.inject.java)
     testImplementation(mnTest.micronaut.test.junit5)
     testRuntimeOnly(libs.junit.jupiter.engine)
+
+    constraints {
+        implementation("org.apache.commons:commons-lang3:3.18.0"){
+            because("Older versions have security vulnerabilities")
+        }
+    }
 }
 
 tasks.withType<Test> {
