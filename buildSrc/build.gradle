@@ -9,5 +9,4 @@ repositories {
 
 dependencies {
     implementation(libs.gradle.kotlin)
-    implementation(libs.sonatype.scan)
 }
