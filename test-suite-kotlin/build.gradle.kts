@@ -27,7 +27,7 @@ dependencies {
     testImplementation(mnTest.micronaut.test.junit5)
 
     testRuntimeOnly(mnLogging.logback.classic)
-    testRuntimeOnly(libs.junit.jupiter.engine)
+    testRuntimeOnly(mnTest.junit.jupiter.engine)
 }
 
 tasks.withType<Test>().configureEach {
