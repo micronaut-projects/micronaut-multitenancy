@@ -21,6 +21,7 @@ dependencies {
 
     testImplementation(mnSecurity.micronaut.security)
     testImplementation(mnTest.micronaut.test.spock)
+    testRuntimeOnly(mnTest.junit.platform.suite)
 
     testRuntimeOnly(mnLogging.logback.classic)
 }

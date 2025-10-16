@@ -28,6 +28,7 @@ dependencies {
 
     testRuntimeOnly(mnLogging.logback.classic)
     testRuntimeOnly(mnTest.junit.jupiter.engine)
+    testRuntimeOnly(mnTest.junit.platform.suite)
 }
 
 tasks.withType<Test>().configureEach {

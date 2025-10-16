@@ -8,6 +8,7 @@ dependencies {
     testImplementation(mnTest.junit.jupiter.api)
     testImplementation(mnTest.micronaut.test.junit5)
     testImplementation(projects.micronautMultitenancy)
+    testRuntimeOnly(mnTest.junit.platform.suite)
 }
 tasks.withType<Test> {
     useJUnitPlatform()
