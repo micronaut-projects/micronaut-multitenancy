@@ -17,7 +17,7 @@ package io.micronaut.multitenancy.tenantresolver;
 
 import io.micronaut.context.annotation.Requires;
 import io.micronaut.context.annotation.Secondary;
-import io.micronaut.core.annotation.NonNull;
+import org.jspecify.annotations.NonNull;
 import io.micronaut.core.util.StringUtils;
 import io.micronaut.http.server.util.HttpHostResolver;
 import jakarta.inject.Singleton;
