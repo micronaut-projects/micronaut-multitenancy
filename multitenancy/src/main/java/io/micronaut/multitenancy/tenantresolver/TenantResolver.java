@@ -15,7 +15,7 @@
  */
 package io.micronaut.multitenancy.tenantresolver;
 
-import io.micronaut.core.annotation.NonNull;
+import org.jspecify.annotations.NonNull;
 import io.micronaut.multitenancy.MultitenancyConfiguration;
 import io.micronaut.multitenancy.exceptions.TenantNotFoundException;
 

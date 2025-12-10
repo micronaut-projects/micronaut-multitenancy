@@ -16,7 +16,7 @@
 package io.micronaut.multitenancy.tenantresolver;
 
 import io.micronaut.context.annotation.Requires;
-import io.micronaut.core.annotation.NonNull;
+import org.jspecify.annotations.NonNull;
 import io.micronaut.core.util.StringUtils;
 import io.micronaut.multitenancy.exceptions.TenantNotFoundException;
 import jakarta.inject.Singleton;

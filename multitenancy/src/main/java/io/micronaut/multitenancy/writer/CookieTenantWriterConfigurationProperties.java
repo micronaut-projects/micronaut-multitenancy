@@ -16,8 +16,8 @@
 package io.micronaut.multitenancy.writer;
 
 import io.micronaut.context.annotation.ConfigurationProperties;
-import io.micronaut.core.annotation.NonNull;
-import io.micronaut.core.annotation.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import io.micronaut.http.cookie.SameSite;
 
 import java.time.temporal.TemporalAmount;
