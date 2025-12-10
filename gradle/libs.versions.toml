@@ -8,7 +8,6 @@ micronaut-security = "4.16.0"
 micronaut-serde = "3.0.0-M1"
 micronaut-session = "4.8.0"
 micronaut-validation = "5.0.0-M1"
-kotlin-gradle-plugin = "2.2.21"
 
 [libraries]
 guava = { module = 'com.google.guava:guava', version.ref = 'guava' }
@@ -24,5 +23,3 @@ micronaut-serde = { module = "io.micronaut.serde:micronaut-serde-bom", version.r
 micronaut-validation = { module = "io.micronaut.validation:micronaut-validation-bom", version.ref = "micronaut-validation" }
 
 # PLUGINS
-
-gradle-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin-gradle-plugin" }
