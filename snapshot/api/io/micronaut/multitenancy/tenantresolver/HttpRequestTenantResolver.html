@@ -144,9 +144,7 @@ loadScripts(document, 'script');</script>
 <h3>resolveTenantIdentifier</h3>
 <div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Deprecated.html#forRemoval()" title="class or interface in java.lang" class="external-link">forRemoval</a>=true,
             <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="5.5.0")
-@NonNull
-</span><span class="return-type">@NonNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></span>&nbsp;<span class="element-name">resolveTenantIdentifier</span><wbr><span class="parameters">(@NonNull
- @NonNull io.micronaut.http.HttpRequest&lt;?&gt;&nbsp;request)</span>
+</span><span class="return-type">@NonNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></span>&nbsp;<span class="element-name">resolveTenantIdentifier</span><wbr><span class="parameters">(@NonNull io.micronaut.http.HttpRequest&lt;?&gt;&nbsp;request)</span>
                                        throws <span class="exceptions"><a href="../exceptions/TenantNotFoundException.html" title="class in io.micronaut.multitenancy.exceptions">TenantNotFoundException</a></span></div>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
 <div class="deprecation-comment">Use <a href="#resolveTenantId(io.micronaut.http.HttpRequest)"><code>resolveTenantId(HttpRequest)</code></a> instead</div>
@@ -165,9 +163,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="resolveTenantId(io.micronaut.http.HttpRequest)">
 <h3>resolveTenantId</h3>
-<div class="member-signature"><span class="annotations">@NonNull
-</span><span class="modifiers">default</span>&nbsp;<span class="return-type">@NonNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">resolveTenantId</span><wbr><span class="parameters">(@NonNull
- @NonNull io.micronaut.http.HttpRequest&lt;?&gt;&nbsp;request)</span>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">@NonNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">resolveTenantId</span><wbr><span class="parameters">(@NonNull io.micronaut.http.HttpRequest&lt;?&gt;&nbsp;request)</span>
                                  throws <span class="exceptions"><a href="../exceptions/TenantNotFoundException.html" title="class in io.micronaut.multitenancy.exceptions">TenantNotFoundException</a></span></div>
 <div class="block">Resolves the current tenant identifier.</div>
 <dl class="notes">

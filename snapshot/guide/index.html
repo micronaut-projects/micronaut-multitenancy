@@ -23,7 +23,9 @@
             document.body.className = classes.join(" ");
         }
     </script>
-
+    <style type="text/css">
+        .lang-java { display: block }; .lang-python { display: block }; .lang-kotlin { display: block }; .lang-groovy { display: block }; 
+    </style>
 </head>
 
 <body class="body" id="docs" onload="addJsClass();" onhashchange="highlightMenu()">
@@ -273,6 +275,27 @@ class TenantBindingController {
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package io.micronaut.multitenancy
+
+import io.micronaut.http.MediaType
+import io.micronaut.http.annotation.Controller
+import io.micronaut.http.annotation.Get
+import io.micronaut.http.annotation.Produces
+import io.micronaut.security.annotation.Secured
+import io.micronaut.security.rules.SecurityRule
+import java.io.Serializable
+
+@Controller("/tenant")
+internal class TenantBindingController {
+    @Secured(SecurityRule.IS_ANONYMOUS)
+    @Produces(MediaType.TEXT_PLAIN)
+    @Get
+    fun echoTenant(tenant: Tenant): Serializable = tenant.id()
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">package io.micronaut.multitenancy
 
 import io.micronaut.http.MediaType
@@ -291,27 +314,6 @@ class TenantBindingController {
     Serializable echoTenant(Tenant tenant) {
         tenant.id()
     }
-}</code></pre>
-</div>
-</div>
-<div class="listingblock multi-language-sample">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package io.micronaut.multitenancy
-
-import io.micronaut.http.MediaType
-import io.micronaut.http.annotation.Controller
-import io.micronaut.http.annotation.Get
-import io.micronaut.http.annotation.Produces
-import io.micronaut.security.annotation.Secured
-import io.micronaut.security.rules.SecurityRule
-import java.io.Serializable
-
-@Controller("/tenant")
-internal class TenantBindingController {
-    @Secured(SecurityRule.IS_ANONYMOUS)
-    @Produces(MediaType.TEXT_PLAIN)
-    @Get
-    fun echoTenant(tenant: Tenant): Serializable = tenant.id()
 }</code></pre>
 </div>
 </div>
@@ -424,6 +426,18 @@ public class TenantCheckingSecuredController {
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Controller
+class TenantCheckingSecuredController {
+
+    @Get
+    @Produces(MediaType.TEXT_PLAIN)
+    @Secured("#{ tenantId == 'allowed' }") // <b class="conum">(1)</b>
+    fun index() = "Hello World"
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">@Controller
 class TenantCheckingSecuredController {
 
@@ -433,18 +447,6 @@ class TenantCheckingSecuredController {
     String index() {
         "Hello World"
     }
-}</code></pre>
-</div>
-</div>
-<div class="listingblock multi-language-sample">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Controller
-class TenantCheckingSecuredController {
-
-    @Get
-    @Produces(MediaType.TEXT_PLAIN)
-    @Secured("#{ tenantId == 'allowed' }") // <b class="conum">(1)</b>
-    fun index() = "Hello World"
 }</code></pre>
 </div>
 </div>
