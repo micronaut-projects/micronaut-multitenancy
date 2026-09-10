@@ -46,7 +46,7 @@
         <div class="docs-content">
             <div class="project">
                 <h1>Configuration Reference</h1>
-                <p><strong>Version:</strong>6.1.1-SNAPSHOT</p>
+                <p><strong>Version:</strong>6.2.0-SNAPSHOT</p>
                 <p></p>
             </div>
 <div class="sect2">
@@ -124,6 +124,18 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.propagation.path</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Configures <a href="../api/io/micronaut/multitenancy/propagation/TenantPropagationHttpClientFilter.html">TenantPropagationHttpClientFilter</a> path. Default value "/**"</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.propagation.service-id-pattern</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.util.regex.Pattern</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.propagation.uri-pattern</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.util.regex.Pattern</p></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
@@ -414,6 +426,12 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Determines if this this <a href="../api/io/micronaut/http/cookie/Cookie.html">Cookie</a> can be sent along cross-site requests.
  For more information, please look
   &lt;a href="https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis-05"&gt;here&lt;/a&gt;</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>micronaut.multitenancy.tenantwriter.cookie.same-site</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../api/io/micronaut/http/cookie/SameSite.html">SameSite</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
