@@ -1,5 +1,5 @@
 [versions]
-micronaut = "5.2.0"
+micronaut = "5.2.1"
 guava = "33.6.0-jre"
 managed-publicsuffixlist = "2.2.4"
 micronaut-reactor = "4.2.0"
