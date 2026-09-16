@@ -1,4 +1,4 @@
-package io.micronaut.multitenancy
+package io.micronaut.multitenancy.docs
 
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
