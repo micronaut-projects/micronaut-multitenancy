@@ -1,19 +1,18 @@
-package io.micronaut.multitenancy
+package io.micronaut.multitenancy.docs
 
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Produces
+import io.micronaut.multitenancy.Tenant
 import io.micronaut.security.annotation.Secured
 import io.micronaut.security.rules.SecurityRule
+import java.io.Serializable
 
 @Controller("/tenant")
-class TenantBindingController {
-
+internal class TenantBindingController {
     @Secured(SecurityRule.IS_ANONYMOUS)
     @Produces(MediaType.TEXT_PLAIN)
     @Get
-    Serializable echoTenant(Tenant tenant) {
-        tenant.id()
-    }
+    fun echoTenant(tenant: Tenant): Serializable = tenant.id()
 }
