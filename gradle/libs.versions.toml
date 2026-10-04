@@ -1,12 +1,12 @@
 [versions]
-micronaut = "5.2.2"
+micronaut = "5.2.13"
 guava = "33.7.2-jre"
 managed-publicsuffixlist = "2.2.4"
-micronaut-reactor = "4.2.0"
-micronaut-security = "5.3.2"
-micronaut-serde = "3.1.1"
-micronaut-session = "5.1.0"
-micronaut-validation = "5.1.0"
+micronaut-reactor = "4.3.0"
+micronaut-security = "5.4.0"
+micronaut-serde = "3.2.4"
+micronaut-session = "5.2.0"
+micronaut-validation = "5.2.1"
 
 [libraries]
 guava = { module = 'com.google.guava:guava', version.ref = 'guava' }
