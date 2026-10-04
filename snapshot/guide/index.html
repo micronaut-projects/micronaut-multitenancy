@@ -180,6 +180,15 @@
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+runtime = [
+    <span class="hljs-string">"io.micronaut.multitenancy:micronaut-multitenancy"</span>,
+]</code></pre>
+</div>
+</div>
 </p>
 </div>
 
@@ -396,6 +405,15 @@ class TenantBindingController {
 &lt;/annotationProcessorPaths&gt;</code></pre>
 </div>
 </div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+build = [
+    <span class="hljs-string">"io.micronaut.multitenancy:micronaut-multitenancy-annotations"</span>,
+]</code></pre>
+</div>
+</div>
 </p>
 </div>
 <div class="admonitionblock note">
@@ -512,6 +530,15 @@ However, Micronaut Multi-tenancy ships with other implementations, <a href="../a
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+runtime = [
+    <span class="hljs-string">"de.malkusch.whois-server-list:public-suffix-list"</span>,
+]</code></pre>
+</div>
+</div>
 </p>
 </div>
 
@@ -582,7 +609,15 @@ micronaut.multitenancy.tenantwriter.httpheader.enabled=true</code></pre>
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">micronaut = {multitenancy = {propagation = {enabled = true, service-id-regex = "catalogue"}, tenantresolver = {subdomain = {enabled = true}}, tenantwriter = {httpheader = {enabled = true}}}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[micronaut.multitenancy.propagation]
+enabled = true
+service-id-regex = "catalogue"
+
+[micronaut.multitenancy.tenantresolver.subdomain]
+enabled = true
+
+[micronaut.multitenancy.tenantwriter.httpheader]
+enabled = true</code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -678,7 +713,8 @@ micronaut.multitenancy.tenantwriter.httpheader.enabled=true</code></pre>
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">micronaut = {multitenancy = {tenantresolver = {httpheader = {enabled = true}}}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[micronaut.multitenancy.tenantresolver.httpheader]
+enabled = true</code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
