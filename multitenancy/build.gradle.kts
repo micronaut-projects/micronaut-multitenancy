@@ -24,7 +24,7 @@ dependencies {
     testRuntimeOnly(mnTest.junit.jupiter.engine)
 
     constraints {
-        implementation("org.apache.commons:commons-lang3:3.20.0"){
+        implementation("org.apache.commons:commons-lang3:3.21.0"){
             because("Older versions have security vulnerabilities")
         }
     }
