@@ -21,6 +21,7 @@ include "test-suite"
 include "test-suite-groovy"
 include "test-suite-http"
 include "test-suite-kotlin"
+include "test-suite-python"
 
 micronautBuild {
     useStandardizedProjectNames = true
