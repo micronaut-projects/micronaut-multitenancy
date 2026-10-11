@@ -259,12 +259,13 @@ runtime = [
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.micronaut.multitenancy;
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.micronaut.multitenancy.docs;
 
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Produces;
+import io.micronaut.multitenancy.Tenant;
 import io.micronaut.security.annotation.Secured;
 import io.micronaut.security.rules.SecurityRule;
 
@@ -284,12 +285,32 @@ class TenantBindingController {
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package io.micronaut.multitenancy
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">from micronaut.http import MediaType
+from micronaut.http.annotation import Controller, Get, Produces
+from micronaut.multitenancy import Tenant
+from micronaut.security.annotation import Secured
+from micronaut.security.rules import SecurityRule
+
+
+@Controller("/tenant")
+class TenantBindingController:
+
+    @Secured(SecurityRule.IS_ANONYMOUS)
+    @Produces(MediaType.TEXT_PLAIN)
+    @Get
+    def echo_tenant(self, tenant: Tenant) -&gt; str:
+        return tenant.id()</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package io.micronaut.multitenancy.docs
 
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Produces
+import io.micronaut.multitenancy.Tenant
 import io.micronaut.security.annotation.Secured
 import io.micronaut.security.rules.SecurityRule
 import java.io.Serializable
@@ -305,12 +326,13 @@ internal class TenantBindingController {
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">package io.micronaut.multitenancy
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">package io.micronaut.multitenancy.docs
 
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Produces
+import io.micronaut.multitenancy.Tenant
 import io.micronaut.security.annotation.Secured
 import io.micronaut.security.rules.SecurityRule
 
@@ -440,6 +462,18 @@ public class TenantCheckingSecuredController {
         return "Hello World";
     }
 }</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">@Controller
+class TenantCheckingSecuredController:
+
+    @Get
+    @Produces(MediaType.TEXT_PLAIN)
+    @Secured("#{ tenantId == 'allowed' }")  # <b class="conum">(1)</b>
+    def index(self) -&gt; str:
+        return "Hello World"</code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
