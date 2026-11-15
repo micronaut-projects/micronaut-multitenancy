@@ -1,9 +1,9 @@
 [versions]
-micronaut = "5.2.22"
+micronaut = "5.2.23"
 guava = "33.7.2-jre"
 managed-publicsuffixlist = "2.2.4"
 micronaut-reactor = "4.3.0"
-micronaut-security = "5.5.1"
+micronaut-security = "5.5.2"
 micronaut-serde = "3.2.6"
 micronaut-session = "5.2.0"
 micronaut-validation = "5.2.1"
